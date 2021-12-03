@@ -1,11 +1,11 @@
-import { AiOutlineSearch } from "react-icons/ai"
-import { Icons } from "./components/Icons/"
+import './styles/styles.css';
+import { Switcher } from "./components/Switcher"
 
 function App() {
   return (
     <div className="App">
       <h1>App.js</h1>
-      <Icons />
+      <Switcher />
     </div>
   )
 }

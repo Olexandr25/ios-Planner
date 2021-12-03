@@ -1,0 +1,92 @@
+.switcher-body {
+  background-color: rgb(215, 215, 216);
+}
+.switcher-text {
+  color: rgb(108, 108, 108);
+}
+
+.switcher-item {
+  /* color: rgb(108, 108, 108); */
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  font-weight: bolder;
+  width: 150px; /* doesn't use in GRID */
+}
+
+.switcher-icon {
+  background-color: white; /* Remove this bg-color */
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.fs-larger {
+  font-size: larger;
+}
+
+.p-4 {
+  padding: 4px;
+}
+
+.mb-4 {
+  margin-bottom: 4px;
+}
+
+.mt-4 {
+  margin-top: 4px;
+}
+
+.color-white {
+  color: rgb(255, 255, 255);
+}
+
+.color-gray {
+  color: rgb(92, 98, 105);
+}
+.color-primary {
+  color: rgb(51, 123, 246);
+}
+.color-danger {
+  color: rgb(235, 77, 61);
+}
+.color-warning {
+  color: rgb(241, 153, 56);
+}
+
+.bg-color-gray-lighten {
+  background-color: rgb(215, 215, 216);
+}
+.bg-color-gray {
+  background-color: rgb(92, 98, 105);
+}
+.bg-color-primary {
+  background: rgb(51, 123, 246);
+}
+.bg-color-danger {
+  background: rgb(235, 77, 61);
+}
+.bg-color-warning {
+  background: rgb(241, 153, 56);
+}
