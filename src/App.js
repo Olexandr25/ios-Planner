@@ -1,5 +1,5 @@
-import './styles/styles.css';
-import { Switcher } from "./components/Switcher"
+import "./styles/styles.css"
+import { Switcher } from "components/Switcher"
 
 function App() {
   return (
