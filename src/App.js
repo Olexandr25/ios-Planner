@@ -1,11 +1,13 @@
 import "./styles/styles.css"
-import { Switcher } from "components/Switcher"
+import { AiOutlineSearch } from "react-icons/ai"
+import { Input } from "components/Input"
+
 
 function App() {
   return (
     <div className="App">
       <h1>App.js</h1>
-      <Switcher />
+      <Input Icon={AiOutlineSearch} text={"Search"} />
     </div>
   )
 }

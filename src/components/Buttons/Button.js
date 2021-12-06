@@ -1,6 +1,8 @@
 import React from 'react'
 
-const AddTask = () => {
+
+// addCategory, addTask, addFlag
+const Button = () => {
     return (
         <div>
             
@@ -8,4 +10,4 @@ const AddTask = () => {
     )
 }
 
-export default AddTask
+export default Button

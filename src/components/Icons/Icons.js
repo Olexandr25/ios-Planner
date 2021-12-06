@@ -1,4 +1,4 @@
-import { AiOutlineSearch, AiOutlineUnorderedList, AiOutlinePlus } from "react-icons/ai"
+import { AiOutlineSearch, AiOutlineUnorderedList, AiOutlinePlus, AiOutlineClose } from "react-icons/ai"
 import { 
     BsCalendar3, 
     BsFillInboxFill, 
@@ -26,6 +26,7 @@ const Icons = () => {
       <div> Plus first - <AiOutlinePlus /> </div>
       <div> Plus second outline - <BsPlusCircle /> </div>
       <div> Plus third fill - <BsFillPlusCircleFill /></div>
+      <div> Close - <AiOutlineClose /></div>
     </>
   )
 }
