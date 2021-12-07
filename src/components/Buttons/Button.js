@@ -3,12 +3,12 @@ import { Btn, TextWrapper } from "./Button.styled"
 
 // addCategory, addTask, addFlag
 const Button = props => {
-  const { type, icon, fn, hover, active, fs, width, height } = props
+  const { type, icon, onClick, hover, active, fs, width, height } = props
   return (
     <>
       <Btn
         type={type}
-        onClick={fn ? () => fn() : null}
+        onClick={onClick ? () => onClick() : null}
         hover={hover}
         active={active}
         fs={fs}

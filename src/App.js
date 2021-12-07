@@ -1,29 +1,35 @@
 import "./styles/styles.css"
-import { Button } from "components/Buttons"
-import { Input } from "components/Input"
-import { AiOutlinePlus, AiOutlineSearch } from "react-icons/ai"
-import { BsPlusCircle } from "react-icons/bs"
+import { SwitcherV2 } from "components/Switcher"
+import {
+  BsCalendar3,
+  BsCalendarDate,
+  BsFillInboxFill,
+  BsFillFlagFill,
+} from "react-icons/bs"
 
 function App() {
   const show = () => {
-    console.log("It's button")
+    console.log("It's switcher")
   }
+  const length = 25
   return (
     <div className="App">
       <h1>App.js</h1>
-      <Input icon={<AiOutlineSearch />} text={"Search"} />
-      <Button type={"submit"} icon={<BsPlusCircle />} fn={show}>
-        Add List
-      </Button>
-      <Button type={"button"} fn={show} width={"60px"} height={"32px"}>
-        Show
-      </Button>
-      <Button
-        type={"submit"}
-        icon={<AiOutlinePlus />}
-        hover
-        active
-        fs={"20px"}></Button>
+      <SwitcherV2
+        icon={<BsFillInboxFill />}
+        length={length}
+        color="var(--color-white)">
+        All
+      </SwitcherV2>
+      <SwitcherV2 icon={<BsCalendar3 />} length={0}>
+        Schedule
+      </SwitcherV2>
+      <SwitcherV2 icon={<BsCalendarDate />} length={1}>
+        Today
+      </SwitcherV2>
+      <SwitcherV2 icon={<BsFillFlagFill />} length={2}>
+        Flagged
+      </SwitcherV2>
     </div>
   )
 }
