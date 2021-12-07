@@ -1,11 +1,17 @@
 import "./styles/styles.css"
-import { Counter } from "components/Counter"
+import { Icon } from "components/Icon"
+import { AiOutlineUnorderedList } from "react-icons/ai"
 
 function App() {
 
   return (
     <div className="App">
-      <Counter color="blue" fs="large" fw="normal">1234</Counter>
+      <Icon bgColor={"lightgreen"}>
+        <AiOutlineUnorderedList />
+      </Icon>
+      <Icon>
+        <AiOutlineUnorderedList />
+      </Icon>
     </div>
   )
 }
