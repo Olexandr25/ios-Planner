@@ -1,5 +1,5 @@
 import "./styles/styles.css"
-import { SwitcherV2 } from "components/Switcher"
+import { Switcher } from "components/Switcher"
 import {
   BsCalendar3,
   BsCalendarDate,
@@ -15,21 +15,21 @@ function App() {
   return (
     <div className="App">
       <h1>App.js</h1>
-      <SwitcherV2
+      <Switcher
         icon={<BsFillInboxFill />}
         length={length}
         color="var(--color-white)">
         All
-      </SwitcherV2>
-      <SwitcherV2 icon={<BsCalendar3 />} length={0}>
+      </Switcher>
+      <Switcher icon={<BsCalendar3 />} length={0}>
         Schedule
-      </SwitcherV2>
-      <SwitcherV2 icon={<BsCalendarDate />} length={1}>
+      </Switcher>
+      <Switcher icon={<BsCalendarDate />} length={1}>
         Today
-      </SwitcherV2>
-      <SwitcherV2 icon={<BsFillFlagFill />} length={2}>
+      </Switcher>
+      <Switcher icon={<BsFillFlagFill />} length={2}>
         Flagged
-      </SwitcherV2>
+      </Switcher>
     </div>
   )
 }
