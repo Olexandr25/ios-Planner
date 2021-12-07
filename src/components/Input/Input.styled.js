@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   width: 100%;
 `
 
-export const IconPosition = styled("Icon")`
+export const IconPosition = styled("icon")`
   position: absolute;
   padding-left: 8px;
   padding-top: 2px;
