@@ -11,20 +11,18 @@ const Input = props => {
   const { variant, icon, text } = props
   return (
     <>
-      {variant === "classic" ? (
-        <Wrapper>
+      <Wrapper>
+        {variant === "classic" ? (
           <ClassicInput />
-        </Wrapper>
-      ) : variant === "styled" ? (
-        <Wrapper>
-          <IconPosition>{icon}</IconPosition>
-          <InputIcon placeholder={text} />
-        </Wrapper>
-      ) : variant === "outlined" ? (
-        <Wrapper>
+        ) : variant === "styled" ? (
+          <>
+            <IconPosition>{icon}</IconPosition>
+            <InputIcon placeholder={text} />
+          </>
+        ) : variant === "outlined" ? (
           <OutlinedInput />
-        </Wrapper>
-      ) : null}
+        ) : null}
+      </Wrapper>
     </>
   )
 }
