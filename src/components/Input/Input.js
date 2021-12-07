@@ -1,16 +1,30 @@
 import React from "react"
-import {InputIcon, IconPosition, Wrapper} from "./Input.styled"
+import {
+  InputIcon,
+  IconPosition,
+  Wrapper,
+  ClassicInput,
+  OutlinedInput,
+} from "./Input.styled"
 
 const Input = props => {
-  const { icon, text } = props
+  const { variant, icon, text } = props
   return (
     <>
-      <Wrapper >
-        <IconPosition>
-          {icon}
-        </IconPosition>
-        <InputIcon placeholder={text} />
-      </Wrapper>
+      {variant === "classic" ? (
+        <Wrapper>
+          <ClassicInput />
+        </Wrapper>
+      ) : variant === "styled" ? (
+        <Wrapper>
+          <IconPosition>{icon}</IconPosition>
+          <InputIcon placeholder={text} />
+        </Wrapper>
+      ) : variant === "outlined" ? (
+        <Wrapper>
+          <OutlinedInput />
+        </Wrapper>
+      ) : null}
     </>
   )
 }

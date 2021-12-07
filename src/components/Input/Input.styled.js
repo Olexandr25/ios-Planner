@@ -3,6 +3,7 @@ import styled from "styled-components"
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  width: 100%;
 `
 
 export const IconPosition = styled("Icon")`
@@ -18,4 +19,18 @@ export const InputIcon = styled.input`
   border: 0;
   padding: 8px;
   padding-left: 30px;
+  width: 100%;
+  border: 3px solid transparent;
+  &:focus {
+      border: 3px solid #337bf6;
+  }
+`
+
+export const ClassicInput = styled.input`
+  width: 100%;
+`
+export const OutlinedInput = styled.input`
+  width: 100%;
+  border: 0;
+  outline: none;
 `
