@@ -2,12 +2,12 @@ import React from "react"
 import {InputIcon, IconPosition, Wrapper} from "./Input.styled"
 
 const Input = props => {
-  const { Icon, text } = props
+  const { icon, text } = props
   return (
     <>
       <Wrapper >
         <IconPosition>
-          <Icon />
+          {icon}
         </IconPosition>
         <InputIcon placeholder={text} />
       </Wrapper>
