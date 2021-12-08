@@ -1,17 +1,16 @@
 import "./styles/styles.css"
-import { Icon } from "components/Icon"
-import { AiOutlineUnorderedList } from "react-icons/ai"
+import { Text } from "components/Text"
 
 function App() {
 
   return (
     <div className="App">
-      <Icon bgColor={"lightgreen"}>
-        <AiOutlineUnorderedList />
-      </Icon>
-      <Icon>
-        <AiOutlineUnorderedList />
-      </Icon>
+      <Text fs="medium" fw="lighter" color="#000">
+        New List
+      </Text>
+      <Text fs="large" fw="bolder" color="#eb4e3d">
+        Scheduled
+      </Text>
     </div>
   )
 }
