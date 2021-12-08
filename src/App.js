@@ -1,16 +1,16 @@
 import "./styles/styles.css"
-import { Text } from "components/Text"
+import { Title } from "components/Title"
 
 function App() {
 
   return (
     <div className="App">
-      <Text fs="medium" fw="lighter" color="#000">
-        New List
-      </Text>
-      <Text fs="large" fw="bolder" color="#eb4e3d">
+      <Title fs="xxx-large" fw="bolder" color="#000">
+        Page name
+      </Title>
+      <Title fs="large" fw="bolder" color="#eb4e3d">
         Scheduled
-      </Text>
+      </Title>
     </div>
   )
 }
