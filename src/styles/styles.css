@@ -1,99 +1,28 @@
 :root {
-  --color-white: #fff;
+  --fs-x-small: 12px; /* Note */
+  --fs-small: 14px; /* Text + CategoryWrapper */
+  --fs-medium: 16px; /* Switcher - Text */
+  --fs-large: 24px; /* ListName in Switcher */
+  --fs-x-large: 32px; /* PageName */
 
-  --color-gray-1: #6c6c6c; /* text color in Switcher */
-  --color-gray-2: #d7d7d8; /* background color - switcher */
-}
+  --fw-normal: normal; /* ? Should use root or classic ( font-weight: normal; )  */
+  --fw-bold: bold; /* ? Should use root or classic ( font-weight: normal; )  */
 
-.switcher-body {
-  background-color: rgb(215, 215, 216);
-}
-.switcher-text {
-  color: rgb(108, 108, 108);
-}
+  --color-gray-default: #e7e8e9; /* Sidebar */
+  --color-gray-darken-1: #dadbdc; /* Search */
+  --color-gray-darken-2: #d0d1d2; /* Switcher body */
+  --color-gray-darken-3: #cecfd0; /* Selected Category */
+  --color-gray-darken-4: #919191; /* Text notes for Task-note */
+  --color-gray-darken-5: #5a626a; /* background-color for Icon-all */
 
-.switcher-item {
-  /* color: rgb(108, 108, 108); */
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  padding: 12px;
-  font-weight: bolder;
-  width: 150px; /* doesn't use in GRID */
-}
+  --color-blue-lighten: #5d98f7; /* Selected Category */
+  --color-blue-default: #077afe; /* Default color */
 
-.switcher-icon {
-  background-color: white; /* Remove this bg-color */
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2px;
-}
+  --color-red-default: #ff3a2f; /* Scheduled */
 
-.d-flex {
-  display: flex;
-}
+  --color-orange-default: #ff9502; /* Flagged */
 
-.flex-column {
-  flex-direction: column;
-}
+  --color-green-default: #19c759; /* Extra color for Category-Icon */
 
-.flex-row {
-  flex-direction: row;
-}
-
-.justify-content-between {
-  justify-content: space-between;
-}
-
-.fs-larger {
-  font-size: larger;
-}
-
-.p-4 {
-  padding: 4px;
-}
-
-.mb-4 {
-  margin-bottom: 4px;
-}
-
-.mt-4 {
-  margin-top: 4px;
-}
-
-.color-white {
-  color: rgb(255, 255, 255);
-}
-
-.color-gray {
-  color: rgb(92, 98, 105);
-}
-.color-primary {
-  color: rgb(51, 123, 246);
-}
-.color-danger {
-  color: rgb(235, 77, 61);
-}
-.color-warning {
-  color: rgb(241, 153, 56);
-}
-
-.bg-color-gray-lighten {
-  background-color: rgb(215, 215, 216);
-}
-.bg-color-gray {
-  background-color: rgb(92, 98, 105);
-}
-.bg-color-primary {
-  background: rgb(51, 123, 246);
-}
-.bg-color-danger {
-  background: rgb(235, 77, 61);
-}
-.bg-color-warning {
-  background: rgb(241, 153, 56);
+  --btn-border-radius: 6px;
 }

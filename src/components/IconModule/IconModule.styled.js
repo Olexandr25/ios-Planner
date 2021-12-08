@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const Body = styled.div`
+export const IconStyled = styled.div`
   border-radius: 12px;
   width: 24px;
   height: 24px;

@@ -1,30 +1,39 @@
-import React from "react"
-import { Btn, TextWrapper } from "./Button.styled"
+import { ButtonWrapper, ButtonIconWrapper } from "./Button.styled"
 
-// addCategory, addTask, addFlag
 const Button = props => {
-  const { type, icon, onClick, hover, active, fs, width, height } = props
+  const { size, type, icon, onClick, isHover, isActive, children } = props
+
   return (
-    <>
-      <Btn
-        type={type}
-        onClick={onClick ? () => onClick() : null}
-        hover={hover}
-        active={active}
-        fs={fs}
-        width={width}
-        height={height}>
-        {icon && props.children ? (
+    <ButtonWrapper
+      size="lg"
+      type={type}
+      onClick={onClick ? () => onClick() : null}
+      isHover={isHover}
+      isActive={isActive}>
+        {(()=>{
+          switch(size){
+            case "lg":
+              return ( icon );
+          }
+
+
+
+        })()}
+
+
+
+
+      {/* {icon && props.children ? (
           <>
-            {icon} <TextWrapper>{props.children}</TextWrapper>{" "}
+            <ButtonIconWrapper>{icon}</ButtonIconWrapper>
+            {children}
           </>
         ) : icon ? (
           icon
-        ) : props.children ? (
-          props.children
-        ) : null}
-      </Btn>
-    </>
+        ) : children ? (
+          children
+        ) : null} */}
+    </ButtonWrapper>
   )
 }
 

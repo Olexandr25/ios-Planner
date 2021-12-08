@@ -21,7 +21,7 @@ export const Body = styled.div`
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 `
 
 export const Icon = styled.div`

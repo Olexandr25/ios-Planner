@@ -1,6 +1,6 @@
 import React from "react"
 import { Counter } from "components/Counter"
-import { Icon } from "components/Icon"
+import { Icon } from "components"
 import { Input } from "components/Input"
 import { Text } from "components/Text"
 import { Button } from "components/Buttons"
@@ -10,6 +10,7 @@ import { Body, Content, Right, Left } from "./CategoryCombined.styled"
 const CategoryCombined = () => {
   return (
     <>
+      {/* SimpleView */}
       <Body>
         <Left>
           <Icon>
@@ -25,6 +26,7 @@ const CategoryCombined = () => {
         </Right>
       </Body>
 
+      {/* SimpleForm */}
       <Body>
         <Left>
           <Icon>
