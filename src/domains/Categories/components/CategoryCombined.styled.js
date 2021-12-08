@@ -5,8 +5,8 @@ export const Body = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 4px;
-  width: 250px;
-  background-color: aliceblue;
+  width: 250px; /* Remove */
+  background-color: aliceblue; /* Remove */
 `
 
 export const Left = styled.div`
