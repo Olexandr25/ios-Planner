@@ -1,11 +1,11 @@
 import "./styles/styles.css"
-import {CategoryCombined} from "domains/Categories/components"
+import {CategoryWrapper} from "domains/Categories/components"
 
 function App() {
 
   return (
     <div className="App">
-      <CategoryCombined />
+      <CategoryWrapper />
     </div>
   )
 }
