@@ -6,8 +6,8 @@ import {
 } from "react-icons/ai"
 // import { BsPlusCircle } from "react-icons/bs"
 import { Button } from "components/Buttons"
-// import { IconModule } from "components/IconModule"
 import { Container, Row, Col } from "components/Grid"
+import { IconModule } from "components/IconModule"
 
 function App() {
   return (
@@ -54,8 +54,20 @@ function App() {
           <Col>List</Col>
           <Col>List</Col>
         </Row>
-        Thursday
+        {/* Thursday */}
       </Container>
+      <Container variant="container-fluid">
+        <Row><Col>Container inside Row-Col</Col></Row>
+        <Row>Container inside Row-component</Row>
+        Container without components
+      </Container>
+      {/* IconModule */}
+      <IconModule>
+        <AiOutlineUnorderedList />
+      </IconModule>
+      <IconModule bgColor="red">
+        <AiOutlineUnorderedList />
+      </IconModule>
     </div>
   )
 }

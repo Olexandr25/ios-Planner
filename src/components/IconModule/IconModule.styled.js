@@ -7,7 +7,6 @@ export const IconStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  background-color: ${props => (props.bgColor || "#337bf6")};
-  color: #fff;
+  background-color: ${props => (props.bgColor || "var(--color-blue-default)")};
+  color: var(--color-white);
 `
