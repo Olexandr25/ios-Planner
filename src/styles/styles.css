@@ -1,28 +1,87 @@
 :root {
-  --fs-x-small: 12px; /* Note */
-  --fs-small: 14px; /* Text + CategoryWrapper */
-  --fs-medium: 16px; /* Switcher - Text */
-  --fs-large: 24px; /* ListName in Switcher */
-  --fs-x-large: 32px; /* PageName */
-
-  --fw-normal: normal; /* ? Should use root or classic ( font-weight: normal; )  */
-  --fw-bold: bold; /* ? Should use root or classic ( font-weight: normal; )  */
-
+  /* Colors */
   --color-gray-default: #e7e8e9; /* Sidebar */
   --color-gray-darken-1: #dadbdc; /* Search */
   --color-gray-darken-2: #d0d1d2; /* Switcher body */
   --color-gray-darken-3: #cecfd0; /* Selected Category */
   --color-gray-darken-4: #919191; /* Text notes for Task-note */
   --color-gray-darken-5: #5a626a; /* background-color for Icon-all */
-
   --color-blue-lighten: #5d98f7; /* Selected Category */
   --color-blue-default: #077afe; /* Default color */
+  --color-red: #ff3a2f; /* Scheduled */
+  --color-orange: #ff9502; /* Flagged */
+  --color-green: #19c759; /* Extra color for Category-Icon */
+  --color-white: #ffffff;
+  --color-black: #000000;
 
-  --color-red-default: #ff3a2f; /* Scheduled */
+  /* buttons sizes */
+  --btn-sm: 14px;
+  --btn-md: 20px;
+  --btn-lg: 26px;
+  --btn-xl: 38px;
 
-  --color-orange-default: #ff9502; /* Flagged */
+  /* Title - size */
+  --title-md: 20px;
+  --title-lg: 30px;
 
-  --color-green-default: #19c759; /* Extra color for Category-Icon */
+  /*title-weight*/
+  --title-regular: 400;
+  --title-medium: 500;
+  --title-bold: 700;
 
-  --btn-border-radius: 6px;
+  /*text-sizes*/
+  --text-sm: 12px; /* Note */
+  --text-md: 14px; /* Text + CategoryWrapper */
+  --text-lg: 16px; /* Switcher - Text */
+  --text-xl: 24px; /* ListName in Switcher */
+  --text-xxl: 34px; /* PageName */
+
+  /*text-weight*/
+  --text-regular: 400;
+  --text-medium: 500;
+  --text-bold: 700;
+
+  /*paddings*/
+  --p-none: 0px;
+  --p-sm: 2px;
+  --p-md: 4px;
+  --p-lg: 8px;
+  --p-xl: 16px;
+  --p-xxl: 32px;
+
+  /*margin*/
+  --m-none: 0px;
+  --m-sm: 2px;
+  --m-md: 4px;
+  --m-lg: 8px;
+  --m-xl: 16px;
+  --m-xxl: 32px;
+
+  /*border-radius*/
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 6px;
+  --border-radius-xl: 8px;
+  --border-radius-xxl: 10px;
+  --border-radius-round: 50%;
+
+  /*checkbox*/
+  --checkbox-inner-dot: 10px;
+  --checkbox-outer-dot: 14px;
+
+  /*border*/
+  --b-sm: 1px;
+  --b-md: 2px;
+  --b-lg: 3px;
+
+  /*opacity*/
+  --opacity-100: 100%;
+  --opacity-0: 0%;
+
+  /*line-height*/
+  --line-height-sm: 1.25;
+  --line-height-md: 1.5;
+  --line-height-lg: 2;
 }
+
+@import url(helpers.css);

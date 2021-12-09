@@ -1,0 +1,51 @@
+$map: (
+  sm: var(--p-sm),
+  md: var(--p-md),
+  lg: var(--p-lg),
+  xl: var(--p-xl),
+  xxl: var(--p-xxl),
+);
+$mapDir: (
+  t: top,
+  b: bottom,
+  l: left,
+  r: right,
+);
+/*margin*/
+.m {
+  @each $dir, $value in $mapDir {
+    &#{$dir} {
+      @each $size, $var in $map {
+        &-#{$size} {
+          margin-#{$value}: #{$var};
+        }
+      }
+    }
+  }
+}
+.m {
+  @each $size, $var in $map {
+    &-#{$size} {
+      margin: #{$var};
+    }
+  }
+}
+/*padding*/
+.p {
+  @each $dir, $value in $mapDir {
+    &#{$dir} {
+      @each $size, $var in $map {
+        &-#{$size} {
+          padding-#{$value}: #{$var};
+        }
+      }
+    }
+  }
+}
+.p {
+  @each $size, $var in $map {
+    &-#{$size} {
+      padding: #{$var};
+    }
+  }
+}

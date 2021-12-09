@@ -1,0 +1,157 @@
+/*margin*/
+.mt-sm {
+  margin-top: var(--p-sm);
+}
+.mt-md {
+  margin-top: var(--p-md);
+}
+.mt-lg {
+  margin-top: var(--p-lg);
+}
+.mt-xl {
+  margin-top: var(--p-xl);
+}
+.mt-xxl {
+  margin-top: var(--p-xxl);
+}
+.mb-sm {
+  margin-bottom: var(--p-sm);
+}
+.mb-md {
+  margin-bottom: var(--p-md);
+}
+.mb-lg {
+  margin-bottom: var(--p-lg);
+}
+.mb-xl {
+  margin-bottom: var(--p-xl);
+}
+.mb-xxl {
+  margin-bottom: var(--p-xxl);
+}
+.ml-sm {
+  margin-left: var(--p-sm);
+}
+.ml-md {
+  margin-left: var(--p-md);
+}
+.ml-lg {
+  margin-left: var(--p-lg);
+}
+.ml-xl {
+  margin-left: var(--p-xl);
+}
+.ml-xxl {
+  margin-left: var(--p-xxl);
+}
+.mr-sm {
+  margin-right: var(--p-sm);
+}
+.mr-md {
+  margin-right: var(--p-md);
+}
+.mr-lg {
+  margin-right: var(--p-lg);
+}
+.mr-xl {
+  margin-right: var(--p-xl);
+}
+.mr-xxl {
+  margin-right: var(--p-xxl);
+}
+
+.m-sm {
+  margin: var(--p-sm);
+}
+.m-md {
+  margin: var(--p-md);
+}
+.m-lg {
+  margin: var(--p-lg);
+}
+.m-xl {
+  margin: var(--p-xl);
+}
+.m-xxl {
+  margin: var(--p-xxl);
+}
+
+/*padding*/
+.pt-sm {
+  padding-top: var(--p-sm);
+}
+.pt-md {
+  padding-top: var(--p-md);
+}
+.pt-lg {
+  padding-top: var(--p-lg);
+}
+.pt-xl {
+  padding-top: var(--p-xl);
+}
+.pt-xxl {
+  padding-top: var(--p-xxl);
+}
+.pb-sm {
+  padding-bottom: var(--p-sm);
+}
+.pb-md {
+  padding-bottom: var(--p-md);
+}
+.pb-lg {
+  padding-bottom: var(--p-lg);
+}
+.pb-xl {
+  padding-bottom: var(--p-xl);
+}
+.pb-xxl {
+  padding-bottom: var(--p-xxl);
+}
+.pl-sm {
+  padding-left: var(--p-sm);
+}
+.pl-md {
+  padding-left: var(--p-md);
+}
+.pl-lg {
+  padding-left: var(--p-lg);
+}
+.pl-xl {
+  padding-left: var(--p-xl);
+}
+.pl-xxl {
+  padding-left: var(--p-xxl);
+}
+.pr-sm {
+  padding-right: var(--p-sm);
+}
+.pr-md {
+  padding-right: var(--p-md);
+}
+.pr-lg {
+  padding-right: var(--p-lg);
+}
+.pr-xl {
+  padding-right: var(--p-xl);
+}
+.pr-xxl {
+  padding-right: var(--p-xxl);
+}
+
+.p-sm {
+  padding: var(--p-sm);
+}
+.p-md {
+  padding: var(--p-md);
+}
+.p-lg {
+  padding: var(--p-lg);
+}
+.p-xl {
+  padding: var(--p-xl);
+}
+.p-xxl {
+  padding: var(--p-xxl);
+}
+
+/*# sourceMappingURL=helpers.css.map */
