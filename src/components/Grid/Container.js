@@ -1,11 +1,9 @@
-import React from 'react'
+import { ContainerStyled } from "./Container.styled"
 
-const Container = () => {
-    return (
-        <div>
-            
-        </div>
-    )
+const Container = props => {
+  const { children, variant } = props
+
+  return <ContainerStyled variant={variant}>{children}</ContainerStyled>
 }
 
 export default Container
