@@ -1,9 +1,13 @@
 import { ColStyled } from "./Col.styled"
 
 const Col = props => {
-  const { children, variant } = props
+  const { children, variant, className } = props
 
-  return <ColStyled variant={variant}>{children}</ColStyled>
+  return (
+    <ColStyled variant={variant} className={className}>
+      {children}
+    </ColStyled>
+  )
 }
 
 export default Col

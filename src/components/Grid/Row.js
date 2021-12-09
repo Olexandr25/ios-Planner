@@ -1,13 +1,9 @@
 import { RowStyled } from "./Row.styled"
 
 const Row = props => {
-  const { children, variant, gutter } = props
+  const { children, className } = props
 
-  return (
-    <RowStyled variant={variant} gutter={gutter}>
-      {children}
-    </RowStyled>
-  )
+  return <RowStyled className={className}>{children}</RowStyled>
 }
 
 export default Row
