@@ -13,7 +13,10 @@ function App() {
   return (
     <div className="App">
       {/* Buttons */}
-      <Button
+      <Button type="button" icon={<AiOutlineUnorderedList />} >Text for Button</Button>
+      <Button type="button" fontWeight="medium" >Text for Button</Button>
+      <Button type="button" fontWeight="regular" >Text for Button</Button>
+      {/* <Button
         // icon={<AiOutlinePlus />}
         type="submit"
         color="blue"
@@ -40,7 +43,7 @@ function App() {
         isActive={true}
         size="sm">
         Button
-      </Button>
+      </Button> */}
       {/* GRID */}
       <Container variant="container-fluid">
         <Row>
