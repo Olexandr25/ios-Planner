@@ -1,15 +1,17 @@
-import React from 'react'
-import { Body } from "./Text.styled"
+import { TextStyled } from "./Text.styled"
 
-const Text = (props) => {
-    const { fs, fw, color } = props
-    return (
-        <>
-            <Body fs={fs} fw={fw} color={color}>
-                {props.children}
-            </Body>
-        </>
-    )
+const Text = props => {
+  const { color, size, fontWeight, className, children } = props
+
+  return (
+    <TextStyled
+      color={color}
+      size={size}
+      fontWeight={fontWeight}
+      className={className}>
+      {children}
+    </TextStyled>
+  )
 }
 
 export default Text

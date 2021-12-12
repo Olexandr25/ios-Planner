@@ -10,6 +10,7 @@ import {
 } from "react-icons/bs"
 import { FaLocationArrow } from "react-icons/fa"
 import { HiOutlineInformationCircle } from "react-icons/hi"
+import { FaRegDotCircle } from "react-icons/fa"
 
 const Icons = () => {
   
@@ -28,6 +29,7 @@ const Icons = () => {
       <div>Plus second outline - <BsPlusCircle /></div>
       <div>Plus third fill - <BsFillPlusCircleFill /></div>
       <div>Close - <AiOutlineClose /></div>
+      <div>Dot for checkbox - <FaRegDotCircle /></div>
     </>
   )
 }

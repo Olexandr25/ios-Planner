@@ -4,9 +4,12 @@ import {
   AiOutlinePlus,
   AiOutlineUnorderedList,
 } from "react-icons/ai"
+import { FaRegDotCircle } from "react-icons/fa"
 // import { BsPlusCircle } from "react-icons/bs"
 import { Button } from "components/Buttons"
 import { Title } from "components/Title"
+import { Text } from "components/Text"
+import { Checkbox } from "components/Checkbox"
 import { Container, Row, Col } from "components/Grid"
 import { IconModule } from "components/IconModule"
 
@@ -23,6 +26,12 @@ function App() {
       <Title level={3} color="red">h3. Ant Design</Title>
       <Title level={4} color="orange">h4. Ant Design</Title>
       <Title level={5} color="secondary">h5. Ant Design</Title>
+      {/* Text */}
+      <Text>Christmas</Text>
+      <Text color="red" fontWeight="medium">Christmas</Text>
+      <Text size="xxxl">Christmas</Text>
+      {/* Checkbox */}
+      <Checkbox icon={<FaRegDotCircle />} />
       {/* GRID */}
       <Container variant="container-fluid">
         <Row>
