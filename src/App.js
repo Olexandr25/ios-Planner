@@ -6,6 +6,7 @@ import {
 } from "react-icons/ai"
 // import { BsPlusCircle } from "react-icons/bs"
 import { Button } from "components/Buttons"
+import { Title } from "components/Title"
 import { Container, Row, Col } from "components/Grid"
 import { IconModule } from "components/IconModule"
 
@@ -16,34 +17,12 @@ function App() {
       <Button type="button" icon={<AiOutlineUnorderedList />} >Text for Button</Button>
       <Button type="button" fontWeight="medium" >Text for Button</Button>
       <Button type="button" fontWeight="regular" >Text for Button</Button>
-      {/* <Button
-        // icon={<AiOutlinePlus />}
-        type="submit"
-        color="blue"
-        isHovered={true}
-        isActive={true}
-        borderType="none"
-        borderRadius="lg"
-        size="lg">
-        Button
-      </Button>
-      <Button
-        icon={<AiOutlinePlus />}
-        borderRadius="lg"
-        color="blue"
-        isHovered={true}
-        isActive={true}
-        size="md"></Button>
-      <Button
-        icon={<AiOutlinePlus />}
-        onClick={() => console.log("You clicked button")}
-        borderRadius="lg"
-        color="blue"
-        isHovered={true}
-        isActive={true}
-        size="sm">
-        Button
-      </Button> */}
+      {/* Title */}
+      <Title>h1. Ant Design</Title>
+      <Title level={2} color="blue">h2. Ant Design</Title>
+      <Title level={3} color="red">h3. Ant Design</Title>
+      <Title level={4} color="orange">h4. Ant Design</Title>
+      <Title level={5} color="secondary">h5. Ant Design</Title>
       {/* GRID */}
       <Container variant="container-fluid">
         <Row>

@@ -1,16 +1,13 @@
-import React from 'react'
-import { Body } from "./Title.styled"
+import { TitleStyled } from "./Title.styled"
 
+const Title = props => {
+  const { color, className, level, children } = props
 
-const Title = (props) => {
-    const { fs, fw, color } = props
-    return (
-        <>
-            <Body fs={fs} fw={fw} color={color}>
-                {props.children}
-            </Body>
-        </>
-    )
+  return (
+    <TitleStyled color={color} level={level} className={className}>
+      {children}
+    </TitleStyled>
+  )
 }
 
 export default Title
