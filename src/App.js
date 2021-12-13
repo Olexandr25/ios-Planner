@@ -14,6 +14,7 @@ import { Checkbox } from "components/Checkbox"
 import { Container, Row, Col } from "components/Grid"
 import { IconModule } from "components/IconModule"
 import { Input } from "components/Input"
+import { Divider } from "components/Divider"
 
 function App() {
   const [status, setStatus] = useState(false);
@@ -42,11 +43,14 @@ function App() {
       <Checkbox bgColor="red" />
       {/* Input */}
       <Input type="search" variant="styled" icon={<AiOutlineSearch />}  />
+      {/* Divider */}
+      <Divider />
       {/* GRID */}
       <Container variant="container-fluid">
         <Row>
           <Col variant="col-4">
             <Input type="search" variant="styled" placeholder="Search" icon={<AiOutlineSearch />} />
+            <Divider />
           </Col>
           <Col variant="col-8">Col - 2</Col>
         </Row>

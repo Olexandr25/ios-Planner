@@ -1,4 +1,15 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+
+const inputSizes = {
+  xxsm: {lineHeight: "var(--line-height-xx-small)", fontSize: "var(--font-size-xx-small)"},
+  xsm: {lineHeight: "var(--line-height-x-small)", fontSize: "var(--font-size-x-small)"},
+  sm: {lineHeight: "var(--line-height-small)", fontSize: "var(--font-size-small)"},
+  md: {lineHeight: "var(--line-height-medium)", fontSize: "var(--font-size-medium)"},
+  lg: {lineHeight: "var(--line-height-large)", fontSize: "var(--font-size-large)"},
+  xl: {lineHeight: "var(--line-height-x-large)", fontSize: "var(--font-size-x-large)"},
+  xxl: {lineHeight: "var(--line-height-xx-large)", fontSize: "var(--font-size-xx-large)"},
+  xxxl: {lineHeight: "var(--line-height-xxx-large)", fontSize: "var(--font-size-xxx-large)"},
+}
 
 export const Wrapper = styled.div`
   display: flex;
@@ -21,6 +32,14 @@ export const InputIcon = styled.input`
   border-radius: var(--border-radius-lg);
   /* padding: var(--p-md); */
   padding-left: var(--p-xxl);
+
+  ${props =>
+    props.size &&
+    css`
+      font-size: ${props => inputSizes[props.size].fontSize};
+      line-height: ${props => inputSizes[props.size].lineHeight};
+    `}
+
   &:focus {
     border: var(--b-lg) solid var(--color-blue-default);
   }
@@ -38,9 +57,23 @@ export const InputIcon = styled.input`
 
 export const ClassicInput = styled.input`
   width: 100%;
+
+  ${props =>
+    props.size &&
+    css`
+      font-size: ${props => inputSizes[props.size].fontSize};
+      line-height: ${props => inputSizes[props.size].lineHeight};
+    `}
 `
 export const OutlinedInput = styled.input`
   width: 100%;
   border: var(--b-none);
   outline: none;
+
+  ${props =>
+    props.size &&
+    css`
+      font-size: ${props => inputSizes[props.size].fontSize};
+      line-height: ${props => inputSizes[props.size].lineHeight};
+    `}
 `

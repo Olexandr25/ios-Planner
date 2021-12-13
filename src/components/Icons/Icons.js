@@ -29,7 +29,6 @@ const Icons = () => {
       <div>Plus second outline - <BsPlusCircle /></div>
       <div>Plus third fill - <BsFillPlusCircleFill /></div>
       <div>Close - <AiOutlineClose /></div>
-      <div>Dot for checkbox - <FaRegDotCircle /></div>
     </>
   )
 }

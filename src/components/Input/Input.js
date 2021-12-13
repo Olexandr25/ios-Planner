@@ -8,12 +8,12 @@ import {
 } from "./Input.styled"
 
 const Input = props => {
-  const { variant, icon, placeholder, type, className } = props
+  const { variant, icon, placeholder, type, className, size } = props
 
   return (
     <Wrapper>
       {variant === "classic" ? (
-        <ClassicInput type={type} className={className} />
+        <ClassicInput type={type} className={className} size={size} />
       ) : variant === "styled" ? (
         <>
           <IconPosition>{icon}</IconPosition>
@@ -21,10 +21,11 @@ const Input = props => {
             placeholder={placeholder}
             type={type}
             className={className}
+            size={size}
           />
         </>
       ) : variant === "outlined" ? (
-        <OutlinedInput type={type} className={className} />
+        <OutlinedInput type={type} className={className} size={size} />
       ) : null}
     </Wrapper>
   )

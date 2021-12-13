@@ -16,7 +16,7 @@ export const CheckboxStyled = styled.input.attrs({ type: "checkbox" })`
   width: var(--checkbox-md);
   height: var(--checkbox-md);
   border: var(--b-sm) solid var(--color-gray-darken-4);
-  padding: var(--p-md);
+  padding: var(--p-sm);
   border-radius: var(--border-radius-round);
   cursor: pointer;
   appearance: none;
