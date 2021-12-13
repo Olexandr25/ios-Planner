@@ -5,8 +5,7 @@ import {
   AiOutlinePlus,
   AiOutlineUnorderedList,
 } from "react-icons/ai"
-import { FaRegDotCircle } from "react-icons/fa"
-// import { BsPlusCircle } from "react-icons/bs"
+import { BsPlusCircle, BsFillInboxFill, BsFillFlagFill} from "react-icons/bs"
 import { Button } from "components/Buttons"
 import { Title } from "components/Title"
 import { Text } from "components/Text"
@@ -15,6 +14,7 @@ import { Container, Row, Col } from "components/Grid"
 import { IconModule } from "components/IconModule"
 import { Input } from "components/Input"
 import { Divider } from "components/Divider"
+import { Switcher } from "components/Switcher"
 
 function App() {
   const [status, setStatus] = useState(false);
@@ -45,6 +45,19 @@ function App() {
       <Input type="search" variant="styled" icon={<AiOutlineSearch />}  />
       {/* Divider */}
       <Divider />
+      {/* Switcher */}
+      <Container>
+        <Row>
+          <Col variant="col-2">
+            <Switcher icon={<BsFillInboxFill />} bgColorIcon="gray"
+            length={25} >Second Row</Switcher>
+          </Col>
+          <Col variant="col-2">
+            <Switcher icon={<BsFillFlagFill />} bgColor="blue"
+            length={25} bgColorIcon="orange" >Second Row</Switcher>
+          </Col>
+        </Row>
+      </Container>
       {/* GRID */}
       <Container variant="container-fluid">
         <Row>
@@ -75,6 +88,7 @@ function App() {
       <IconModule bgColor="red">
         <AiOutlineUnorderedList />
       </IconModule>
+
     </div>
   )
 }

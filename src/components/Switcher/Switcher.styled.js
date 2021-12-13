@@ -1,45 +1,39 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+
+const Colors = {
+  blue: "var(--color-blue-default)",
+  red: "var(--color-red)",
+  orange: "var(--color-orange)",
+  gray: "var(--color-gray-darken-5)",
+  secondary: "var(--color-gray-darken-4)",
+}
 
 export const Wrapper = styled.div`
-  padding: 4px;
+  padding: var(--p-md);
 `
 export const Body = styled.div`
   display: flex;
   flex-direction: column;
-  border-radius: 8px;
-  padding: 12px;
-  font-weight: bolder;
-  background-color: #d7d7d8; /* Remove color */
-  color: #6c6c6c; /* Remove color */
-  width: 150px; /* When GRID will be ready, remove this line */
-  &:active  {
-    background-color: #5c6269; /* Remove color */
-    color: ${props => props.color || "#fff"}; 
+  border-radius: var(--border-radius-xl);
+  padding: var(--p-lg);
+  font-weight: var(--font-weight-semibold);
+  background-color: var(--color-gray-darken-1);
+  color: var(--color-gray-darken-5);
+
+  ${props =>
+    props.color &&
+    css`
+      color: ${props => Colors[props.color]};
+    `}
+
+  &:active {
+    background-color: var(--color-gray-darken-5);
+    color: ${props => props.color || "var(--color-white)"};
   }
 `
 
 export const Header = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 4px;
+  margin-bottom: var(--m-md);
 `
 
-export const Icon = styled.div`
-  background-color: #5c6269; /* Remove this bg-color */
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2px;
-  color: ${props => props.color || "#fff"}; 
-  &:active {
-    background-color: #fff; /* Remove color */
-    color: #5c6269; /* Remove color */
-  }
-`
-
-export const Length = styled.div`
-  font-size: larger;
-`

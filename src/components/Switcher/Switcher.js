@@ -1,21 +1,33 @@
-import React from "react"
-import { Wrapper, Body, Header, Icon, Length } from "./Switcher.styled"
+import { Wrapper, Body, Header } from "./Switcher.styled"
+import { Row, Col } from "components/Grid"
+import { IconModule } from "components/IconModule"
+import { Text } from "components/Text"
 
-const SwitcherV2 = props => {
-  const { icon, length, color, bgColor } = props
+const Switcher = props => {
+  const { icon, length, color, colorIcon, bgColor, bgColorIcon, children } =
+    props
+
   return (
-    <>
-      <Wrapper>
-        <Body tabIndex="1" color={color} bgColor={bgColor}>
-          <Header>
-            <Icon color={color}>{icon}</Icon>
-            <Length>{length}</Length>
-          </Header>
-          {props.children}
-        </Body>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <Body bgColor={bgColor} color={color}>
+        <Header>
+          <Row>
+            <Col variant="col-11">
+              <IconModule bgColor={bgColorIcon} color={colorIcon}>
+                {icon}
+              </IconModule>
+            </Col>
+            <Col variant="col-1">
+              <Text size="md" fontWeight="semibold">
+                {length}
+              </Text>
+            </Col>
+          </Row>
+        </Header>
+        <Row>{children}</Row>
+      </Body>
+    </Wrapper>
   )
 }
 
-export default SwitcherV2
+export default Switcher

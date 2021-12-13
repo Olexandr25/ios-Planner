@@ -2,10 +2,10 @@ import styled, { css } from "styled-components"
 
 export const ContainerStyled = styled.div`
   max-width: 100%;
-  /* padding-left: 12px; */
-  /* padding-right: 12px; */
-  /* margin-left: auto; */
-  /* margin-right: auto; */
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: auto;
+  margin-right: auto;
 
   ${props =>
     props.variant === "container-fluid" &&
