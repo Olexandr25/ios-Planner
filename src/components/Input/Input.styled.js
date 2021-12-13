@@ -3,26 +3,36 @@ import styled from "styled-components"
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
 `
 
 export const IconPosition = styled("icon")`
   position: absolute;
-  padding-left: 8px;
-  padding-top: 2px;
+  padding-left: var(--p-lg);
+  padding-top: var(--p-sm);
 `
 
 export const InputIcon = styled.input`
-  background-color: #e1e1e2;
-  border-style: none;
-  border-radius: 8px;
-  border: 0;
-  padding: 8px;
-  padding-left: 30px;
   width: 100%;
-  border: 3px solid transparent;
+  font-size: var(--font-size-x-small);
+  line-height: var(--line-height-x-small);
+  background-color: var(--color-gray-default);
+  border-style: none;
+  border: var(--b-lg) solid transparent;
+  border-radius: var(--border-radius-lg);
+  /* padding: var(--p-md); */
+  padding-left: var(--p-xxl);
   &:focus {
-      border: 3px solid #337bf6;
+    border: var(--b-lg) solid var(--color-blue-default);
+  }
+
+  &::-webkit-search-cancel-button {
+    appearance: none;
+    height: var(--cancel-md);
+    width: var(--cancel-md);
+    border-radius: var(--border-radius-round);
+    background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg)
+      no-repeat 50% 50%;
+    background-size: contain;
   }
 `
 
@@ -31,6 +41,6 @@ export const ClassicInput = styled.input`
 `
 export const OutlinedInput = styled.input`
   width: 100%;
-  border: 0;
+  border: var(--b-none);
   outline: none;
 `

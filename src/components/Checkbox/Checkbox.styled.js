@@ -12,6 +12,7 @@ const Sizes = {
 }
 
 export const CheckboxStyled = styled.input.attrs({ type: "checkbox" })`
+  display: flex;
   width: var(--checkbox-md);
   height: var(--checkbox-md);
   border: var(--b-sm) solid var(--color-gray-darken-4);

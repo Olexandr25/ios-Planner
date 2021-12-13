@@ -69,6 +69,7 @@
   --checkbox-lg: 24px;
 
   /*border*/
+  --b-none: 0;
   --b-sm: 1px;
   --b-md: 2px;
   --b-lg: 3px;
@@ -76,6 +77,11 @@
   /*opacity*/
   --opacity-100: 100%;
   --opacity-0: 0%;
+
+  /* Input cancel size */
+  --cancel-sm: 12px;
+  --cancel-md: 14px;
+  --cancel-lg: 18px;
 }
 
 @import url(helpers.css);

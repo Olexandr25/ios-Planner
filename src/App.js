@@ -13,6 +13,7 @@ import { Text } from "components/Text"
 import { Checkbox } from "components/Checkbox"
 import { Container, Row, Col } from "components/Grid"
 import { IconModule } from "components/IconModule"
+import { Input } from "components/Input"
 
 function App() {
   const [status, setStatus] = useState(false);
@@ -39,10 +40,14 @@ function App() {
       <Text size="xxxl">Christmas</Text>
       {/* Checkbox */}
       <Checkbox bgColor="red" />
+      {/* Input */}
+      <Input type="search" variant="styled" icon={<AiOutlineSearch />}  />
       {/* GRID */}
       <Container variant="container-fluid">
         <Row>
-          <Col variant="col-4">Col - 1</Col>
+          <Col variant="col-4">
+            <Input type="search" variant="styled" placeholder="Search" icon={<AiOutlineSearch />} />
+          </Col>
           <Col variant="col-8">Col - 2</Col>
         </Row>
         <Row variant=""> Row - 2</Row>

@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components"
 
 export const ContainerStyled = styled.div`
-  /* width: 100%; */
+  max-width: 100%;
   /* padding-left: 12px; */
   /* padding-right: 12px; */
   /* margin-left: auto; */
@@ -19,7 +19,7 @@ export const ContainerStyled = styled.div`
   ${props =>
     props.variant === "container" &&
     css`
-      /* width: 100%; */
+      max-width: 100%;
       padding-left: 12px;
       padding-right: 12px;
       margin-left: auto;
@@ -49,7 +49,7 @@ export const ContainerStyled = styled.div`
     ${props =>
     props.variant === "container-sm" &&
     css`
-      /* width: 100%; */
+      max-width: 100%;
       padding-left: 12px;
       padding-right: 12px;
       margin-left: auto;
@@ -79,7 +79,7 @@ export const ContainerStyled = styled.div`
     ${props =>
     props.variant === "container-md" &&
     css`
-      /* width: 100%; */
+      max-width: 100%;
       padding-left: 12px;
       padding-right: 12px;
       margin-left: auto;
@@ -105,7 +105,7 @@ export const ContainerStyled = styled.div`
     ${props =>
     props.variant === "container-lg" &&
     css`
-      /* width: 100%; */
+      max-width: 100%;
       padding-left: 12px;
       padding-right: 12px;
       margin-left: auto;
@@ -127,7 +127,7 @@ export const ContainerStyled = styled.div`
     ${props =>
     props.variant === "container-xl" &&
     css`
-      /* width: 100%; */
+      max-width: 100%;
       padding-left: 12px;
       padding-right: 12px;
       margin-left: auto;
@@ -145,7 +145,7 @@ export const ContainerStyled = styled.div`
     ${props =>
     props.variant === "container-xxl" &&
     css`
-      /* width: 100%; */
+      max-width: 100%;
       padding-left: 12px;
       padding-right: 12px;
       margin-left: auto;
