@@ -1,4 +1,5 @@
 import "./styles/styles.css"
+import {useState} from "react"
 import {
   AiOutlineSearch,
   AiOutlinePlus,
@@ -14,6 +15,12 @@ import { Container, Row, Col } from "components/Grid"
 import { IconModule } from "components/IconModule"
 
 function App() {
+  const [status, setStatus] = useState(false);
+  const Change = () => {
+    setStatus(!status);
+    console.log(status)
+  }
+
   return (
     <div className="App">
       {/* Buttons */}
@@ -31,7 +38,7 @@ function App() {
       <Text color="red" fontWeight="medium">Christmas</Text>
       <Text size="xxxl">Christmas</Text>
       {/* Checkbox */}
-      <Checkbox icon={<FaRegDotCircle />} />
+      <Checkbox bgColor="red" />
       {/* GRID */}
       <Container variant="container-fluid">
         <Row>

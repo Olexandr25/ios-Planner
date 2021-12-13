@@ -1,17 +1,15 @@
-import { CheckboxWrapper, LabelWrapper } from "./Checkbox.styled"
+import { CheckboxStyled } from "./Checkbox.styled"
 
 const Checkbox = props => {
-  const { checked, color, icon, className } = props
+  const { bgColor, size, onClick, className } = props
 
   return (
-    <>
-      <CheckboxWrapper  />
-      <LabelWrapper
-        checked={checked}
-        color={color}
-        className={className}
-      />
-    </>
+    <CheckboxStyled
+      bgColor={bgColor}
+      size={size}
+      className={className}
+      onClick={onClick ? () => onClick() : null}
+    />
   )
 }
 

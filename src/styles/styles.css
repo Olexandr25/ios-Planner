@@ -64,9 +64,9 @@
   --border-radius-round: 50%;
 
   /*checkbox*/
-  --checkbox-inner-dot: 10px;
-  --checkbox-outer-dot: 14px;
-  --checkbox-max-width: 15px;
+  --checkbox-sm: 16px;
+  --checkbox-md: 18px;
+  --checkbox-lg: 24px;
 
   /*border*/
   --b-sm: 1px;

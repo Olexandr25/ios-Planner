@@ -6,24 +6,37 @@ const Colors = {
   orange: "var(--color-orange)",
 }
 
-export const CheckboxWrapper = styled.input.attrs({ type: "checkbox" })`
-  width: 1.3em;
-  height: 1.3em;
-  background-color: white;
-  border-radius: 50%;
-  vertical-align: middle;
-  border: 1px solid #ddd;
+const Sizes = {
+  sm: "var(--checkbox-sm)",
+  lg: "var(--checkbox-lg)",
+}
+
+export const CheckboxStyled = styled.input.attrs({ type: "checkbox" })`
+  width: var(--checkbox-md);
+  height: var(--checkbox-md);
+  border: var(--b-sm) solid var(--color-gray-darken-4);
+  padding: var(--p-md);
+  border-radius: var(--border-radius-round);
+  cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
-  outline: none;
-  cursor: pointer;
+
+  ${props =>
+    props.size &&
+    css`
+      width: ${props => Sizes[props.size]};
+      height: ${props => Sizes[props.size]};
+    `}
 
   &:checked {
-    background-color: orange;
-    color: black;
-    padding: 2px;
-    border: red;
+    background-color: blue;
+    background-clip: content-box;
+
+    ${props =>
+      props.bgColor &&
+      css`
+        background-color: ${props => Colors[props.bgColor]};
+        border: 1px solid ${props => Colors[props.bgColor]};
+      `}
   }
 `
-
-export const LabelWrapper = styled.label``
