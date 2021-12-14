@@ -1,47 +1,46 @@
-import React from "react"
-import { Counter } from "components/Counter"
-import { Icon } from "components"
-import { Input } from "components/Input"
-import { Text } from "components/Text"
-import { Button } from "components/Buttons"
-import { AiOutlineUnorderedList, AiOutlineClose } from "react-icons/ai"
-import { Body, Content, Right, Left } from "./CategoryCombined.styled"
+// Styled - variables
+import { CategoryCombinedStyled } from "./CategoryCombined.styled"
+// Micro - component
+import { IconModule, Text, Input, Col, Button } from "components"
+// React - icons
+import { AiOutlineClose, AiOutlineUnorderedList } from "react-icons/ai"
 
-const CategoryCombined = () => {
+const CategoryCombined = props => {
+  const { className, isEditableStr, length } = props
+
   return (
-    <>
-      {/* SimpleView */}
-      <Body>
-        <Left>
-          <Icon>
-            <AiOutlineUnorderedList />
-          </Icon>
-          <Content>
-            <Text>New List</Text>
-          </Content>
-        </Left>
-        <Right>
-          <Button icon={<AiOutlineClose />} />
-          <Counter>0</Counter>
-        </Right>
-      </Body>
+    <CategoryCombinedStyled
+      data-testid="CategoryCombinedStyled"
+      className={className}>
+      <Col xs={1}>
+        <IconModule>
+          <AiOutlineUnorderedList />
+        </IconModule>
+      </Col>
+      <Col xs={8}>
+        {isEditableStr ? (
+          <Input variant="classic" className="ml-lg" />
+        ) : (
+          <Text size="xsm" className="ml-lg">
+            New List
+          </Text>
+        )}
+      </Col>
 
-      {/* SimpleForm */}
-      <Body>
-        <Left>
-          <Icon>
-            <AiOutlineUnorderedList />
-          </Icon>
-          <Content>
-            <Input variant="classic" />
-          </Content>
-        </Left>
-        <Right>
-          <Button icon={<AiOutlineClose />} />
-          <Counter>0</Counter>
-        </Right>
-      </Body>
-    </>
+      <Col xs={1} className="ml-xl">
+        <Text size="xsm" color="secondary" fontWeight="regular">
+          {length}
+        </Text>
+      </Col>
+      <Col xs={1}>
+        <Button
+          size="xxsm"
+          borderType="none"
+          icon={<AiOutlineClose />}
+          color="secondary"
+        />
+      </Col>
+    </CategoryCombinedStyled>
   )
 }
 

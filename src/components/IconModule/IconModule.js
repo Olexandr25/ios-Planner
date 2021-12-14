@@ -1,4 +1,3 @@
-import React from "react"
 import { IconStyled } from "./IconModule.styled"
 
 const IconModule = props => {

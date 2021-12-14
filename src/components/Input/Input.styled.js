@@ -14,8 +14,8 @@ const inputSizes = {
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  padding-left: var(--p-md);
-  padding-right: var(--p-md);
+  /* padding-left: var(--p-md);
+  padding-right: var(--p-md); */
 `
 
 export const IconPosition = styled("icon")`

@@ -1,99 +1,39 @@
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 
 export const ColStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1 0 0%;
+  box-sizing: border-box;
+  flex: ${(props) => (props.cw ? '0 0' : '1 0')};
+  flex-basis: ${(props) => (props.cw / 12) * 100}%;
   height: inherit;
 
-  ${props =>
-    props.variant === "col-auto" &&
-    css`
-      flex: 0 0 auto;
-      width: auto;
-    `}
-
-  ${props =>
-    props.variant === "col-1" &&
-    css`
-      flex: 0 0 auto;
-      width: 8.33333333%;
-    `}
-
-    ${props =>
-    props.variant === "col-2" &&
-    css`
-      flex: 0 0 auto;
-      width: 16.66666667%;
-    `}
-
-    ${props =>
-    props.variant === "col-3" &&
-    css`
-      flex: 0 0 auto;
-      width: 25%;
-    `}
-
-    ${props =>
-    props.variant === "col-4" &&
-    css`
-      flex: 0 0 auto;
-      width: 33.33333333%;
-    `}
-
-    ${props =>
-    props.variant === "col-5" &&
-    css`
-      flex: 0 0 auto;
-      width: 41.66666667%;
-    `}
-
-    ${props =>
-    props.variant === "col-6" &&
-    css`
-      flex: 0 0 auto;
-      width: 50%;
-    `}
-
-    ${props =>
-    props.variant === "col-7" &&
-    css`
-      flex: 0 0 auto;
-      width: 58.33333333%;
-    `}
-
-    ${props =>
-    props.variant === "col-8" &&
-    css`
-      flex: 0 0 auto;
-      width: 66.66666667%;
-    `}
-
-    ${props =>
-    props.variant === "col-9" &&
-    css`
-      flex: 0 0 auto;
-      width: 75%;
-    `}
-
-    ${props =>
-    props.variant === "col-10" &&
-    css`
-      flex: 0 0 auto;
-      width: 83.33333333%;
-    `}
-
-    ${props =>
-    props.variant === "col-11" &&
-    css`
-      flex: 0 0 auto;
-      width: 91.66666667%;
-    `}
-
-    ${props =>
-    props.variant === "col-12" &&
-    css`
-      flex: 0 0 auto;
-      width: 100%;
-    `}
+  @media (min-width: 576px) {
+    flex-basis: ${(props) => {
+      return props.xs ? `${(props.xs / 12) * 100}%` : null
+    }};
+  }
+  @media (min-width: 768px) {
+    flex-basis: ${(props) => {
+      return props.sm ? `${(props.sm / 12) * 100}%` : null
+    }};
+  }
+  @media (min-width: 992px) {
+    flex-basis: ${(props) => {
+      return props.md ? `${(props.md / 12) * 100}%` : null
+    }};
+  }
+  @media (min-width: 1200px) {
+    flex-basis: ${(props) => {
+      return props.lg ? `${(props.lg / 12) * 100}%` : null
+    }};
+  }
+  @media (min-width: 1400px) {
+    flex-basis: ${(props) => {
+      return props.xl ? `${(props.xl / 12) * 100}%` : null
+    }};
+  }
+  @media (max-width: 576px) {
+    flex-basis: ${(props) => {
+      return props.xxl ? `${(props.xxl / 12) * 100}%` : null
+    }};
+  }
 `

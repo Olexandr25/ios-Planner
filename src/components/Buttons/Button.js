@@ -17,40 +17,27 @@ const Button = props => {
   } = props
 
   return (
-    <>
-      {icon && children ? (
-        <ButtonWrapper
-          data-testid="btn"
-          type={type}
-          color={color}
-          isHovered={isHovered}
-          isActive={isActive}
-          className={className}
-          size={size}
-          borderType={borderType}
-          borderRadius={borderRadius}
-          onClick={onClick ? () => onClick() : null}
-          fontWeight={fontWeight}>
-          <ButtonIconWrapper>{icon}</ButtonIconWrapper>
-          {children}
-        </ButtonWrapper>
-      ) : (
-        <ButtonWrapper
-          data-testid="btn"
-          type={type}
-          color={color}
-          isHovered={isHovered}
-          isActive={isActive}
-          className={className}
-          size={size}
-          borderType={borderType}
-          borderRadius={borderRadius}
-          onClick={onClick ? () => onClick() : null}
-          fontWeight={fontWeight}>
-          {icon || children}
-        </ButtonWrapper>
-      )}
-    </>
+      <ButtonWrapper
+        data-testid="btn"
+        type={type}
+        color={color}
+        isHovered={isHovered}
+        isActive={isActive}
+        className={className}
+        size={size}
+        borderType={borderType}
+        borderRadius={borderRadius}
+        onClick={onClick}
+        fontWeight={fontWeight}>
+        {icon && children ? (
+          <>
+            <ButtonIconWrapper>{icon}</ButtonIconWrapper>
+            {children}
+          </>
+        ) : (
+          <>{icon || children}</>
+        )}
+      </ButtonWrapper>
   )
 }
 

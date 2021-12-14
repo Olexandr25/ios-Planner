@@ -1,9 +1,10 @@
 import "./styles/styles.css"
 import { Layout } from "components/Layout"
-import React from "react"
+import { Sidebar } from "components/Layout/Sidebar"
+import { Content } from "components/Layout/Content"
 
 function App() {
-  return <Layout />
+  return <Layout aside={<Sidebar />} content={<Content />} />
 }
 
 export default App

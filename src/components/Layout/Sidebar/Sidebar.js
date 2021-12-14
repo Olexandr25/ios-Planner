@@ -1,9 +1,9 @@
 // Styled variables
 import { SidebarStyled, SwitcherContainer } from "./Sidebar.styled"
 // Micro - components
-import { Container, Row, Col } from "components/Grid"
-import { Input } from "components/Input"
-import { Switcher } from "components/Switcher"
+import { Input, Col, Switcher, Text } from "components"
+// Domain - component
+import { CategoryCombined } from "domains/Categories/components"
 // Icons
 import { AiOutlineSearch } from "react-icons/ai"
 import {
@@ -22,7 +22,7 @@ const Sidebar = () => {
         icon={<AiOutlineSearch />}
         placeholder="Search"
         type="search"
-        className="mb-xl"
+        className="mb-xl ml-md mr-md"
       />
       {/* Switcher */}
       <SwitcherContainer data-testid="SwitcherContainer">
@@ -50,7 +50,16 @@ const Sidebar = () => {
         </Col>
       </SwitcherContainer>
       {/* Category */}
-      Category
+      <Text
+        size="xxsm"
+        fontWeight="semibold"
+        color="secondary"
+        className="ml-xl">
+        My Lists
+      </Text>
+      <CategoryCombined isEditableStr={true} length={15} />
+      <CategoryCombined isEditableStr={false} length={1} />
+      <CategoryCombined />
     </SidebarStyled>
   )
 }

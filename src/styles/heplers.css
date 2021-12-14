@@ -175,5 +175,8 @@
 .d-flex {
   display: flex;
 }
+.d-none {
+  display: none;
+}
 
 /*# sourceMappingURL=heplers.css.map */

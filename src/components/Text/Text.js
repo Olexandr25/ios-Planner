@@ -5,6 +5,7 @@ const Text = props => {
 
   return (
     <TextStyled
+      data-testid="Text"
       color={color}
       size={size}
       fontWeight={fontWeight}

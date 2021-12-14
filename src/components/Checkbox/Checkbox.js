@@ -9,7 +9,7 @@ const Checkbox = props => {
       bgColor={bgColor}
       size={size}
       className={className}
-      onClick={onClick ? () => onClick() : null}
+      onClick={onClick}
     />
   )
 }
