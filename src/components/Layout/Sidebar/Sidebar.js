@@ -1,7 +1,11 @@
 // Styled variables
-import { SidebarStyled, SwitcherContainer } from "./Sidebar.styled"
+import {
+  SidebarStyled,
+  SwitcherContainer,
+  ButtonContainer,
+} from "./Sidebar.styled"
 // Micro - components
-import { Input, Col, Switcher, Text } from "components"
+import { Input, Col, Switcher, Text, Button } from "components"
 // Domain - component
 import { CategoryCombined } from "domains/Categories/components"
 // Icons
@@ -11,6 +15,7 @@ import {
   BsCalendar3,
   BsCalendarDate,
   BsFillFlagFill,
+  BsPlusCircle,
 } from "react-icons/bs"
 
 const Sidebar = () => {
@@ -60,6 +65,16 @@ const Sidebar = () => {
       <CategoryCombined isEditableStr={true} length={15} />
       <CategoryCombined isEditableStr={false} length={1} />
       <CategoryCombined />
+      <ButtonContainer>
+        <Button
+          icon={<BsPlusCircle />}
+          size="xxsm"
+          borderType="none"
+          color="gray"
+          fontWeight="regular">
+          Add List
+        </Button>
+      </ButtonContainer>
     </SidebarStyled>
   )
 }
