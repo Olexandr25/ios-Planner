@@ -1,7 +1,10 @@
 import styled, { css } from "styled-components"
 
 export const ColStyled = styled.div`
+  display: flex;
+  flex-direction: column;
   flex: 1 0 0%;
+  height: inherit;
 
   ${props =>
     props.variant === "col-auto" &&

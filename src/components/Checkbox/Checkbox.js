@@ -5,6 +5,7 @@ const Checkbox = props => {
 
   return (
     <CheckboxStyled
+      data-testid="checkbox"
       bgColor={bgColor}
       size={size}
       className={className}

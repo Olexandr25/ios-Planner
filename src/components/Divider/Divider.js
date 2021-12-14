@@ -1,7 +1,7 @@
 import { DividerStyled } from "./Divider.styled"
 
 const Divider = () => {
-  return <DividerStyled />
+  return <DividerStyled data-testid="divider"/>
 }
 
 export default Divider

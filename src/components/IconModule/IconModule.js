@@ -5,7 +5,7 @@ const IconModule = props => {
   const { bgColor, color, children } = props
 
   return (
-    <IconStyled bgColor={bgColor} color={color}>
+    <IconStyled data-testid="iconModule" bgColor={bgColor} color={color}>
       {children}
     </IconStyled>
   )

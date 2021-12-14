@@ -4,7 +4,10 @@ const Container = props => {
   const { children, variant, className } = props
 
   return (
-    <ContainerStyled variant={variant} className={className}>
+    <ContainerStyled
+      data-testid="container"
+      variant={variant}
+      className={className}>
       {children}
     </ContainerStyled>
   )

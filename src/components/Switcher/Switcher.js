@@ -1,5 +1,8 @@
-import { Wrapper, Body, Header } from "./Switcher.styled"
-import { Row, Col } from "components/Grid"
+import {
+  SwitcherWrapper,
+  SwitcherBody,
+  SwitcherHeader,
+} from "./Switcher.styled"
 import { IconModule } from "components/IconModule"
 import { Text } from "components/Text"
 
@@ -8,25 +11,19 @@ const Switcher = props => {
     props
 
   return (
-    <Wrapper>
-      <Body bgColor={bgColor} color={color}>
-        <Header>
-          <Row>
-            <Col variant="col-11">
-              <IconModule bgColor={bgColorIcon} color={colorIcon}>
-                {icon}
-              </IconModule>
-            </Col>
-            <Col variant="col-1">
-              <Text size="md" fontWeight="semibold">
-                {length}
-              </Text>
-            </Col>
-          </Row>
-        </Header>
-        <Row>{children}</Row>
-      </Body>
-    </Wrapper>
+    <SwitcherWrapper data-testid="SwitcherWrapper">
+      <SwitcherBody data-testid="SwitcherBody" bgColor={bgColor} color={color}>
+        <SwitcherHeader data-testid="SwitcherHeader">
+          <IconModule bgColor={bgColorIcon} color={colorIcon}>
+            {icon}
+          </IconModule>
+          <Text size="md" fontWeight="semibold">
+            {length}
+          </Text>
+        </SwitcherHeader>
+        {children}
+      </SwitcherBody>
+    </SwitcherWrapper>
   )
 }
 

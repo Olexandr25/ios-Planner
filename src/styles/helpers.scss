@@ -11,6 +11,13 @@ $mapDir: (
   l: left,
   r: right,
 );
+$mapHeight: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%,
+  auto: auto,
+);
 /*margin*/
 .m {
   @each $dir, $value in $mapDir {
@@ -46,6 +53,13 @@ $mapDir: (
   @each $size, $var in $map {
     &-#{$size} {
       padding: #{$var};
+    }
+  }
+}
+.h {
+  @each $size, $var in $mapHeight {
+    &-#{$size} {
+      height: #{$var};
     }
   }
 }

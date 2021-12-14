@@ -8,6 +8,7 @@ export const RowStyled = styled.div`
   margin-top: calc(-1 * var(---bs-gutter-y));
   margin-right: calc(-0.5 * var(--bs-gutter-x));
   margin-left: calc(-0.5 * var(--bs-gutter-x));
+  /* height: inherit; */
 
   & > * & {
     box-sizing: border-box;

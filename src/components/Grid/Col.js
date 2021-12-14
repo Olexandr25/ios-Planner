@@ -4,7 +4,7 @@ const Col = props => {
   const { children, variant, className } = props
 
   return (
-    <ColStyled variant={variant} className={className}>
+    <ColStyled data-testid="col" variant={variant} className={className}>
       {children}
     </ColStyled>
   )

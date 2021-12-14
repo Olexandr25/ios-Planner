@@ -14,6 +14,8 @@ const inputSizes = {
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  padding-left: var(--p-md);
+  padding-right: var(--p-md);
 `
 
 export const IconPosition = styled("icon")`
@@ -26,11 +28,11 @@ export const InputIcon = styled.input`
   width: 100%;
   font-size: var(--font-size-x-small);
   line-height: var(--line-height-x-small);
-  background-color: var(--color-gray-default);
+  background-color: var(--color-gray-darken-1);
+  outline: none;
   border-style: none;
   border: var(--b-lg) solid transparent;
   border-radius: var(--border-radius-lg);
-  /* padding: var(--p-md); */
   padding-left: var(--p-xxl);
 
   ${props =>
@@ -41,7 +43,7 @@ export const InputIcon = styled.input`
     `}
 
   &:focus {
-    border: var(--b-lg) solid var(--color-blue-default);
+    border: var(--b-lg) solid var(--color-blue-lighten);
   }
 
   &::-webkit-search-cancel-button {

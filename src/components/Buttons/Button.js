@@ -13,13 +13,14 @@ const Button = props => {
     size,
     borderType,
     borderRadius,
-    fontWeight
+    fontWeight,
   } = props
 
   return (
     <>
       {icon && children ? (
         <ButtonWrapper
+          data-testid="btn"
           type={type}
           color={color}
           isHovered={isHovered}
@@ -35,6 +36,7 @@ const Button = props => {
         </ButtonWrapper>
       ) : (
         <ButtonWrapper
+          data-testid="btn"
           type={type}
           color={color}
           isHovered={isHovered}
@@ -42,8 +44,9 @@ const Button = props => {
           className={className}
           size={size}
           borderType={borderType}
-          borderRadius={borderRadius} 
-          onClick={onClick ? () => onClick() : null} fontWeight={fontWeight}>
+          borderRadius={borderRadius}
+          onClick={onClick ? () => onClick() : null}
+          fontWeight={fontWeight}>
           {icon || children}
         </ButtonWrapper>
       )}

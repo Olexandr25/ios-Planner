@@ -15,8 +15,14 @@ export const IconStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${props => props.bgColor || "var(--color-blue-default)"};
+  background-color: var(--color-blue-default);
   color: var(--color-white);
+
+  ${props =>
+    props.bgColor &&
+    css`
+      background-color: ${props => Colors[props.bgColor]};
+    `}
 
   ${props =>
     props.color &&

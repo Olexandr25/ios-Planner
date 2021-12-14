@@ -11,13 +11,19 @@ const Input = props => {
   const { variant, icon, placeholder, type, className, size } = props
 
   return (
-    <Wrapper>
+    <Wrapper data-testid="inputWrapper">
       {variant === "classic" ? (
-        <ClassicInput type={type} className={className} size={size} />
+        <ClassicInput
+          date-testid="inputClassic"
+          type={type}
+          className={className}
+          size={size}
+        />
       ) : variant === "styled" ? (
         <>
-          <IconPosition>{icon}</IconPosition>
+          <IconPosition data-testid="inputIconPosition" className={className}>{icon}</IconPosition>
           <InputIcon
+            data-testid="inputStyled"
             placeholder={placeholder}
             type={type}
             className={className}
@@ -25,7 +31,12 @@ const Input = props => {
           />
         </>
       ) : variant === "outlined" ? (
-        <OutlinedInput type={type} className={className} size={size} />
+        <OutlinedInput
+          data-testid="outlined"
+          type={type}
+          className={className}
+          size={size}
+        />
       ) : null}
     </Wrapper>
   )

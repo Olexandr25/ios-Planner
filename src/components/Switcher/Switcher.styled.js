@@ -8,10 +8,10 @@ const Colors = {
   secondary: "var(--color-gray-darken-4)",
 }
 
-export const Wrapper = styled.div`
+export const SwitcherWrapper = styled.div`
   padding: var(--p-md);
 `
-export const Body = styled.div`
+export const SwitcherBody = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: var(--border-radius-xl);
@@ -32,8 +32,9 @@ export const Body = styled.div`
   }
 `
 
-export const Header = styled.div`
+export const SwitcherHeader = styled.div`
   display: flex;
+  justify-content: space-between;
   margin-bottom: var(--m-md);
 `
 
