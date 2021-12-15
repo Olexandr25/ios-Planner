@@ -4,10 +4,10 @@ import { PageHeader } from "components"
 const PageLayout = props => {
   return (
     <>
-      {/* src > components > PageLayout > PageLayout.js */}
-
       <Row className="p-zero m-zero">
-        <PageHeader />
+        <Col>
+          <PageHeader />
+        </Col>
       </Row>
       <Row className="p-zero m-zero"> 123 </Row>
     </>

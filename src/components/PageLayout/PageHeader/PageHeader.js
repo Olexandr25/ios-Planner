@@ -12,9 +12,8 @@ import {
 const PageHeader = () => {
   return (
     <>
-      PageHeader
       
-      {/* <Row>
+      <Row>
         <Col>
           <PageHeaderButton data-testid="PageHeaderButton">
             <Button
@@ -35,7 +34,7 @@ const PageHeader = () => {
               
               </PageHeaderTitle>
         </Col>
-      </Row> */}
+      </Row>
     </>
   )
 }
