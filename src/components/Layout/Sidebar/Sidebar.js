@@ -20,7 +20,7 @@ import {
 
 const Sidebar = () => {
   return (
-    <SidebarStyled data-testid="sidebar">
+    <SidebarStyled data-testid="Sidebar">
       {/* Input search */}
       <Input
         variant="styled"

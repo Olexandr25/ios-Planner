@@ -1,10 +1,10 @@
 import { ColStyled } from "./Col.styled"
 
 const Col = props => {
-  const { children, ...rest } = props
+  const { children, variant, ...rest } = props
 
   return (
-    <ColStyled data-testid="col" {...rest}>
+    <ColStyled data-testid="col" variant={variant} {...rest}>
       {children}
     </ColStyled>
   )

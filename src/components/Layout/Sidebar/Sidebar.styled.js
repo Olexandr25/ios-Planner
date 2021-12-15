@@ -4,9 +4,9 @@ export const SidebarStyled = styled.div`
   display: flex;
   flex-direction: column;
   background-color: var(--color-gray-default);
-  height: -webkit-fill-available;
   padding: var(--p-md);
   padding-top: var(--p-xxl);
+  height: 100%;
 `
 
 export const SwitcherContainer = styled.div`

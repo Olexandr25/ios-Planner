@@ -25,11 +25,11 @@ const PageHeader = () => {
         </Col>
       </Row>
       <Row>
-        <Col>
-          <PageHeaderTitle data-testid="PageHeaderTitle">
-            <Title>All</Title>
-            <Title>25</Title>
-          </PageHeaderTitle>
+        <Col className="d-flex justify-content-space-between">
+          {/* <PageHeaderTitle data-testid="PageHeaderTitle"> */}
+          <Title>All</Title>
+          <Title>25</Title>
+          {/* </PageHeaderTitle> */}
         </Col>
       </Row>
     </PageHeaderStyled>

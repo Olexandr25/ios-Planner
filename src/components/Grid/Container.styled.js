@@ -1,31 +1,16 @@
 import styled, { css } from "styled-components"
 
 export const ContainerStyled = styled.div`
-  /* width: 100%; */
-  /* padding-left: 12px; */
-  /* padding-right: 12px; */
-  /* margin-left: auto; */
-  /* margin-right: auto; */
-  height: inherit;
-
-  ${props =>
-    props.variant === "container-fluid" &&
-    css`
-      padding-left: 12px;
-      padding-right: 12px;
-      margin-left: auto;
-      margin-right: auto;
-    `}
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+  /* box-sizing: border-box; */
 
   ${props =>
     props.variant === "container" &&
     css`
-      max-width: 100%;
-      padding-left: 12px;
-      padding-right: 12px;
-      margin-left: auto;
-      margin-right: auto;
-
       @media (min-width: 576px) {
         max-width: 540px;
       }
@@ -50,12 +35,6 @@ export const ContainerStyled = styled.div`
     ${props =>
     props.variant === "container-sm" &&
     css`
-      max-width: 100%;
-      padding-left: 12px;
-      padding-right: 12px;
-      margin-left: auto;
-      margin-right: auto;
-
       @media (min-width: 576px) {
         max-width: 540px;
       }
@@ -80,12 +59,6 @@ export const ContainerStyled = styled.div`
     ${props =>
     props.variant === "container-md" &&
     css`
-      max-width: 100%;
-      padding-left: 12px;
-      padding-right: 12px;
-      margin-left: auto;
-      margin-right: auto;
-
       @media (min-width: 768px) {
         max-width: 720px;
       }
@@ -106,12 +79,6 @@ export const ContainerStyled = styled.div`
     ${props =>
     props.variant === "container-lg" &&
     css`
-      max-width: 100%;
-      padding-left: 12px;
-      padding-right: 12px;
-      margin-left: auto;
-      margin-right: auto;
-
       @media (min-width: 992px) {
         max-width: 960px;
       }
@@ -128,12 +95,6 @@ export const ContainerStyled = styled.div`
     ${props =>
     props.variant === "container-xl" &&
     css`
-      max-width: 100%;
-      padding-left: 12px;
-      padding-right: 12px;
-      margin-left: auto;
-      margin-right: auto;
-
       @media (min-width: 1200px) {
         max-width: 1140px;
       }
@@ -146,12 +107,6 @@ export const ContainerStyled = styled.div`
     ${props =>
     props.variant === "container-xxl" &&
     css`
-      max-width: 100%;
-      padding-left: 12px;
-      padding-right: 12px;
-      margin-left: auto;
-      margin-right: auto;
-
       @media (min-width: 1400px) {
         max-width: 1320px;
       }

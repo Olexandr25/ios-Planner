@@ -4,7 +4,7 @@ import { PageLayoutStyled } from "./PageLayout.styled"
 const PageLayout = props => {
   return (
     <PageLayoutStyled data-testid="PageLayout">
-      <Row className="p-zero m-zero">
+      <Row>
         <Col>
           <PageHeader />
         </Col>
