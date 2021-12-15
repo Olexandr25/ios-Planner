@@ -1,23 +1,20 @@
-import { PageHeader, Row, Col } from "components"
+import { PageHeader, PageContent, Row, Col } from "components"
 import { PageLayoutStyled } from "./PageLayout.styled"
 
 const PageLayout = props => {
   return (
     <PageLayoutStyled data-testid="PageLayout">
-      <Row>
+      <Row className="mb-xl">
         <Col>
           <PageHeader />
         </Col>
       </Row>
-      <Row className="p-zero m-zero"> 123 </Row>
+      <Row className="">
+        <Col>
+          <PageContent />
+        </Col>
+      </Row>
     </PageLayoutStyled>
-
-    // <Container variant="container">
-    //   <Row>
-    //     <Col>{header}</Col>
-    //   </Row>
-    //   {content}
-    // </Container>
   )
 }
 
