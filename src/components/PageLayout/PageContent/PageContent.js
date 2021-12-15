@@ -2,18 +2,14 @@ import { Row, Col, SubHeader, Content } from "components"
 
 const PageContent = () => {
   return (
-    <>
       <Row>
-        <Col>
+        <Col variant={12}>
           <SubHeader />
         </Col>
-      </Row>
-      <Row>
-        <Col>
+        <Col variant={12}>
           <Content />
         </Col>
       </Row>
-    </>
   )
 }
 

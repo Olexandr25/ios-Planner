@@ -1,15 +1,14 @@
-import { Row, Col, Checkbox, Input, Text, Button, Divider } from "components"
+import { Row, Col } from "components"
 import { TaskCombined } from "domains"
 
 const Content = () => {
   return (
-    <>
       <Row>
         <Col>
-          <TaskCombined />
+          <TaskCombined isEditableStr={true} />
+          <TaskCombined isEditableStr={false} />
         </Col>
       </Row>
-    </>
   )
 }
 
