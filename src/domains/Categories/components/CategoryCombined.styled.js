@@ -5,15 +5,17 @@ export const CategoryCombinedStyled = styled.div`
   margin-left: var(--m-lg);
   padding: var(--p-md);
   align-items: center;
+  justify-content: space-between;
 
   &:hover {
     display: flex;
   }
 `
-// export const CCLeft = styled.div`
-//   display: flex;
-// `
 
-// export const CCRight = styled.div`
-//   display: flex;
-// `
+export const CategoryLeft = styled.div`
+  display: flex;
+`
+
+export const CategoryRight = styled.div`
+  display: flex;
+`

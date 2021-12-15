@@ -1,7 +1,11 @@
 // Styled - variables
-import { CategoryCombinedStyled } from "./CategoryCombined.styled"
+import {
+  CategoryCombinedStyled,
+  CategoryLeft,
+  CategoryRight,
+} from "./CategoryCombined.styled"
 // Micro - component
-import { IconModule, Text, Input, Row, Col, Button } from "components"
+import { IconModule, Text, Input, Button } from "components"
 // React - icons
 import { AiOutlineClose, AiOutlineUnorderedList } from "react-icons/ai"
 
@@ -12,35 +16,29 @@ const CategoryCombined = props => {
     <CategoryCombinedStyled
       data-testid="CategoryCombinedStyled"
       className={className}>
-      <Row>
-        <Col variant={1}>
-          <IconModule>
-            <AiOutlineUnorderedList />
-          </IconModule>
-        </Col>
-        <Col variant={8}>
-          {isEditableStr ? (
-            <Input variant="classic" className="ml-lg" />
-          ) : (
-            <Text size="xsm" className="ml-lg">
-              New List
+        <CategoryLeft>
+            <IconModule>
+              <AiOutlineUnorderedList />
+            </IconModule>
+            {isEditableStr ? (
+              <Input variant="classic" className="ml-lg" />
+            ) : (
+              <Text size="xsm" className="ml-lg">
+                New List
+              </Text>
+            )}
+        </CategoryLeft>
+        <CategoryRight>
+            <Text size="xsm" color="secondary" fontWeight="regular">
+              {length}
             </Text>
-          )}
-        </Col>
-        <Col variant={1} className="ml-xl">
-          <Text size="xsm" color="secondary" fontWeight="regular">
-            {length}
-          </Text>
-        </Col>
-        <Col variant={1}>
-          <Button
-            size="xxsm"
-            borderType="none"
-            icon={<AiOutlineClose />}
-            color="secondary"
-          />
-        </Col>
-      </Row>
+            <Button
+              size="xxsm"
+              borderType="none"
+              icon={<AiOutlineClose />}
+              color="secondary"
+            />
+        </CategoryRight>
     </CategoryCombinedStyled>
   )
 }

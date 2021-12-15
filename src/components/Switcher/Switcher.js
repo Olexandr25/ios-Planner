@@ -3,8 +3,7 @@ import {
   SwitcherBody,
   SwitcherHeader,
 } from "./Switcher.styled"
-import { IconModule } from "components/IconModule"
-import { Text } from "components/Text"
+import { IconModule, Text, Row, Col } from "components"
 
 const Switcher = props => {
   const { icon, length, color, colorIcon, bgColor, bgColorIcon, children } =
@@ -12,17 +11,24 @@ const Switcher = props => {
 
   return (
     <SwitcherWrapper data-testid="SwitcherWrapper">
-      <SwitcherBody data-testid="SwitcherBody" bgColor={bgColor} color={color}>
-        <SwitcherHeader data-testid="SwitcherHeader">
+      {/* <Row> */}
+        <SwitcherBody
+          data-testid="SwitcherBody"
+          bgColor={bgColor}
+          color={color}>
+          <SwitcherHeader data-testid="SwitcherHeader">
+          {/* <Col className="d-flex justify-content-space-between"> */}
             <IconModule bgColor={bgColorIcon} color={colorIcon}>
               {icon}
             </IconModule>
             <Text size="md" fontWeight="semibold">
               {length}
             </Text>
-        </SwitcherHeader>
-        {children}
-      </SwitcherBody>
+          {/* </Col> */}
+          </SwitcherHeader>
+          {children}
+        </SwitcherBody>
+      {/* </Row> */}
     </SwitcherWrapper>
   )
 }
