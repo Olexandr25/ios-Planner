@@ -14,6 +14,7 @@ const Button = props => {
     borderType,
     borderRadius,
     fontWeight,
+    flagged
   } = props
 
   return (
@@ -28,7 +29,8 @@ const Button = props => {
         borderType={borderType}
         borderRadius={borderRadius}
         onClick={onClick}
-        fontWeight={fontWeight}>
+        fontWeight={fontWeight}
+        flagged={flagged}>
         {icon && children ? (
           <>
             <ButtonIconWrapper>{icon}</ButtonIconWrapper>

@@ -10,7 +10,7 @@ import { AiOutlineClose } from "react-icons/ai"
 import { BsFillFlagFill } from "react-icons/bs"
 
 const TaskCombined = props => {
-  const { isEditableStr } = props
+  const { isEditableStr, flagged } = props
 
   return (
     <TaskCombinedStyled data-testid="TaskCombinedStyled">
@@ -22,7 +22,7 @@ const TaskCombined = props => {
           {isEditableStr ? (
             <>
               <Input type="text" variant="outlined" size="sm" />
-              <Input type="text" variant="outlined" size="xxsm" />
+              <Input type="text" variant="outlined" size="xxsm" color="gray" />
             </>
           ) : (
             <>
@@ -37,12 +37,14 @@ const TaskCombined = props => {
             borderType="none"
             type="button"
             size="xxsm"
+            color="gray"
             icon={<AiOutlineClose />}
           />
           <Button
             borderType="none"
             type="button"
             size="xxsm"
+            flagged={flagged}
             icon={<BsFillFlagFill />}
           />
         </TaskCombinedButtonWrapper>

@@ -1,14 +1,46 @@
 import styled, { css } from "styled-components"
 
+const Colors = {
+  blue: "var(--color-blue-default)",
+  red: "var(--color-red)",
+  orange: "var(--color-orange)",
+  gray: "var(--color-gray-darken-5)",
+  secondary: "var(--color-gray-darken-4)",
+}
+
 const inputSizes = {
-  xxsm: {lineHeight: "var(--line-height-xx-small)", fontSize: "var(--font-size-xx-small)"},
-  xsm: {lineHeight: "var(--line-height-x-small)", fontSize: "var(--font-size-x-small)"},
-  sm: {lineHeight: "var(--line-height-small)", fontSize: "var(--font-size-small)"},
-  md: {lineHeight: "var(--line-height-medium)", fontSize: "var(--font-size-medium)"},
-  lg: {lineHeight: "var(--line-height-large)", fontSize: "var(--font-size-large)"},
-  xl: {lineHeight: "var(--line-height-x-large)", fontSize: "var(--font-size-x-large)"},
-  xxl: {lineHeight: "var(--line-height-xx-large)", fontSize: "var(--font-size-xx-large)"},
-  xxxl: {lineHeight: "var(--line-height-xxx-large)", fontSize: "var(--font-size-xxx-large)"},
+  xxsm: {
+    lineHeight: "var(--line-height-xx-small)",
+    fontSize: "var(--font-size-xx-small)",
+  },
+  xsm: {
+    lineHeight: "var(--line-height-x-small)",
+    fontSize: "var(--font-size-x-small)",
+  },
+  sm: {
+    lineHeight: "var(--line-height-small)",
+    fontSize: "var(--font-size-small)",
+  },
+  md: {
+    lineHeight: "var(--line-height-medium)",
+    fontSize: "var(--font-size-medium)",
+  },
+  lg: {
+    lineHeight: "var(--line-height-large)",
+    fontSize: "var(--font-size-large)",
+  },
+  xl: {
+    lineHeight: "var(--line-height-x-large)",
+    fontSize: "var(--font-size-x-large)",
+  },
+  xxl: {
+    lineHeight: "var(--line-height-xx-large)",
+    fontSize: "var(--font-size-xx-large)",
+  },
+  xxxl: {
+    lineHeight: "var(--line-height-xxx-large)",
+    fontSize: "var(--font-size-xxx-large)",
+  },
 }
 
 export const Wrapper = styled.div`
@@ -76,4 +108,8 @@ export const OutlinedInput = styled.input`
       font-size: ${props => inputSizes[props.size].fontSize};
       line-height: ${props => inputSizes[props.size].lineHeight};
     `}
+
+  ${props => props.color && css`
+    color: ${props => Colors[props.color]}
+  `}
 `

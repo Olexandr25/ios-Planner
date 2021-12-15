@@ -56,7 +56,7 @@ const borderRadiuses = {
   xl: "var(--border-radius-xl)",
   xxl: "var(--border-radius-xxl)",
   round: "var(--border-radius-round)",
-  special: "4px"
+  special: "4px",
 }
 
 export const ButtonWrapper = styled.button`
@@ -68,6 +68,8 @@ export const ButtonWrapper = styled.button`
   font-size: var(--font-size-medium);
   line-height: var(--line-height-medium);
   /* border-radius: 4px; */
+  color: ${props =>
+    props.flagged ? "var(--color-orange)" : "var(--color-gray-darken-5)"};
 
   ${props =>
     props.color &&
@@ -99,6 +101,9 @@ export const ButtonWrapper = styled.button`
     css`
       border: none;
     `}
+
+
+      
 
   &:hover {
     background-color: ${props =>

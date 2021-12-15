@@ -6,10 +6,6 @@ export const CategoryCombinedStyled = styled.div`
   padding: var(--p-md);
   align-items: center;
   justify-content: space-between;
-
-  &:hover {
-    display: flex;
-  }
 `
 
 export const CategoryLeft = styled.div`
