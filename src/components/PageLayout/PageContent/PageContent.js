@@ -1,7 +1,9 @@
 import { Row, Col, SubHeader, Content } from "components"
+import { PageContentStyled } from "./PageContent.styled"
 
 const PageContent = () => {
   return (
+    <PageContentStyled data-testid="PageContentStyled">
       <Row>
         <Col variant={12}>
           <SubHeader />
@@ -10,6 +12,7 @@ const PageContent = () => {
           <Content />
         </Col>
       </Row>
+    </PageContentStyled>
   )
 }
 

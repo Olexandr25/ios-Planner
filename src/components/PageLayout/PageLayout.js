@@ -5,12 +5,10 @@ const PageLayout = props => {
   return (
     <PageLayoutStyled data-testid="PageLayout">
       <Row className="mb-xl">
-        <Col>
+        <Col variant={12}>
           <PageHeader />
         </Col>
-      </Row>
-      <Row className="">
-        <Col>
+        <Col variant={12}>
           <PageContent />
         </Col>
       </Row>

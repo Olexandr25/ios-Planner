@@ -69,7 +69,7 @@ export const ButtonWrapper = styled.button`
   line-height: var(--line-height-medium);
   /* border-radius: 4px; */
   color: ${props =>
-    props.flagged ? "var(--color-orange)" : "var(--color-gray-darken-5)"};
+    props.flagged ? "var(--color-orange)" : "var(--color-gray-darken-3)"};
 
   ${props =>
     props.color &&
