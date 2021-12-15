@@ -35,6 +35,7 @@ const Input = props => {
           type={type}
           className={className}
           size={size}
+          placeholder="Task`s placeholder"
         />
       ) : null}
     </Wrapper>

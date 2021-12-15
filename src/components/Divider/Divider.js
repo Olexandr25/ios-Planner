@@ -1,7 +1,7 @@
 import { DividerStyled } from "./Divider.styled"
 
-const Divider = () => {
-  return <DividerStyled data-testid="divider"/>
+const Divider = ({ children }) => {
+  return <DividerStyled data-testid="divider">{children}</DividerStyled>
 }
 
 export default Divider

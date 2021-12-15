@@ -4,6 +4,7 @@ const Colors = {
   blue: "var(--color-blue)",
   red: "var(--color-red)",
   orange: "var(--color-orange)",
+  lightBlue: "var(--color-blue-lighten)"
 }
 
 const Sizes = {

@@ -16,6 +16,8 @@ const PageHeader = () => {
           <PageHeaderButton data-testid="PageHeaderButton">
             <Button
               icon={<AiOutlinePlus />}
+              borderRadius="lg"
+              color="secondary"
               borderType="none"
               isHovered={true}
               isActive={true}

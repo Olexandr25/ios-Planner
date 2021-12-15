@@ -6,8 +6,8 @@ const Layout = props => {
   return (
     <Container>
       <Row className="h-inherit">
-        <Col variant={4} className="p-zero">{aside}</Col>
-        <Col variant={8}>{content}</Col>
+        <Col variant={3} className="p-zero">{aside}</Col>
+        <Col variant={9}>{content}</Col>
       </Row>
     </Container>
   )
