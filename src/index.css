@@ -25,10 +25,3 @@ body,
 * {
   box-sizing: border-box;
 }
-
-/* html,
-body,
-#root,
-#root > div {
-  height: 100%;
-} */

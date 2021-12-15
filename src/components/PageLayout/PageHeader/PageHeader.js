@@ -6,7 +6,6 @@ import { AiOutlinePlus } from "react-icons/ai"
 import {
   PageHeaderButton,
   PageHeaderStyled,
-  PageHeaderTitle,
 } from "./PageHeader.styled"
 
 const PageHeader = () => {
@@ -26,10 +25,8 @@ const PageHeader = () => {
       </Row>
       <Row>
         <Col className="d-flex justify-content-space-between">
-          {/* <PageHeaderTitle data-testid="PageHeaderTitle"> */}
           <Title>All</Title>
           <Title>25</Title>
-          {/* </PageHeaderTitle> */}
         </Col>
       </Row>
     </PageHeaderStyled>
