@@ -1,11 +1,4 @@
-import {
-  PageLayout,
-  PageHeader,
-  PageContent,
-  Container,
-  Row,
-  Col,
-} from "components"
+import { PageLayout, Container } from "components"
 import { TasksAllStyled } from "./TasksAll.styled"
 
 const TasksAll = () => {
@@ -13,15 +6,22 @@ const TasksAll = () => {
 
   return (
     <>
-      <TasksAllStyled data-testid="TasksAll">
-        {/* <Container variant="container-fluid"> */}
-        <Row className="p-zero m-zero">
-          <Col>
-            <PageHeader />
-          </Col>
-        </Row>
-        {/* </Container> */}
-      </TasksAllStyled>
+      <Container variant="container-fluid">
+        <TasksAllStyled>
+          <PageLayout />
+        </TasksAllStyled>
+      </Container>
+
+      {/* <TasksAllStyled data-testid="TasksAll">
+      <Row className="p-zero m-zero">
+        <Col>
+          <PageHeader />
+        </Col>
+      </Row>
+      <Row className="p-zero m-zero">
+        <PageContent />
+      </Row>
+    </TasksAllStyled> */}
     </>
   )
 }

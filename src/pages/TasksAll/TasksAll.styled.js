@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const TasksAllStyled = styled.div`
-    display: flex;
+  display: flex;
+  flex-direction: column;
 `
