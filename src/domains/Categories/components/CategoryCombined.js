@@ -14,9 +14,9 @@ const CategoryCombined = props => {
 
   return (
     <CategoryCombinedStyled
-      data-testid="CategoryCombinedStyled"
+      data-testid="CategoryCombined"
       className={className}>
-        <CategoryLeft>
+        <CategoryLeft data-testid="CategoryLeft">
             <IconModule>
               <AiOutlineUnorderedList />
             </IconModule>
@@ -28,7 +28,7 @@ const CategoryCombined = props => {
               </Text>
             )}
         </CategoryLeft>
-        <CategoryRight>
+        <CategoryRight data-testid="CategoryRight">
             <Text size="xsm" color="secondary" fontWeight="regular">
               {length}
             </Text>
