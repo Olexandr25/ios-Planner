@@ -11,7 +11,6 @@ const Layout = props => {
         </Col>
         <Col xs={5} sm={7} md={8} lg={9}>
           {content}
-          Content
         </Col>
       </Row>
     </Container>
