@@ -1,16 +1,16 @@
-import { Container, Row, Col } from "components"
-import { PageHeader } from "components"
+import { PageHeader, Row, Col } from "components"
+import { PageLayoutStyled } from "./PageLayout.styled"
 
 const PageLayout = props => {
   return (
-    <>
+    <PageLayoutStyled data-testid="PageLayout">
       <Row className="p-zero m-zero">
         <Col>
           <PageHeader />
         </Col>
       </Row>
       <Row className="p-zero m-zero"> 123 </Row>
-    </>
+    </PageLayoutStyled>
 
     // <Container variant="container">
     //   <Row>

@@ -1,5 +1,5 @@
 // Micro - components
-import { Container, Row, Col, Button } from "components"
+import { Row, Col, Button, Title } from "components"
 // Icons
 import { AiOutlinePlus } from "react-icons/ai"
 // Styled components
@@ -11,8 +11,7 @@ import {
 
 const PageHeader = () => {
   return (
-    <>
-      
+    <PageHeaderStyled data-testid="PageHeader">
       <Row>
         <Col>
           <PageHeaderButton data-testid="PageHeaderButton">
@@ -27,15 +26,13 @@ const PageHeader = () => {
       </Row>
       <Row>
         <Col>
-          <PageHeaderTitle>
-              All 
-              
-              25
-              
-              </PageHeaderTitle>
+          <PageHeaderTitle data-testid="PageHeaderTitle">
+            <Title>All</Title>
+            <Title>25</Title>
+          </PageHeaderTitle>
         </Col>
       </Row>
-    </>
+    </PageHeaderStyled>
   )
 }
 

@@ -7,7 +7,7 @@ const TasksAll = () => {
   return (
     <>
       <Container variant="container-fluid">
-        <TasksAllStyled>
+        <TasksAllStyled data-testid="TasksAll">
           <PageLayout />
         </TasksAllStyled>
       </Container>
