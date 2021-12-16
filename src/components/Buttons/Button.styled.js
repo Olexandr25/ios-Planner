@@ -6,6 +6,7 @@ const Colors = {
   orange: "var(--color-orange)",
   gray: "var(--color-gray-darken-5)",
   secondary: "var(--color-gray-darken-4)",
+  black: "var(--color-black)"
 }
 
 const btnSizes = {

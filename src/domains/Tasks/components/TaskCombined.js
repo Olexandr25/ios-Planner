@@ -14,7 +14,7 @@ const TaskCombined = props => {
 
   return (
     <TaskCombinedStyled data-testid="TaskCombinedStyled">
-      <TaskCombinedLeft data-testid="TaskCombinedLeft">
+      <TaskCombinedLeft data-testid="TaskCombinedLeft" className="mr-lg">
         <Checkbox bgColor="lightBlue" />
       </TaskCombinedLeft>
       <TaskCombinedRight data-testid="TaskCombinedRight">

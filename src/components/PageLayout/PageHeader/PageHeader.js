@@ -1,5 +1,5 @@
 // Micro - components
-import { Row, Col, Button, Title } from "components"
+import { Row, Col, Button, Title, Completed } from "components"
 // Icons
 import { AiOutlinePlus } from "react-icons/ai"
 // Styled components
@@ -22,11 +22,15 @@ const PageHeader = () => {
             />
           </PageHeaderButton>
         </Col>
-        <Col variant={12} className="d-flex justify-content-space-between">
+        <Col
+          variant={12}
+          className="d-flex justify-content-space-between mb-lg">
           <Title>All</Title>
           <Title>25</Title>
         </Col>
-        <Col variant={12}>fd</Col>
+        <Col variant={12}>
+          <Completed length={0} color="black" />
+        </Col>
       </Row>
     </PageHeaderStyled>
   )
