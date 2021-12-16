@@ -1,10 +1,9 @@
 import "./styles/styles.css"
-import { Layout } from "components/Layout"
-import { Sidebar } from "components/Layout/Sidebar"
+import { AppLayout, Sidebar } from "components"
 import { TasksAll } from "pages/TasksAll/"
 
 function App() {
-  return <Layout aside={<Sidebar />} content={<TasksAll />} />
+  return <AppLayout aside={<Sidebar />} content={<TasksAll />} />
 }
 
 export default App

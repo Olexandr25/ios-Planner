@@ -9,7 +9,7 @@ const PageHeader = () => {
   return (
     <PageHeaderStyled data-testid="PageHeader">
       <Row>
-        <Col>
+        <Col variant={12}>
           <PageHeaderButton data-testid="PageHeaderButton">
             <Button
               type="button"
@@ -22,12 +22,11 @@ const PageHeader = () => {
             />
           </PageHeaderButton>
         </Col>
-      </Row>
-      <Row>
-        <Col className="d-flex justify-content-space-between">
+        <Col variant={12} className="d-flex justify-content-space-between">
           <Title>All</Title>
           <Title>25</Title>
         </Col>
+        <Col variant={12}>fd</Col>
       </Row>
     </PageHeaderStyled>
   )

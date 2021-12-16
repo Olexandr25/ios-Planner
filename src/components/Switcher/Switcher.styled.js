@@ -37,4 +37,3 @@ export const SwitcherHeader = styled.div`
   justify-content: space-between;
   margin-bottom: var(--m-md);
 `
-
