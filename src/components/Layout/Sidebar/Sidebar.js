@@ -1,7 +1,7 @@
 // Styled variables
 import { SidebarStyled, ButtonContainer } from "./Sidebar.styled"
 // Micro - components
-import { Input, Container, Row, Col, Switcher, Text, Button } from "components"
+import { Input, Row, Col, Switcher, Text, Button } from "components"
 // Domain - component
 import { CategoryCombined } from "domains/Categories/components"
 // Icons
@@ -32,14 +32,11 @@ const Sidebar = () => {
             Today
           </Switcher>
         </Col>
-
         <Col className="p-zero">
           <Switcher icon={<BsCalendar3 />} length={4} bgColorIcon="red">
             Scheduled
           </Switcher>
         </Col>
-      </Row>
-      <Row className="m-zero">
         <Col className="p-zero">
           <Switcher icon={<BsFillInboxFill />} length={8} bgColorIcon="gray">
             All
