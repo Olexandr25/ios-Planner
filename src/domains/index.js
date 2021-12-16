@@ -1,2 +1,2 @@
-export { default as TaskCombined } from "./Tasks/components/TaskCombined"
-export { default as CategoriCombined } from "./Categories/components/CategoryCombined"
+export { TaskCombined } from "./Tasks/components"
+export { CategoryCombined } from "./Categories/components"
