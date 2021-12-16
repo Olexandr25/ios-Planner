@@ -1,5 +1,6 @@
 export { default as Button } from "./Buttons/Button"
 export { default as Checkbox } from "./Checkbox/Checkbox"
+export { default as Divider } from "./Divider/Divider"
 export { default as Col } from "./Grid/Col"
 export { default as Row } from "./Grid/Row"
 export { default as Container } from "./Grid/Container"

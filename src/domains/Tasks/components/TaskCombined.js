@@ -1,4 +1,4 @@
-import { Checkbox, Input, Text, Button } from "components"
+import { Checkbox, Input, Text, Button, Divider } from "components"
 import {
   TaskCombinedStyled,
   TaskCombinedLeft,
@@ -18,36 +18,45 @@ const TaskCombined = props => {
         <Checkbox bgColor="lightBlue" />
       </TaskCombinedLeft>
       <TaskCombinedRight data-testid="TaskCombinedRight">
-        <TaskCombinedInputWrapper data-testid="TaskCombinedInputWrapper">
-          {isEditableStr ? (
-            <>
-              <Input type="text" variant="outlined" size="sm" />
-              <Input type="text" variant="outlined" size="xxsm" color="gray" />
-            </>
-          ) : (
-            <>
-              <Text>Text</Text>
-              <Text size="xxsm" color="gray" >Text</Text>
-            </>
-          )}
-        </TaskCombinedInputWrapper>
+        <Divider>
+          <TaskCombinedInputWrapper data-testid="TaskCombinedInputWrapper">
+            {isEditableStr ? (
+              <>
+                <Input type="text" variant="outlined" size="sm" />
+                <Input
+                  type="text"
+                  variant="outlined"
+                  size="xxsm"
+                  color="gray"
+                />
+              </>
+            ) : (
+              <>
+                <Text>Text</Text>
+                <Text size="xxsm" color="gray">
+                  Text
+                </Text>
+              </>
+            )}
+          </TaskCombinedInputWrapper>
 
-        <TaskCombinedButtonWrapper data-testid="TaskCombinedButtonWrapper">
-          <Button
-            borderType="none"
-            type="button"
-            size="xxsm"
-            color="gray"
-            icon={<AiOutlineClose />}
-          />
-          <Button
-            borderType="none"
-            type="button"
-            size="xxsm"
-            flagged={flagged}
-            icon={<BsFillFlagFill />}
-          />
-        </TaskCombinedButtonWrapper>
+          <TaskCombinedButtonWrapper data-testid="TaskCombinedButtonWrapper">
+            <Button
+              borderType="none"
+              type="button"
+              size="xxsm"
+              color="gray"
+              icon={<AiOutlineClose />}
+            />
+            <Button
+              borderType="none"
+              type="button"
+              size="xxsm"
+              flagged={flagged}
+              icon={<BsFillFlagFill />}
+            />
+          </TaskCombinedButtonWrapper>
+        </Divider>
       </TaskCombinedRight>
     </TaskCombinedStyled>
   )

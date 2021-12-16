@@ -14,8 +14,8 @@ export const TaskCombinedLeft = styled.div`
 export const TaskCombinedRight = styled.div`
   width: inherit;
   display: flex;
-  border-bottom: 1px solid gray;
-  margin-left: 8px;
+  /* border-bottom: 1px solid gray; */
+  /* margin-left: 8px; */
 `
 export const TaskCombinedInputWrapper = styled.div`
   width: inherit;
