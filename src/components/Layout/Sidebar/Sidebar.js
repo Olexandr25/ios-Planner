@@ -64,11 +64,9 @@ const Sidebar = () => {
           <CategoryCombined isEditableStr={false} length={2} />
         </Col>
       </Row>
-      {/* <CategoryCombined isEditableStr={true} length={15} />
-      <CategoryCombined isEditableStr={false} length={2} />
-      <CategoryCombined /> */}
       <ButtonContainer>
         <Button
+          type="button"
           icon={<BsPlusCircle />}
           size="xxsm"
           borderType="none"

@@ -3,28 +3,26 @@ import {
   SwitcherBody,
   SwitcherHeader,
 } from "./Switcher.styled"
-import { IconModule, Text } from "components"
+import { IconModule, Title } from "components"
 
 const Switcher = props => {
   const { icon, length, color, colorIcon, bgColor, bgColorIcon, children } =
     props
 
   return (
-    <>
-      <SwitcherWrapper data-testid="SwitcherWrapper">
+    <SwitcherWrapper data-testid="SwitcherWrapper">
       <SwitcherBody data-testid="SwitcherBody" bgColor={bgColor} color={color}>
         <SwitcherHeader data-testid="SwitcherHeader">
           <IconModule bgColor={bgColorIcon} color={colorIcon}>
             {icon}
           </IconModule>
-          <Text size="md" fontWeight="semibold">
+          <Title level={4}>
             {length}
-          </Text>
+          </Title>
         </SwitcherHeader>
-        {children}
+        <Title level={4}>{children}</Title>
       </SwitcherBody>
-      </SwitcherWrapper>
-    </>
+    </SwitcherWrapper>
   )
 }
 

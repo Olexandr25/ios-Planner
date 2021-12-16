@@ -3,10 +3,7 @@ import { Row, Col, Button, Title } from "components"
 // Icons
 import { AiOutlinePlus } from "react-icons/ai"
 // Styled components
-import {
-  PageHeaderButton,
-  PageHeaderStyled,
-} from "./PageHeader.styled"
+import { PageHeaderButton, PageHeaderStyled } from "./PageHeader.styled"
 
 const PageHeader = () => {
   return (
@@ -15,6 +12,7 @@ const PageHeader = () => {
         <Col>
           <PageHeaderButton data-testid="PageHeaderButton">
             <Button
+              type="button"
               icon={<AiOutlinePlus />}
               borderRadius="lg"
               color="secondary"
