@@ -6,7 +6,6 @@ export const ContainerStyled = styled.div`
   padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
   margin-left: auto;
-  /* box-sizing: border-box; */
 
   ${props =>
     props.variant === "container" &&
