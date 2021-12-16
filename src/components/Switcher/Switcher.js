@@ -20,7 +20,7 @@ const Switcher = props => {
             {length}
           </Title>
         </SwitcherHeader>
-        <Title level={4}>{children}</Title>
+        <Title level={5}>{children}</Title>
       </SwitcherBody>
     </SwitcherWrapper>
   )

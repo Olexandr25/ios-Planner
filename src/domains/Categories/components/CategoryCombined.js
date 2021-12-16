@@ -11,9 +11,10 @@ import { AiOutlineClose, AiOutlineUnorderedList } from "react-icons/ai"
 
 const CategoryCombined = props => {
   const { className, isEditableStr, length } = props
+  
 
   return (
-    <CategoryCombinedStyled data-testid="CategoryCombinedStyled" className={className}>
+    <CategoryCombinedStyled data-testid="CategoryCombinedStyled" tabIndex={1} className={className}>
       <CategoryLeft data-testid="CategoryLeft">
         <IconModule className="mr-lg">
           <AiOutlineUnorderedList />
@@ -25,7 +26,7 @@ const CategoryCombined = props => {
         )}
       </CategoryLeft>
       <CategoryRight data-testid="CategoryRight">
-        <Text size="xsm" color="secondary" fontWeight="regular">
+        <Text size="xsm" color="gray" fontWeight="regular">
           {length}
         </Text>
         <Button
@@ -33,7 +34,7 @@ const CategoryCombined = props => {
           size="xxsm"
           borderType="none"
           icon={<AiOutlineClose />}
-          color="secondary"
+          color="gray"
         />
       </CategoryRight>
     </CategoryCombinedStyled>

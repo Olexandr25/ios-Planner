@@ -5,8 +5,12 @@ export const CategoryCombinedStyled = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding-left: var(--p-md);
-  margin-bottom: var(--m-md);
+  padding: var(--p-lg) var(--p-md);
+
+  &:focus {
+    border-radius: 4px;
+    background-color: var(--color-blue-lighten);
+  }
 `
 
 export const CategoryLeft = styled.div`

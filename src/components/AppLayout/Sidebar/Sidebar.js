@@ -3,7 +3,7 @@ import { SidebarStyled, ButtonContainer } from "./Sidebar.styled"
 // Micro - components
 import { Input, Row, Col, Switcher, Text, Button } from "components"
 // Domain - component
-import { CategoryCombined } from "domains/Categories/components"
+import { CategoryCombined } from "domains"
 // Icons
 import { AiOutlineSearch } from "react-icons/ai"
 import {
@@ -13,8 +13,13 @@ import {
   BsFillFlagFill,
   BsPlusCircle,
 } from "react-icons/bs"
+// Context
+import { useStore } from "contexts"
 
 const Sidebar = () => {
+  const { store, addRecord } = useStore()
+  // const
+
   return (
     <Row className="h-inherit">
       <SidebarStyled data-testid="Sidebar">
@@ -29,7 +34,7 @@ const Sidebar = () => {
           />
         </Col>
         {/* Switcher */}
-        <Col variant={12} >
+        <Col variant={12}>
           <Row className="m-zero">
             <Col className="p-zero">
               <Switcher icon={<BsCalendarDate />} length={4}>
@@ -70,6 +75,7 @@ const Sidebar = () => {
             My Lists
           </Text>
         </Col>
+        {/* List of Categories */}
         <Col variant={12}>
           <CategoryCombined isEditableStr={true} length={15} />
           <CategoryCombined isEditableStr={false} length={2} />
@@ -77,6 +83,7 @@ const Sidebar = () => {
         <Col variant={12}>
           <ButtonContainer>
             <Button
+              onClick={() => addRecord()}
               type="button"
               icon={<BsPlusCircle />}
               size="xxsm"

@@ -4,8 +4,11 @@ import { Row, Col, Button, Title, Completed } from "components"
 import { AiOutlinePlus } from "react-icons/ai"
 // Styled components
 import { PageHeaderButton, PageHeaderStyled } from "./PageHeader.styled"
+// context
+// import { useStore } from "contexts"
 
 const PageHeader = () => {
+
   return (
     <PageHeaderStyled data-testid="PageHeader">
       <Row>
