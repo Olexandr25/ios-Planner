@@ -1,10 +1,7 @@
 // Styled variables
-import {
-  SidebarStyled,
-  ButtonContainer,
-} from "./Sidebar.styled"
+import { SidebarStyled, ButtonContainer } from "./Sidebar.styled"
 // Micro - components
-import { Input, Row, Col, Switcher, Text, Button } from "components"
+import { Input, Container, Row, Col, Switcher, Text, Button } from "components"
 // Domain - component
 import { CategoryCombined } from "domains/Categories/components"
 // Icons
@@ -61,9 +58,15 @@ const Sidebar = () => {
         className="ml-xl">
         My Lists
       </Text>
-      <CategoryCombined isEditableStr={true} length={15} />
+      <Row>
+        <Col>
+          <CategoryCombined isEditableStr={true} length={15} />
+          <CategoryCombined isEditableStr={false} length={2} />
+        </Col>
+      </Row>
+      {/* <CategoryCombined isEditableStr={true} length={15} />
       <CategoryCombined isEditableStr={false} length={2} />
-      <CategoryCombined />
+      <CategoryCombined /> */}
       <ButtonContainer>
         <Button
           icon={<BsPlusCircle />}

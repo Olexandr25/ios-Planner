@@ -14,16 +14,39 @@ const CategoryCombined = props => {
 
   return (
     <>
-      {/* <div>
-        <div>
-          <IconModule>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          width: "inherit",
+          justifyContent: "space-between",
+          paddingLeft: "4px",
+          marginBottom: "4px"
+        }}>
+        <div style={{ display: "flex", width: "inherit" }}>
+          <IconModule className="mr-lg">
             <AiOutlineUnorderedList />
           </IconModule>
+          {isEditableStr ? (
+            <Input variant="classic" />
+          ) : (
+            <Text size="xsm">New List</Text>
+          )}
         </div>
-        <div></div>
-      </div> */}
+        <div style={{ display: "flex" }}>
+          <Text size="xsm" color="secondary" fontWeight="regular">
+            {length}
+          </Text>
+          <Button
+            size="xxsm"
+            borderType="none"
+            icon={<AiOutlineClose />}
+            color="secondary"
+          />
+        </div>
+      </div>
 
-      <CategoryCombinedStyled
+      {/* <CategoryCombinedStyled
         data-testid="CategoryCombined"
         className={className}>
         <CategoryLeft data-testid="CategoryLeft">
@@ -49,7 +72,7 @@ const CategoryCombined = props => {
             color="secondary"
           />
         </CategoryRight>
-      </CategoryCombinedStyled>
+      </CategoryCombinedStyled> */}
     </>
   )
 }

@@ -10,13 +10,14 @@ const Colors = {
 
 export const IconStyled = styled.div`
   border-radius: var(--border-radius-round);
-  width: 24px;
-  height: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--color-blue-default);
   color: var(--color-white);
+  font-size: var(--font-size-x-small);
+  padding: var(--p-md);
+  max-height: 22px;
 
   ${props =>
     props.bgColor &&
