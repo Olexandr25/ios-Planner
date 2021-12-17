@@ -48,7 +48,7 @@ export const Wrapper = styled.div`
   align-items: center;
 `
 
-export const IconPosition = styled("icon")`
+export const IconPosition = styled.div`
   position: absolute;
   padding-left: var(--p-lg);
   padding-top: var(--p-sm);
