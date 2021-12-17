@@ -18,7 +18,11 @@ import { useStore } from "contexts"
 
 const Sidebar = () => {
   const { store, addRecord } = useStore()
-  // const
+  let idCategory = 0
+  const addCategory = () => {
+    console.log(store)
+    addRecord({ id: idCategory++, text: "New List" })
+  }
 
   return (
     <Row className="h-inherit">
@@ -83,7 +87,7 @@ const Sidebar = () => {
         <Col variant={12}>
           <ButtonContainer>
             <Button
-              onClick={() => addRecord()}
+              onClick={() => addCategory()}
               type="button"
               icon={<BsPlusCircle />}
               size="xxsm"

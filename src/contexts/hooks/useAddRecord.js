@@ -1,7 +1,7 @@
 const useAddRecord = dispatch => {
-  const addRecord = ({ id, text }) => {
+  const addRecord = ({id, text}) => {
     console.log(`id: ${id}`)
-    console.log(`task: ${text}`)
+    console.log(`text: ${text}`)
     console.log("useAddRecord > addRecord")
   }
 
