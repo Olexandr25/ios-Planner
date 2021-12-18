@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const CategoryCombinedStyled = styled.div`
+export const CategoryCombinedStyled = styled.form`
   width: inherit;
   display: flex;
   align-items: flex-start;
@@ -8,7 +8,7 @@ export const CategoryCombinedStyled = styled.div`
   padding: var(--p-lg) var(--p-md);
 
   &:focus {
-    border-radius: 4px;
+    border-radius: var(--border-radius-md);
     background-color: var(--color-blue-lighten);
   }
 `

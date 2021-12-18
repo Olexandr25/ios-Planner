@@ -1,8 +1,10 @@
 const useAddRecord = dispatch => {
-  const addRecord = ({id, text}) => {
-    console.log(`id: ${id}`)
-    console.log(`text: ${text}`)
-    console.log("useAddRecord > addRecord")
+  const addRecord = data => {
+    const payload = data
+    dispatch({
+      type: "addRecord",
+      payload,
+    })
   }
 
   return addRecord

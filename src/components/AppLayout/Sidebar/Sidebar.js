@@ -17,11 +17,14 @@ import {
 import { useStore } from "contexts"
 
 const Sidebar = () => {
-  const { store, addRecord } = useStore()
-  let idCategory = 0
+  // const [state, setState] = useState(false)
+  const { store, addRecord, editStr } = useStore()
+
+  function getRandomInt() {
+    return Math.floor(Math.random() * 100)
+  }
   const addCategory = () => {
-    console.log(store)
-    addRecord({ id: idCategory++, text: "New List" })
+    addRecord({ id: getRandomInt(), text: "New List", tasks: [] })
   }
 
   return (
@@ -81,14 +84,24 @@ const Sidebar = () => {
         </Col>
         {/* List of Categories */}
         <Col variant={12}>
-          <CategoryCombined isEditableStr={true} length={15} />
-          <CategoryCombined isEditableStr={false} length={2} />
+          {store.map(category => {
+            return (
+              <CategoryCombined
+                id={category.id}
+                editStr={editStr}
+                text={category.text}
+                length={category.tasks.length}
+                category={category}
+              />
+            )
+          })}
+          {/* <CategoryCombined isEditableStr={true} length={15} />
+          <CategoryCombined isEditableStr={false} length={2} /> */}
         </Col>
         <Col variant={12}>
           <ButtonContainer>
             <Button
               onClick={() => addCategory()}
-              type="button"
               icon={<BsPlusCircle />}
               size="xxsm"
               borderType="none"

@@ -7,16 +7,16 @@ import {
 } from "./Input.styled"
 
 const Input = props => {
-  const { variant, icon, placeholder, type, className, size, color } = props
+  const { variant, icon, placeholder, type, className, size, color, onChange, onBlur } = props
 
   return (
-    <Wrapper data-testid="inputWrapper">
+    <Wrapper data-testid="inputWrapper" onBlur={onBlur} onChange={onChange}>
       {variant === "classic" ? (
         <ClassicInput
           date-testid="inputClassic"
           type={type}
           className={className}
-          size={size}
+          size={size} 
         />
       ) : variant === "styled" ? (
         <>
@@ -28,7 +28,7 @@ const Input = props => {
             placeholder={placeholder}
             type={type}
             className={className}
-            size={size}
+            size={size} 
           />
         </>
       ) : variant === "outlined" ? (
@@ -38,7 +38,7 @@ const Input = props => {
           className={className}
           size={size}
           color={color}
-          placeholder="Task`s placeholder"
+          placeholder={placeholder} 
         />
       ) : null}
     </Wrapper>
