@@ -87,15 +87,14 @@ const Sidebar = () => {
           {store.map(category => {
             return (
               <CategoryCombined
-                id={category.id}
-                text={category.text}
+              key={category?.id}
+                id={category?.id}
+                text={category?.text}
                 length={category?.tasks?.length}
                 category={category}
               />
             )
           })}
-          {/* <CategoryCombined isEditableStr={true} length={15} />
-          <CategoryCombined isEditableStr={false} length={2} /> */}
         </Col>
         <Col variant={12}>
           <ButtonContainer>
