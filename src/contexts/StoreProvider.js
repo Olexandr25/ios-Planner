@@ -25,6 +25,7 @@ const StoreProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  console.log(store)
   return (
     <StoreContext.Provider
       value={{ store, addRecord, removeRecord, updateRecord, fetchDocuments }}>

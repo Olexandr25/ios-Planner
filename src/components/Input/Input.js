@@ -7,7 +7,20 @@ import {
 } from "./Input.styled"
 
 const Input = props => {
-  const { variant, icon, placeholder, type, className, size, color, onChange, onBlur, onSubmit, value } = props
+  const {
+    variant,
+    icon,
+    placeholder,
+    type,
+    className,
+    size,
+    color,
+    onChange,
+    onBlur,
+    onSubmit,
+    value,
+    autofocus,
+  } = props
 
   return (
     <Wrapper data-testid="inputWrapper" onBlur={onBlur} onSubmit={onSubmit}>
@@ -17,8 +30,9 @@ const Input = props => {
           type={type}
           className={className}
           onChange={onChange}
-          size={size} 
+          size={size}
           value={value}
+          autoFocus={autofocus}
         />
       ) : variant === "styled" ? (
         <>
@@ -30,7 +44,8 @@ const Input = props => {
             placeholder={placeholder}
             type={type}
             className={className}
-            size={size} 
+            size={size}
+            autoFocus={autofocus}
           />
         </>
       ) : variant === "outlined" ? (
@@ -40,7 +55,8 @@ const Input = props => {
           className={className}
           size={size}
           color={color}
-          placeholder={placeholder} 
+          placeholder={placeholder}
+          autoFocus={autofocus}
         />
       ) : null}
     </Wrapper>

@@ -45,6 +45,7 @@ const CategoryCombined = props => {
             value={editText}
             onChange={e => setEditText(e.currentTarget.value)}
             onBlur={changeSimpleType}
+            autofocus
           />
         ) : (
           <Text size="xsm" onClick={() => changeSimpleType()}>

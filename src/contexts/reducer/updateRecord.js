@@ -1,12 +1,17 @@
 const updateRecord = (state, payload) => {
   const stateCopy = state
   const { id, text } = payload
-  stateCopy.filter(value => {
-    if (value.id === id) {
-      value.text = text
-    }
-    return value
-  })
+  function isEmptyOrSpaces(str) {
+    return str.length !== 0 && str.trim()
+  }
+  if (isEmptyOrSpaces(text)) {
+    stateCopy.filter(value => {
+      if (value.id === id) {
+        value.text = text
+      }
+      return value
+    })
+  }
 
   return [...stateCopy]
 }
