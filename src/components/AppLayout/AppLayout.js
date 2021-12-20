@@ -1,7 +1,16 @@
 import { Container, Row, Col } from "components/Grid"
+import { useEffect } from "react"
+import { useStore } from "contexts"
+
 
 const AppLayout = props => {
   const { aside, content } = props
+  const { fetchDocuments } = useStore()
+
+
+    useEffect(() => {
+    fetchDocuments()
+  }, [])
 
   return (
     <Container>

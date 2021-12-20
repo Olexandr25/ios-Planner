@@ -1,4 +1,4 @@
-import { addRecord, removeRecord } from "."
+import { addRecord, removeRecord, updateData } from "."
 
 const reducer = (state, action) => {
   const { type, payload } = action
@@ -7,6 +7,7 @@ const reducer = (state, action) => {
   const actionsMap = {
     addRecord,
     removeRecord,
+    updateData
   }
 
   return actionsMap[type](stateCopy, payload)

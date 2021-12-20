@@ -10,25 +10,25 @@ import { IconModule, Text, Input, Button } from "components"
 import { AiOutlineClose, AiOutlineUnorderedList } from "react-icons/ai"
 // Context
 import { useStore } from "contexts"
+// React hook
+import { useState } from "react"
 
 const CategoryCombined = props => {
-  const { className, editStr, length, text, id } = props
-  const { setEditStr } = useStore()
-  
+  const { className, length, text, id } = props
+  const [edit, setEdit] = useState(false)
+
   const { removeRecord } = useStore()
   const onSubmit = e => {
     console.log(e.target.value)
-    
   }
 
   const onBlur = () => {
-    // console.log(e.target.value)
     show()
   }
 
   const show = () => {
-    console.log(editStr)
-    setEditStr(!editStr)
+    console.log(edit)
+    setEdit(!edit)
   }
 
   return (
@@ -36,17 +36,19 @@ const CategoryCombined = props => {
       data-testid="CategoryCombinedStyled"
       tabIndex={1}
       className={className}
-      onSubmit={onSubmit}
-      // onBlur={onBlur}
-      >
+      onSubmit={onSubmit}>
       <CategoryLeft data-testid="CategoryLeft">
         <IconModule className="mr-lg">
           <AiOutlineUnorderedList />
         </IconModule>
-        {editStr ? (
-          <Input variant="classic" onChange={e => console.log(e.target.value)} onBlur={onBlur} />
+        {edit ? (
+          <Input
+            variant="classic"
+            onChange={e => console.log(e.target.value)}
+            onBlur={onBlur}
+          />
         ) : (
-          <Text size="xsm" onClick={()=>show()}>
+          <Text size="xsm" onClick={() => show()}>
             {text}
           </Text>
         )}

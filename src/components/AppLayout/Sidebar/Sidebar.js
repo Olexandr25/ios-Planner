@@ -15,16 +15,16 @@ import {
 } from "react-icons/bs"
 // Context
 import { useStore } from "contexts"
+// firestoreService
+import { firestoreService } from "services"
 
 const Sidebar = () => {
   // const [state, setState] = useState(false)
-  const { store, addRecord, editStr } = useStore()
+  const { store, addRecord } = useStore()
+  const { generateId } = firestoreService
 
-  function getRandomInt() {
-    return Math.floor(Math.random() * 100)
-  }
   const addCategory = () => {
-    addRecord({ id: getRandomInt(), text: "New List", tasks: [] })
+    addRecord({ id: generateId(`category`), text: "New List", tasks: [] })
   }
 
   return (
@@ -88,9 +88,8 @@ const Sidebar = () => {
             return (
               <CategoryCombined
                 id={category.id}
-                editStr={editStr}
                 text={category.text}
-                length={category.tasks.length}
+                length={category?.tasks?.length}
                 category={category}
               />
             )
