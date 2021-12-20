@@ -2,14 +2,13 @@ import { Container, Row, Col } from "components/Grid"
 import { useEffect } from "react"
 import { useStore } from "contexts"
 
-
 const AppLayout = props => {
   const { aside, content } = props
   const { fetchDocuments } = useStore()
 
-
-    useEffect(() => {
+  useEffect(() => {
     fetchDocuments()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
