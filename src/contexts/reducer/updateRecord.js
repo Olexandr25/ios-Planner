@@ -5,6 +5,7 @@ const updateRecord = (state, payload) => {
     if (value.id === id) {
       value.text = text
     }
+    return value
   })
 
   return [...stateCopy]

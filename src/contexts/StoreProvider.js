@@ -23,6 +23,7 @@ const StoreProvider = ({ children }) => {
   useEffect(() => {
     fetchDocuments()
     console.log("useEffect: fetchDocuments")
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

@@ -13,23 +13,19 @@ import { useStore } from "contexts"
 // React hook
 import { useState } from "react"
 // Hooks of Category
+import { SimpleUpdateValue } from "../hooks"
 
 const CategoryCombined = props => {
   const { className, length, text, id } = props
   const [edit, setEdit] = useState(false)
   const [editText, setEditText] = useState(text)
 
-  const { removeRecord, updateRecord, store } = useStore()
+  const { removeRecord, updateRecord } = useStore()
 
-  const onSubmit = e => {
-    e.preventDefault()
-    // setEditText(e.currentTarget.value)
-    updateRecord(id, editText)
-    setEdit(!edit)
-    console.log(store)
-  }
+  // function for update text for Category
+  const { onSubmit } = SimpleUpdateValue(updateRecord, setEdit, id, editText, edit)
 
-  const onBlur = () => {
+  const changeSimpleType = () => {
     setEdit(!edit)
   }
 
@@ -48,10 +44,10 @@ const CategoryCombined = props => {
             variant="classic"
             value={editText}
             onChange={e => setEditText(e.currentTarget.value)}
-            onBlur={onBlur}
+            onBlur={changeSimpleType}
           />
         ) : (
-          <Text size="xsm" onClick={() => setEdit(!edit)}>
+          <Text size="xsm" onClick={() => changeSimpleType()}>
             {text}
           </Text>
         )}
