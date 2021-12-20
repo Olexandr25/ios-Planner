@@ -4,7 +4,6 @@ const useFetchDocuments = dispatch => {
   const fetchDocuments = async () => {
     const { queryDocuments } = firestoreService
     const payload = await queryDocuments("category")
-    console.log(payload)
     dispatch({
       type: "updateData",
       payload,

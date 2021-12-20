@@ -1,5 +1,13 @@
 const updateRecord = (state, payload) => {
-  console.log(`payload in reducer: ${payload}`)
+  const stateCopy = state
+  const { id, text } = payload
+  stateCopy.filter(value => {
+    if (value.id === id) {
+      value.text = text
+    }
+  })
 
-  return [...state]
+  return [...stateCopy]
 }
+
+export default updateRecord

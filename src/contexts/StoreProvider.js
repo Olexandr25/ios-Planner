@@ -1,4 +1,4 @@
-import { useReducer } from "react"
+import { useReducer, useEffect } from "react"
 import { StoreContext } from "."
 import { reducer } from "./reducer"
 import {
@@ -7,6 +7,7 @@ import {
   useUpdateRecord,
   useFetchDocuments,
 } from "./hooks"
+import { firestoreService } from "services"
 
 const StoreProvider = ({ children }) => {
   const [store, dispatch] = useReducer(reducer, [])
@@ -15,6 +16,14 @@ const StoreProvider = ({ children }) => {
   const removeRecord = useRemoveRecord(dispatch)
   const updateRecord = useUpdateRecord(store, dispatch)
   const fetchDocuments = useFetchDocuments(dispatch)
+
+  const { queryDocuments } = firestoreService
+  queryDocuments("category")
+
+  useEffect(() => {
+    fetchDocuments()
+    console.log("useEffect: fetchDocuments")
+  }, [])
 
   return (
     <StoreContext.Provider

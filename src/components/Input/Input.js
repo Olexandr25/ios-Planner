@@ -7,16 +7,18 @@ import {
 } from "./Input.styled"
 
 const Input = props => {
-  const { variant, icon, placeholder, type, className, size, color, onChange, onBlur } = props
+  const { variant, icon, placeholder, type, className, size, color, onChange, onBlur, onSubmit, value } = props
 
   return (
-    <Wrapper data-testid="inputWrapper" onBlur={onBlur} onChange={onChange}>
+    <Wrapper data-testid="inputWrapper" onBlur={onBlur} onSubmit={onSubmit}>
       {variant === "classic" ? (
         <ClassicInput
           date-testid="inputClassic"
           type={type}
           className={className}
+          onChange={onChange}
           size={size} 
+          value={value}
         />
       ) : variant === "styled" ? (
         <>

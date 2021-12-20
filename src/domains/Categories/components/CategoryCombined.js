@@ -12,22 +12,24 @@ import { AiOutlineClose, AiOutlineUnorderedList } from "react-icons/ai"
 import { useStore } from "contexts"
 // React hook
 import { useState } from "react"
+// Hooks of Category
 
 const CategoryCombined = props => {
   const { className, length, text, id } = props
   const [edit, setEdit] = useState(false)
+  const [editText, setEditText] = useState(text)
 
-  const { removeRecord } = useStore()
+  const { removeRecord, updateRecord, store } = useStore()
+
   const onSubmit = e => {
-    console.log(e.target.value)
+    e.preventDefault()
+    // setEditText(e.currentTarget.value)
+    updateRecord(id, editText)
+    setEdit(!edit)
+    console.log(store)
   }
 
   const onBlur = () => {
-    show()
-  }
-
-  const show = () => {
-    console.log(edit)
     setEdit(!edit)
   }
 
@@ -44,11 +46,12 @@ const CategoryCombined = props => {
         {edit ? (
           <Input
             variant="classic"
-            onChange={e => console.log(e.target.value)}
+            value={editText}
+            onChange={e => setEditText(e.currentTarget.value)}
             onBlur={onBlur}
           />
         ) : (
-          <Text size="xsm" onClick={() => show()}>
+          <Text size="xsm" onClick={() => setEdit(!edit)}>
             {text}
           </Text>
         )}
