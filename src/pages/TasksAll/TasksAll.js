@@ -1,12 +1,18 @@
 import { PageLayout } from "components"
 import { TasksAllStyled } from "./TasksAll.styled"
+import { Routes, Route } from "react-router-dom"
 
 const TasksAll = () => {
-  // return <PageLayout header={<PageHeader />} content={<PageContent />} />
-
   return (
     <TasksAllStyled data-testid="TasksAll">
-      <PageLayout />
+      <Routes>
+        <Route exact path="/" element={<PageLayout />} />
+        <Route
+          exact
+          path="/2"
+          element={<PageLayout currentCategory="currentCategory" />}
+        />
+      </Routes>
     </TasksAllStyled>
   )
 }

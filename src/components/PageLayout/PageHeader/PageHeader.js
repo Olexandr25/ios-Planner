@@ -7,7 +7,7 @@ import { PageHeaderButton, PageHeaderStyled } from "./PageHeader.styled"
 // context
 // import { useStore } from "contexts"
 
-const PageHeader = () => {
+const PageHeader = ({currentCategory}) => {
 
   return (
     <PageHeaderStyled data-testid="PageHeader">
@@ -28,7 +28,7 @@ const PageHeader = () => {
         <Col
           variant={12}
           className="d-flex justify-content-space-between mb-lg">
-          <Title>All</Title>
+          <Title>{currentCategory || "All"}</Title>
           <Title>25</Title>
         </Col>
         <Col variant={12}>

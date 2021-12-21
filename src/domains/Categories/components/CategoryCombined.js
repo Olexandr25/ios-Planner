@@ -14,6 +14,7 @@ import { useStore } from "contexts"
 import { useState } from "react"
 // Hooks of Category
 import { SimpleUpdateValue } from "../hooks"
+// firestoreService
 
 const CategoryCombined = props => {
   const { className, length, text, id } = props
@@ -23,7 +24,13 @@ const CategoryCombined = props => {
   const { removeRecord, updateRecord } = useStore()
 
   // function for update text for Category
-  const { onSubmit } = SimpleUpdateValue(updateRecord, setEdit, id, editText, edit)
+  const { onSubmit } = SimpleUpdateValue(
+    updateRecord,
+    setEdit,
+    id,
+    editText,
+    edit
+  )
 
   const changeSimpleType = () => {
     setEdit(!edit)

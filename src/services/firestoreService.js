@@ -87,7 +87,7 @@ const firestoreService = {
   queryDocuments,
   deleteDocument,
   getTimestamp,
-  getId, 
+  getId
 }
 
 export default firestoreService

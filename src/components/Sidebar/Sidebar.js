@@ -21,10 +21,10 @@ import { firestoreService } from "services"
 const Sidebar = () => {
   // const [state, setState] = useState(false)
   const { store, addRecord } = useStore()
-  const { generateId } = firestoreService
+  const { generateId, getTimestamp } = firestoreService
 
   const addCategory = () => {
-    addRecord({ id: generateId(`category`), text: "New List", tasks: [] })
+    addRecord({ id: generateId(`category`), text: "New List", tasks: [], createdAt: getTimestamp(), updatedAt: getTimestamp() })
   }
 
   return (
