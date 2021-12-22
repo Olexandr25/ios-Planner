@@ -4,9 +4,16 @@ import { Row, Col, Button, Title, Completed } from "components"
 import { AiOutlinePlus } from "react-icons/ai"
 // Styled components
 import { PageHeaderButton, PageHeaderStyled } from "./PageHeader.styled"
+// context
+import { useStore } from "contexts"
 
 const PageHeader = props => {
   const { title } = props
+  const { setVisibilityTaskCombined } = useStore()
+
+  const changeVisibility = () => {
+    setVisibilityTaskCombined(true)
+  }
 
   return (
     <PageHeaderStyled data-testid="PageHeader">
@@ -21,6 +28,7 @@ const PageHeader = props => {
               borderType="none"
               isHovered={true}
               isActive={true}
+              onClick={()=>changeVisibility()}
             />
           </PageHeaderButton>
         </Col>

@@ -1,7 +1,7 @@
 import {
   InputIcon,
   IconPosition,
-  Wrapper,
+  InputWrapper,
   ClassicInput,
   OutlinedInput,
 } from "./Input.styled"
@@ -23,7 +23,7 @@ const Input = props => {
   } = props
 
   return (
-    <Wrapper data-testid="inputWrapper" onBlur={onBlur} onSubmit={onSubmit}>
+    <InputWrapper data-testid="inputWrapper" onBlur={onBlur} onSubmit={onSubmit}>
       {variant === "classic" ? (
         <ClassicInput
           date-testid="inputClassic"
@@ -57,9 +57,10 @@ const Input = props => {
           color={color}
           placeholder={placeholder}
           autoFocus={autofocus}
+          onChange={onChange}
         />
       ) : null}
-    </Wrapper>
+    </InputWrapper>
   )
 }
 

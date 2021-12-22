@@ -43,7 +43,7 @@ const inputSizes = {
   },
 }
 
-export const Wrapper = styled.div`
+export const InputWrapper = styled.div`
   display: flex;
   align-items: center;
 `

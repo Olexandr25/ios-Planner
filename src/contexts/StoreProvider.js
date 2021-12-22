@@ -11,7 +11,7 @@ import {
 const StoreProvider = ({ children }) => {
   const [store, dispatch] = useReducer(reducer, [])
   const [currentCategory, setCurrentCategory] = useState()
-  const [state, setState] = useState()
+  const [visibilityTaskCombined, setVisibilityTaskCombined] = useState(false)
 
   const addRecord = useAddRecord(dispatch)
   const removeRecord = useRemoveRecord(dispatch)
@@ -33,8 +33,8 @@ const StoreProvider = ({ children }) => {
         fetchDocuments,
         currentCategory,
         setCurrentCategory,
-        state,
-        setState,
+        visibilityTaskCombined,
+        setVisibilityTaskCombined,
       }}>
       {children}
     </StoreContext.Provider>
