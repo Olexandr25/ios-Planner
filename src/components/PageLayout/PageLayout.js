@@ -9,10 +9,9 @@ const PageLayout = () => {
   const { currentCategory, setCurrentCategory, store } = useStore()
 
   useEffect(() => {
-    const finded = store.find(item => item.id === id)
-    setCurrentCategory(finded)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [store, id])
+    const found = store.find(item => item.id === id)
+    setCurrentCategory(found)
+  }, [store, id, setCurrentCategory])
 
   return (
     <PageLayoutStyled data-testid="PageLayout">

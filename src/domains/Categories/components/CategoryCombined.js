@@ -18,12 +18,12 @@ import { SimpleUpdateValue } from "../hooks"
 import { useNavigate } from "react-router-dom"
 
 const CategoryCombined = props => {
-  const { className, length, text, id, category } = props
+  const { className, length, text, id } = props
   const [edit, setEdit] = useState(false)
   const [editText, setEditText] = useState(text)
   const navigate = useNavigate()
 
-  const { removeRecord, updateRecord, setCurrentCategory } = useStore()
+  const { removeRecord, updateRecord } = useStore()
 
   // function for update text for Category
   const { onSubmit } = SimpleUpdateValue(
@@ -39,7 +39,6 @@ const CategoryCombined = props => {
   }
 
   const navigation = () => {
-    setCurrentCategory(category)
     navigate(id)
   }
 

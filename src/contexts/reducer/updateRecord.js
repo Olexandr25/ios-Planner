@@ -1,7 +1,6 @@
 const updateRecord = (state, payload) => {
   const stateCopy = state
   const { id, text, updatedAt } = payload
-  console.log(updatedAt)
   function isEmptyOrSpaces(str) {
     return str.length !== 0 && str.trim()
   }
