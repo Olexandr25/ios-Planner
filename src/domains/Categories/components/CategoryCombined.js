@@ -14,14 +14,16 @@ import { useStore } from "contexts"
 import { useState } from "react"
 // Hooks of Category
 import { SimpleUpdateValue } from "../hooks"
-// firestoreService
+// react-router-dom
+import { useNavigate } from "react-router-dom"
 
 const CategoryCombined = props => {
-  const { className, length, text, id } = props
+  const { className, length, text, id, category } = props
   const [edit, setEdit] = useState(false)
   const [editText, setEditText] = useState(text)
+  const navigate = useNavigate()
 
-  const { removeRecord, updateRecord } = useStore()
+  const { removeRecord, updateRecord, setCurrentCategory } = useStore()
 
   // function for update text for Category
   const { onSubmit } = SimpleUpdateValue(
@@ -36,12 +38,18 @@ const CategoryCombined = props => {
     setEdit(!edit)
   }
 
+  const navigation = () => {
+    setCurrentCategory(category)
+    navigate(id)
+  }
+
   return (
     <CategoryCombinedStyled
       data-testid="CategoryCombinedStyled"
       tabIndex={1}
       className={className}
-      onSubmit={onSubmit}>
+      onSubmit={onSubmit}
+      onClick={() => navigation()}>
       <CategoryLeft data-testid="CategoryLeft">
         <IconModule className="mr-lg">
           <AiOutlineUnorderedList />

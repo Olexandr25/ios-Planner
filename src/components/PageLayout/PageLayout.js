@@ -1,31 +1,25 @@
 import { PageHeader, PageContent, Container, Row, Col } from "components"
-import { useStore } from "contexts"
 import { PageLayoutStyled } from "./PageLayout.styled"
-import { useNavigate } from "react-router-dom"
+import { useParams } from "react-router-dom"
+import { useStore } from "contexts"
+import { useEffect } from "react"
 
-const PageLayout = props => {
-  const { currentCategory } = props
-  const { currentRoute, setCurrentRoute } = useStore()
-  const navigate = useNavigate()
+const PageLayout = () => {
+  const { id } = useParams()
+  const { currentCategory, setCurrentCategory, store } = useStore()
 
-  const switchRoute = () => {
-    if (currentRoute === "/") {
-      setCurrentRoute("/2")
-      navigate("/2")
-    } else {
-      setCurrentRoute("/")
-      navigate("/")
-    }
-    console.log(`currentRoute: ${currentRoute}`)
-  }
+  useEffect(() => {
+    const finded = store.find(item => item.id === id)
+    setCurrentCategory(finded)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [store, id])
 
   return (
     <PageLayoutStyled data-testid="PageLayout">
       <Row className="mb-xl">
         <Container>
           <Col variant={12}>
-            <button onClick={() =>  switchRoute()}>change route</button>
-            <PageHeader currentCategory={currentCategory} />
+            <PageHeader title={currentCategory?.text} />
           </Col>
           <Col variant={12}>
             <PageContent />

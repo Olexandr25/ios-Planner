@@ -7,27 +7,22 @@ import {
   useUpdateRecord,
   useFetchDocuments,
 } from "./hooks"
-import { firestoreService } from "services"
 
 const StoreProvider = ({ children }) => {
   const [store, dispatch] = useReducer(reducer, [])
+  const [currentCategory, setCurrentCategory] = useState()
+  const [state, setState] = useState()
 
   const addRecord = useAddRecord(dispatch)
   const removeRecord = useRemoveRecord(dispatch)
   const updateRecord = useUpdateRecord(store, dispatch)
-  const fetchDocuments = useFetchDocuments(dispatch)
-
-  const { queryDocuments } = firestoreService
-  queryDocuments("category")
+  const fetchDocuments = useFetchDocuments(dispatch) // fetch - category
 
   useEffect(() => {
     fetchDocuments()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const [currentRoute, setCurrentRoute] = useState("/")
-
-  console.log(store)
   return (
     <StoreContext.Provider
       value={{
@@ -36,8 +31,10 @@ const StoreProvider = ({ children }) => {
         removeRecord,
         updateRecord,
         fetchDocuments,
-        currentRoute,
-        setCurrentRoute,
+        currentCategory,
+        setCurrentCategory,
+        state,
+        setState,
       }}>
       {children}
     </StoreContext.Provider>

@@ -4,10 +4,9 @@ import { Row, Col, Button, Title, Completed } from "components"
 import { AiOutlinePlus } from "react-icons/ai"
 // Styled components
 import { PageHeaderButton, PageHeaderStyled } from "./PageHeader.styled"
-// context
-// import { useStore } from "contexts"
 
-const PageHeader = ({currentCategory}) => {
+const PageHeader = props => {
+  const { title } = props
 
   return (
     <PageHeaderStyled data-testid="PageHeader">
@@ -28,8 +27,8 @@ const PageHeader = ({currentCategory}) => {
         <Col
           variant={12}
           className="d-flex justify-content-space-between mb-lg">
-          <Title>{currentCategory || "All"}</Title>
-          <Title>25</Title>
+          <Title>{title}</Title>
+          <Title>0</Title>
         </Col>
         <Col variant={12}>
           <Completed length={0} color="black" />
