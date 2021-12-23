@@ -24,7 +24,16 @@ const Sidebar = () => {
   const { generateId, getTimestamp } = firestoreService
 
   const addCategory = () => {
-    addRecord({ id: generateId(`category`), text: "New List", tasks: [], createdAt: getTimestamp(), updatedAt: getTimestamp() })
+    addRecord(
+      {
+        id: generateId(`category`),
+        text: "New List",
+        tasks: [],
+        createdAt: getTimestamp(),
+        updatedAt: getTimestamp(),
+      },
+      `category`
+    )
   }
 
   return (
@@ -85,15 +94,17 @@ const Sidebar = () => {
         {/* List of Categories */}
         <Col variant={12}>
           {store.map(category => {
-            return (
-              <CategoryCombined
-              key={category?.id}
-                id={category?.id}
-                text={category?.text}
-                length={category?.tasks?.length}
-                category={category}
-              />
-            )
+            if (!category.categoryId) {
+              return (
+                <CategoryCombined
+                  key={category?.id}
+                  id={category?.id}
+                  text={category?.text}
+                  length={category?.tasks?.length}
+                  category={category}
+                />
+              )
+            }
           })}
         </Col>
         <Col variant={12}>

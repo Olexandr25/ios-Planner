@@ -15,26 +15,47 @@ import { AiOutlineClose } from "react-icons/ai"
 import { BsFillFlagFill } from "react-icons/bs"
 // context
 import { useStore } from "contexts"
+// firestoreService
+import { firestoreService } from "services"
 
 const TaskCombined = props => {
   const { isEditableStr, flagged } = props
-  const { visibilityTaskCombined, setVisibilityTaskCombined } = useStore()
+  const {
+    visibilityTaskCombined,
+    setVisibilityTaskCombined,
+    currentCategory,
+    addRecord,
+  } = useStore()
+  const { generateId, getTimestamp } = firestoreService
 
-  const [editText, setEditText] = useState("")
+  const [text, setText] = useState("")
+  const [notionText, setNotionText] = useState("")
+
+  const isEmptyOrSpaces = str => {
+    return str.length !== 0 && str.trim()
+  }
 
   const onSubmit = e => {
-    console.log("onSubmit")
-    // e.preventDefault()
-    // setVisibilityTaskCombined(!visibilityTaskCombined)
-    // console.log(visibilityTaskCombined)
-  }
-
-  const show = e => {
     e.preventDefault()
-    console.log("show")
+    if (isEmptyOrSpaces(text)) {
+      addRecord(
+        {
+          id: generateId(`task`),
+          text: text,
+          notes: notionText,
+          status: false,
+          flagged: false,
+          createdAt: getTimestamp(),
+          updatedAt: getTimestamp(),
+          dueDataTime: getTimestamp(), // in future will change
+          categoryId: currentCategory.id,
+        },
+        `task`
+      )
+    }
+    setVisibilityTaskCombined(!visibilityTaskCombined)
   }
 
-  console.log(`editText: ${editText}`)
   return (
     <TaskCombinedStyled data-testid="TaskCombinedStyled">
       <TaskCombinedLeft data-testid="TaskCombinedLeft" className="mr-lg">
@@ -44,27 +65,27 @@ const TaskCombined = props => {
         <Divider>
           <TaskCombinedInputWrapper data-testid="TaskCombinedInputWrapper">
             {isEditableStr ? (
-              <TaskForm onSubmit={show}>
-                <form onSubmit={show}>
-                  <input type="text" />
-                  <input type="text" />
-                  <button>fdsj</button>
-                </form>
-                <Input
-                  type="text"
-                  variant="outlined"
-                  size="sm"
-                  onChange={e => setEditText(e.target.value)}
-                  autofocus
-                />
-                <Input
-                  type="text"
-                  variant="outlined"
-                  size="xxsm"
-                  color="secondary"
-                  placeholder="Notes"
-                />
-              </TaskForm>
+              <>
+                <TaskForm onSubmit={onSubmit}>
+                  <Input
+                    type="text"
+                    variant="outlined"
+                    size="sm"
+                    autofocus
+                    onChange={e => setText(e.currentTarget.value)}
+                  />
+                </TaskForm>
+                <TaskForm onSubmit={onSubmit}>
+                  <Input
+                    type="text"
+                    variant="outlined"
+                    size="xxsm"
+                    color="secondary"
+                    placeholder="Notes"
+                    onChange={e => setNotionText(e.currentTarget.value)}
+                  />
+                </TaskForm>
+              </>
             ) : (
               <>
                 <Text>Text</Text>

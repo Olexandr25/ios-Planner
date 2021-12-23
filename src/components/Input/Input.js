@@ -19,7 +19,7 @@ const Input = props => {
     onBlur,
     onSubmit,
     value,
-    autofocus,
+    autofocus
   } = props
 
   return (
@@ -58,6 +58,7 @@ const Input = props => {
           placeholder={placeholder}
           autoFocus={autofocus}
           onChange={onChange}
+          onSubmit={onSubmit}
         />
       ) : null}
     </InputWrapper>

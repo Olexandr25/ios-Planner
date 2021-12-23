@@ -6,6 +6,7 @@ import {
   useRemoveRecord,
   useUpdateRecord,
   useFetchDocuments,
+  useAddTask,
 } from "./hooks"
 
 const StoreProvider = ({ children }) => {
@@ -17,6 +18,8 @@ const StoreProvider = ({ children }) => {
   const removeRecord = useRemoveRecord(dispatch)
   const updateRecord = useUpdateRecord(store, dispatch)
   const fetchDocuments = useFetchDocuments(dispatch) // fetch - category
+
+  const addTask = useAddTask(dispatch)
 
   useEffect(() => {
     fetchDocuments()
@@ -35,6 +38,7 @@ const StoreProvider = ({ children }) => {
         setCurrentCategory,
         visibilityTaskCombined,
         setVisibilityTaskCombined,
+        addTask
       }}>
       {children}
     </StoreContext.Provider>

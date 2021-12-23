@@ -1,10 +1,10 @@
 import { firestoreService } from "services"
 
 const useAddRecord = dispatch => {
-  const addRecord = data => {
+  const addRecord = (data, type) => {
     const payload = data
     const { createDocument } = firestoreService
-    createDocument('category', data.id, data)
+    createDocument(type, data.id, data)
     dispatch({
       type: "addRecord",
       payload,
