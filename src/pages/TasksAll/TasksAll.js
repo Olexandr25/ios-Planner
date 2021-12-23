@@ -7,7 +7,7 @@ const TasksAll = () => {
     <TasksAllStyled data-testid="TasksAll">
       <Routes>
         <Route exact path=":id" element={<PageLayout />} />
-        <Route exact path="/" element={<PageLayout />} />
+        <Route exact path="/"  />
       </Routes>
     </TasksAllStyled>
   )

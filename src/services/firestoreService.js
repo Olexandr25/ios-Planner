@@ -14,6 +14,7 @@ import {
   updateDoc,
   serverTimestamp,
 } from "firebase/firestore"
+import { getDatabase } from "firebase/database"
 
 const firebaseConfig = {
   apiKey: "AIzaSyCRgVXxMiWp7Y-WEPe8LYx2es1cYf24eBc",
@@ -79,6 +80,19 @@ const deleteDocument = async (collectionPath, id) => {
   return result
 }
 
+const queryData = async collectionPath => {
+  const querySnapshot = await getDocs(collection(db, collectionPath))
+  console.log(querySnapshot)
+  querySnapshot.forEach(doc => {
+    // doc.data() is never undefined for query doc snapshots
+    console.log(doc.id, " => ", doc.data())
+    // const result = (doc.id, " => ", doc.data())
+    // return result
+  })
+}
+
+
+
 const firestoreService = {
   createDocument,
   generateId,
@@ -87,7 +101,8 @@ const firestoreService = {
   queryDocuments,
   deleteDocument,
   getTimestamp,
-  getId
+  getId,
+  queryData, 
 }
 
 export default firestoreService

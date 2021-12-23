@@ -21,7 +21,7 @@ import { firestoreService } from "services"
 const Sidebar = () => {
   // const [state, setState] = useState(false)
   const { store, addRecord } = useStore()
-  const { generateId, getTimestamp } = firestoreService
+  const { generateId, getTimestamp, queryData } = firestoreService
 
   const addCategory = () => {
     addRecord(
@@ -35,6 +35,8 @@ const Sidebar = () => {
       `category`
     )
   }
+
+  // queryData(`task`)
 
   return (
     <Row className="h-inherit">
@@ -93,6 +95,7 @@ const Sidebar = () => {
         </Col>
         {/* List of Categories */}
         <Col variant={12}>
+
           {store.map(category => {
             if (!category.categoryId) {
               return (

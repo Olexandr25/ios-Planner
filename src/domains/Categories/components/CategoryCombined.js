@@ -42,6 +42,10 @@ const CategoryCombined = props => {
     navigate(id)
   }
 
+  const removeCategory = () => {
+    removeRecord(id)
+  }
+
   return (
     <CategoryCombinedStyled
       data-testid="CategoryCombinedStyled"
@@ -73,7 +77,7 @@ const CategoryCombined = props => {
         </Text>
         <Button
           type="button"
-          onClick={() => removeRecord(id)}
+          onClick={() => removeCategory()}
           size="xxsm"
           borderType="none"
           icon={<AiOutlineClose />}
