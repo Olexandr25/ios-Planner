@@ -50,14 +50,14 @@ const getDocument = async (collectionPath, id) => {
 
 const queryDocuments = async (
   collectionPath,
-  queries,
-  orderByRule,
-  limitRule
+  queries
+  // orderByRule,
+  // limitRule
 ) => {
   const ref = collection(db, collectionPath)
   const queriesExtended = queries && queries.map(q => where(...q))
-  orderByRule && queriesExtended.push(orderBy(...orderByRule))
-  limitRule && queriesExtended.push(limit(limitRule))
+  // orderByRule && queriesExtended.push(orderBy(...orderByRule))
+  // limitRule && queriesExtended.push(limit(limitRule))
   const q = queriesExtended ? query(ref, ...queriesExtended) : query(ref)
   const querySnapshot = await getDocs(q)
   let result = []
@@ -79,18 +79,18 @@ const deleteDocument = async (collectionPath, id) => {
   return result
 }
 
-const queryData = async collectionPath => {
-  const querySnapshot = await getDocs(collection(db, collectionPath))
-  console.log(querySnapshot)
+// Test function, for understanding, How to work with query
+// And example with one collection, "category"
+const getCategory = async () => {
+  const categoryRef = collection(db, `category`)
+  const q = query(categoryRef)
+  const querySnapshot = await getDocs(q)
+  let result = []
   querySnapshot.forEach(doc => {
-    // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data())
-    // const result = (doc.id, " => ", doc.data())
-    // return result
+    console.log( doc.data())
   })
+  return result
 }
-
-
 
 const firestoreService = {
   createDocument,
@@ -100,8 +100,7 @@ const firestoreService = {
   queryDocuments,
   deleteDocument,
   getTimestamp,
-  getId,
-  queryData, 
+  getId, getCategory
 }
 
 export default firestoreService

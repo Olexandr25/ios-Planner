@@ -18,11 +18,17 @@ import {
 import { useStore } from "contexts"
 // firestoreService
 import { firestoreService } from "services"
+import { useState, useEffect } from "react"
+
+// function useTimes() {
+//   const [times, setTimes] = useState([])
+
+
+// }
 
 const Sidebar = () => {
-  // const [state, setState] = useState(false)
   const { store, addRecord } = useStore()
-  const { generateId, getTimestamp } = firestoreService
+  const { generateId, getTimestamp, getCategory, queryDocuments } = firestoreService
 
   const addCategory = () => {
     addRecord(
@@ -37,7 +43,9 @@ const Sidebar = () => {
     )
   }
 
-  // queryData(`task`)
+  getCategory()
+  // const localCategory = queryDocuments('category')
+  // console.log(localCategory)
 
   return (
     <Row className="h-inherit">
