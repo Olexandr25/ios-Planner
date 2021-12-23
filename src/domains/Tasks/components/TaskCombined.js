@@ -8,7 +8,6 @@ import {
   TaskCombinedRight,
   TaskCombinedInputWrapper,
   TaskCombinedButtonWrapper,
-  TaskForm,
 } from "./TaskCombined.styled"
 // icons
 import { AiOutlineClose } from "react-icons/ai"
@@ -36,6 +35,7 @@ const TaskCombined = props => {
   }
 
   const onSubmit = e => {
+    console.log(`Work`)
     e.preventDefault()
     if (isEmptyOrSpaces(text)) {
       addRecord(
@@ -57,7 +57,7 @@ const TaskCombined = props => {
   }
 
   return (
-    <TaskCombinedStyled data-testid="TaskCombinedStyled">
+    <TaskCombinedStyled data-testid="TaskCombinedStyled" onSubmit={onSubmit}>
       <TaskCombinedLeft data-testid="TaskCombinedLeft" className="mr-lg">
         <Checkbox bgColor="lightBlue" />
       </TaskCombinedLeft>
@@ -66,25 +66,21 @@ const TaskCombined = props => {
           <TaskCombinedInputWrapper data-testid="TaskCombinedInputWrapper">
             {isEditableStr ? (
               <>
-                <TaskForm onSubmit={onSubmit}>
-                  <Input
-                    type="text"
-                    variant="outlined"
-                    size="sm"
-                    autofocus
-                    onChange={e => setText(e.currentTarget.value)}
-                  />
-                </TaskForm>
-                <TaskForm onSubmit={onSubmit}>
-                  <Input
-                    type="text"
-                    variant="outlined"
-                    size="xxsm"
-                    color="secondary"
-                    placeholder="Notes"
-                    onChange={e => setNotionText(e.currentTarget.value)}
-                  />
-                </TaskForm>
+                <Input
+                  type="text"
+                  variant="outlined"
+                  size="sm"
+                  autofocus
+                  onChange={e => setText(e.currentTarget.value)}
+                />
+                <Input
+                  type="text"
+                  variant="outlined"
+                  size="xxsm"
+                  color="secondary"
+                  placeholder="Notes"
+                  onChange={e => setNotionText(e.currentTarget.value)}
+                />
               </>
             ) : (
               <>
@@ -95,18 +91,15 @@ const TaskCombined = props => {
               </>
             )}
           </TaskCombinedInputWrapper>
-
           <TaskCombinedButtonWrapper data-testid="TaskCombinedButtonWrapper">
             <Button
               borderType="none"
-              type="button"
               size="xxsm"
               color="gray"
               icon={<AiOutlineClose />}
             />
             <Button
               borderType="none"
-              type="button"
               size="xxsm"
               flagged={flagged}
               icon={<BsFillFlagFill />}

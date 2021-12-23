@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */ // ! remove this line
 // Styled variables
 import { SidebarStyled, ButtonContainer } from "./Sidebar.styled"
 // Micro - components
@@ -21,7 +22,7 @@ import { firestoreService } from "services"
 const Sidebar = () => {
   // const [state, setState] = useState(false)
   const { store, addRecord } = useStore()
-  const { generateId, getTimestamp, queryData } = firestoreService
+  const { generateId, getTimestamp } = firestoreService
 
   const addCategory = () => {
     addRecord(
@@ -95,7 +96,6 @@ const Sidebar = () => {
         </Col>
         {/* List of Categories */}
         <Col variant={12}>
-
           {store.map(category => {
             if (!category.categoryId) {
               return (

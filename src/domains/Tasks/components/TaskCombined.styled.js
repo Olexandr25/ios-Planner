@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const TaskCombinedStyled = styled.div`
+export const TaskCombinedStyled = styled.form`
   display: flex;
   width: inherit;
   padding-top: 4px;
@@ -23,4 +23,3 @@ export const TaskCombinedButtonWrapper = styled.div`
   display: flex;
   align-items: baseline;
 `
-export const TaskForm = styled.form``

@@ -14,7 +14,6 @@ import {
   updateDoc,
   serverTimestamp,
 } from "firebase/firestore"
-import { getDatabase } from "firebase/database"
 
 const firebaseConfig = {
   apiKey: "AIzaSyCRgVXxMiWp7Y-WEPe8LYx2es1cYf24eBc",
