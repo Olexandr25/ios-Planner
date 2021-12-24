@@ -4,15 +4,15 @@ import {
   collection,
   doc,
   setDoc,
+  updateDoc,
+  serverTimestamp,
   query,
   getDoc,
   getDocs,
   orderBy,
   limit,
   where,
-  deleteDoc,
-  updateDoc,
-  serverTimestamp,
+  deleteDoc
 } from "firebase/firestore"
 
 const firebaseConfig = {
@@ -50,18 +50,18 @@ const getDocument = async (collectionPath, id) => {
 
 const queryDocuments = async (
   collectionPath,
-  queries
-  // orderByRule,
-  // limitRule
+  queries,
+  orderByRule,
+  limitRule
 ) => {
   const ref = collection(db, collectionPath)
-  const queriesExtended = queries && queries.map(q => where(...q))
-  // orderByRule && queriesExtended.push(orderBy(...orderByRule))
-  // limitRule && queriesExtended.push(limit(limitRule))
+  const queriesExtended = queries && queries.map((q) => where(...q))
+  orderByRule && queriesExtended.push(orderBy(...orderByRule))
+  limitRule && queriesExtended.push(limit(limitRule))
   const q = queriesExtended ? query(ref, ...queriesExtended) : query(ref)
   const querySnapshot = await getDocs(q)
   let result = []
-  querySnapshot.forEach(doc => {
+  querySnapshot.forEach((doc) => {
     result.push(doc.data())
   })
   return result
@@ -81,13 +81,14 @@ const deleteDocument = async (collectionPath, id) => {
 
 // Test function, for understanding, How to work with query
 // And example with one collection, "category"
-const getCategory = async () => {
-  const categoryRef = collection(db, `category`)
+const getCollection = async (collectionPath) => {
+  const categoryRef = collection(db, collectionPath)
   const q = query(categoryRef)
   const querySnapshot = await getDocs(q)
   let result = []
   querySnapshot.forEach(doc => {
-    console.log( doc.data())
+    result.push(doc.data())
+    // console.log( doc.data())
   })
   return result
 }
@@ -100,7 +101,7 @@ const firestoreService = {
   queryDocuments,
   deleteDocument,
   getTimestamp,
-  getId, getCategory
+  getId, getCollection
 }
 
 export default firestoreService

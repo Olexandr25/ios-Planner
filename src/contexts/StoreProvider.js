@@ -22,9 +22,11 @@ const StoreProvider = ({ children }) => {
   const addTask = useAddTask(dispatch)
 
   useEffect(() => {
-    fetchDocuments()
+    fetchDocuments(`category`)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  console.log(store)
 
   return (
     <StoreContext.Provider
