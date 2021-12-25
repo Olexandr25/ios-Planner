@@ -16,23 +16,21 @@ import {
 // Context
 import { useStore } from "contexts"
 // firestoreService
-import { firestoreService } from "services"
+// import { firestoreService } from "services"
 
 const Sidebar = () => {
-  const { store, addRecord } = useStore()
-  const { generateId, getTimestamp } = firestoreService
+  const { store, addCategory } = useStore()
+  const categoryList = store.category
 
-  const addCategory = () => {
-    addRecord(
-      {
-        id: generateId(`category`),
-        text: "New List",
-        tasks: [],
-        createdAt: getTimestamp(),
-        updatedAt: getTimestamp(),
-      },
-      `category`
-    )
+  const addCategoryNew = () => {
+    const id = (Math.floor(Math.random() * 1000).toString());
+    const name = "New List"
+    const tasks = []
+    const createdAt = new Date()
+    const updatedAt = new Date()
+
+    // use hook from contexts
+    addCategory({ id, name, tasks, createdAt, updatedAt })
   }
 
   return (
@@ -91,25 +89,24 @@ const Sidebar = () => {
           </Text>
         </Col>
         {/* List of Categories */}
+
         <Col variant={12}>
-          {store.map(category => {
-            if (!category.categoryId) {
-              return (
-                <CategoryCombined
-                  key={category?.id}
-                  id={category?.id}
-                  text={category?.text}
-                  length={category?.tasks?.length}
-                  category={category}
-                />
-              )
-            }
+          {categoryList.map(category => {
+            return (
+              <CategoryCombined
+                key={category?.id}
+                id={category?.id}
+                name={category?.name}
+                length={category?.tasks?.length}
+                category={category}
+              />
+            )
           })}
         </Col>
         <Col variant={12}>
           <ButtonContainer>
             <Button
-              onClick={() => addCategory()}
+              onClick={() => addCategoryNew()}
               icon={<BsPlusCircle />}
               size="xxsm"
               borderType="none"

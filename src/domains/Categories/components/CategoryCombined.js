@@ -12,38 +12,36 @@ import { AiOutlineClose, AiOutlineUnorderedList } from "react-icons/ai"
 import { useStore } from "contexts"
 // React hook
 import { useState } from "react"
-// Hooks of Category
-import { SimpleUpdateValue } from "../hooks"
 // react-router-dom
 import { useNavigate, Link } from "react-router-dom"
 
 const CategoryCombined = props => {
-  const { className, length, text, id } = props
+  const { className, length, name, id } = props
   const [edit, setEdit] = useState(false)
-  const [editText, setEditText] = useState(text)
+  const [editText, setEditText] = useState(name)
   const navigate = useNavigate()
+  const { updateCategory, removeCategory } = useStore()
 
-  const { removeRecord, updateRecord } = useStore()
+  // Update category
+  const onSubmit = e => {
+    e.preventDefault()
+    const updatedAt = new Date()
+    updateCategory(id, editText, updatedAt)
+    setEdit(!edit)
+  }
 
-  // function for update text for Category
-  const { onSubmit } = SimpleUpdateValue(
-    updateRecord,
-    setEdit,
-    id,
-    editText,
-    edit
-  )
-
+  // Show/Hide input for updating Category
   const changeSimpleType = () => {
     setEdit(!edit)
   }
 
+  // FIXME: not working navigation
   const navigation = () => {
-    navigate(id)
+    navigate(`category/${id}`)
   }
 
-  const removeCategory = () => {
-    removeRecord(id)
+  const RemoveCategory = () => {
+    removeCategory(id)
   }
 
   return (
@@ -67,7 +65,7 @@ const CategoryCombined = props => {
           />
         ) : (
           <Text size="xsm" onClick={() => changeSimpleType()}>
-            {text}
+            {name}
           </Text>
         )}
       </CategoryLeft>
@@ -78,7 +76,7 @@ const CategoryCombined = props => {
         <Link to="/">
           <Button
             type="button"
-            onClick={() => removeCategory()}
+            onClick={() => RemoveCategory()}
             size="xxsm"
             borderType="none"
             icon={<AiOutlineClose />}

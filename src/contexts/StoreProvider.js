@@ -1,30 +1,18 @@
-import { useReducer, useEffect, useState } from "react"
+import { useReducer, useState } from "react"
 import { StoreContext } from "."
 import { reducer } from "./reducer"
-import {
-  useAddRecord,
-  useRemoveRecord,
-  useUpdateRecord,
-  useFetchDocuments,
-  useAddTask,
-} from "./hooks"
+import { useAddCategory, useUpdateCategory, useRemoveCategory } from "./hooks"
 
 const StoreProvider = ({ children }) => {
-  const [store, dispatch] = useReducer(reducer, [])
+  const [store, dispatch] = useReducer(reducer, { category: [], task: [] })
+
+  // Create/Update/Remove --- Category
+  const addCategory = useAddCategory(dispatch)
+  const updateCategory = useUpdateCategory(store, dispatch)
+  const removeCategory = useRemoveCategory(dispatch)
+
   const [currentCategory, setCurrentCategory] = useState()
-  const [visibilityTaskCombined, setVisibilityTaskCombined] = useState(false)
-
-  const addRecord = useAddRecord(dispatch)
-  const removeRecord = useRemoveRecord(dispatch)
-  const updateRecord = useUpdateRecord(store, dispatch)
-  const fetchDocuments = useFetchDocuments(dispatch) // fetch - category
-
-  const addTask = useAddTask(dispatch)
-
-  useEffect(() => {
-    fetchDocuments(`category`)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  // const [visibilityTaskCombined, setVisibilityTaskCombined] = useState(false)
 
   console.table("store", store)
 
@@ -32,15 +20,11 @@ const StoreProvider = ({ children }) => {
     <StoreContext.Provider
       value={{
         store,
-        addRecord,
-        removeRecord,
-        updateRecord,
-        fetchDocuments,
+        addCategory,
+        updateCategory,
+        removeCategory,
         currentCategory,
         setCurrentCategory,
-        visibilityTaskCombined,
-        setVisibilityTaskCombined,
-        addTask
       }}>
       {children}
     </StoreContext.Provider>

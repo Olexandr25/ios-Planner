@@ -6,8 +6,8 @@ const TasksAll = () => {
   return (
     <TasksAllStyled data-testid="TasksAll">
       <Routes>
-        <Route exact path=":id" element={<PageLayout />} />
-        <Route exact path="/"  />
+        <Route exact path="/category/:id" element={<PageLayout />} />
+        <Route exact path="/" element={<></>}  />
       </Routes>
     </TasksAllStyled>
   )

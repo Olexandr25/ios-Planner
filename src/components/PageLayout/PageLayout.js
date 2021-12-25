@@ -9,16 +9,17 @@ const PageLayout = () => {
   const { currentCategory, setCurrentCategory, store } = useStore()
 
   useEffect(() => {
-    const found = store.find(item => item.id === id)
+    const found = store.category.find(item => item.id === id)
     setCurrentCategory(found)
-  }, [store, id, setCurrentCategory])
+  }, [store.category, id, setCurrentCategory])
 
   return (
     <PageLayoutStyled data-testid="PageLayout">
       <Row className="mb-xl">
         <Container>
           <Col variant={12}>
-            <PageHeader title={currentCategory?.text} />
+            <PageHeader title={currentCategory?.name} />
+            {/* <PageHeader title={"text"} /> */}
           </Col>
           <Col variant={12}>
             <PageContent />
