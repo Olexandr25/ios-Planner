@@ -15,7 +15,7 @@ import { useState } from "react"
 // Hooks of Category
 import { SimpleUpdateValue } from "../hooks"
 // react-router-dom
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 const CategoryCombined = props => {
   const { className, length, text, id } = props
@@ -75,14 +75,16 @@ const CategoryCombined = props => {
         <Text size="xsm" color="gray" fontWeight="regular">
           {length}
         </Text>
-        <Button
-          type="button"
-          onClick={() => removeCategory()}
-          size="xxsm"
-          borderType="none"
-          icon={<AiOutlineClose />}
-          color="gray"
-        />
+        <Link to="/">
+          <Button
+            type="button"
+            onClick={() => removeCategory()}
+            size="xxsm"
+            borderType="none"
+            icon={<AiOutlineClose />}
+            color="gray"
+          />
+        </Link>
       </CategoryRight>
     </CategoryCombinedStyled>
   )

@@ -10,6 +10,7 @@ const useFetchData = collectionPath => {
       setCollection(arr)
     }
     fetchData()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   return collection
 }

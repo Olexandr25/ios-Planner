@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */ // ! remove this line
 // Styled variables
 import { SidebarStyled, ButtonContainer } from "./Sidebar.styled"
 // Micro - components
@@ -17,8 +16,7 @@ import {
 // Context
 import { useStore } from "contexts"
 // firestoreService
-import { firestoreService, useFetchData } from "services"
-import { useState } from "react"
+import { firestoreService } from "services"
 
 const Sidebar = () => {
   const { store, addRecord } = useStore()
@@ -36,10 +34,6 @@ const Sidebar = () => {
       `category`
     )
   }
-
-  const categoryFire = useFetchData('category')
-  console.log(categoryFire)
-
 
   return (
     <Row className="h-inherit">

@@ -26,7 +26,7 @@ const StoreProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  console.log(store)
+  console.table("store", store)
 
   return (
     <StoreContext.Provider
