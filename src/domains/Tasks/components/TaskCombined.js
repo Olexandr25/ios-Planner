@@ -6,8 +6,9 @@ import {
   TaskCombinedStyled,
   TaskCombinedLeft,
   TaskCombinedRight,
-  TaskCombinedInputWrapper,
+  TaskCombinedInputTextWrapper,
   TaskCombinedButtonWrapper,
+  TaskCombinedTextWrapper,
 } from "./TaskCombined.styled"
 // icons
 import { AiOutlineClose } from "react-icons/ai"
@@ -18,15 +19,16 @@ import { useStore } from "contexts"
 // import { firestoreService } from "services"
 
 const TaskCombined = props => {
-  const { isEditableStr } = props
+  const { isEditableStr, task } = props
   const { visibleTask, setVisibleTask, currentCategory, addTask } = useStore()
   // const { generateId, getTimestamp } = firestoreService
 
-  const [text, setText] = useState("")
-  const [notes, setNotes] = useState("")
+  const [text, setText] = useState(task?.text)
+  const [notes, setNotes] = useState(task?.notes)
+  const [edit, setEdit] = useState(true)
 
   const isEmptyOrSpaces = str => {
-    return str.length !== 0 && str.trim()
+    return str?.length !== 0 && str?.trim()
   }
 
   const onSubmit = e => {
@@ -37,7 +39,7 @@ const TaskCombined = props => {
     const createdAt = new Date()
     const updatedAt = new Date()
     const dueDataTime = new Date()
-    const categoryId = currentCategory.id
+    const categoryId = currentCategory?.id
 
     if (isEmptyOrSpaces(text)) {
       addTask({
@@ -53,6 +55,8 @@ const TaskCombined = props => {
       })
     }
 
+    setText("")
+    setNotes("")
     setVisibleTask(!visibleTask)
   }
 
@@ -63,8 +67,8 @@ const TaskCombined = props => {
       </TaskCombinedLeft>
       <TaskCombinedRight data-testid="TaskCombinedRight">
         <Divider>
-          <TaskCombinedInputWrapper data-testid="TaskCombinedInputWrapper">
-            {isEditableStr ? (
+          <TaskCombinedInputTextWrapper data-testid="TaskCombinedInputTextWrapper">
+            { edit ? (
               <>
                 <Input
                   type="text"
@@ -72,6 +76,7 @@ const TaskCombined = props => {
                   size="sm"
                   autofocus
                   onChange={e => setText(e.currentTarget.value)}
+                  value={text}
                 />
                 <Input
                   type="text"
@@ -80,20 +85,24 @@ const TaskCombined = props => {
                   color="secondary"
                   placeholder="Notes"
                   onChange={e => setNotes(e.currentTarget.value)}
+                  value={notes}
                 />
               </>
             ) : (
-              <>
-                <Text>Text</Text>
+              <TaskCombinedTextWrapper
+                data-testid="TaskCombinedTextWrapper"
+                onClick={() => setEdit(!edit)}>
+                <Text size="sm">{task.text}</Text>
                 <Text size="xxsm" color="gray">
-                  Text
+                  {task.notes}
                 </Text>
-              </>
+              </TaskCombinedTextWrapper>
             )}
-          </TaskCombinedInputWrapper>
+          </TaskCombinedInputTextWrapper>
           <TaskCombinedButtonWrapper data-testid="TaskCombinedButtonWrapper">
             <Button
               borderType="none"
+              onClick={() => console.log("Remove")}
               size="xxsm"
               color="gray"
               icon={<AiOutlineClose />}
@@ -101,7 +110,9 @@ const TaskCombined = props => {
             <Button
               borderType="none"
               size="xxsm"
-              // ! flagged={false}
+              onClick={() => console.log("Change Color")}
+              type="button"
+              flagged={task?.flagged}
               icon={<BsFillFlagFill />}
             />
           </TaskCombinedButtonWrapper>

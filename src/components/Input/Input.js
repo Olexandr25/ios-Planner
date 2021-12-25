@@ -59,6 +59,7 @@ const Input = props => {
           autoFocus={autofocus}
           onChange={onChange}
           onSubmit={onSubmit}
+          value={value}
         />
       ) : null}
     </InputWrapper>

@@ -1,7 +1,13 @@
 import { useReducer, useState } from "react"
 import { StoreContext } from "."
 import { reducer } from "./reducer"
-import { useAddCategory, useUpdateCategory, useRemoveCategory, useAddTask } from "./hooks"
+import {
+  useAddCategory,
+  useUpdateCategory,
+  useRemoveCategory,
+  useAddTask,
+  useUpdateTask,
+} from "./hooks"
 
 const StoreProvider = ({ children }) => {
   const [store, dispatch] = useReducer(reducer, { category: [], task: [] })
@@ -13,6 +19,7 @@ const StoreProvider = ({ children }) => {
 
   // Create/Update/Remove --- Task
   const addTask = useAddTask(dispatch)
+  const updateTask = useUpdateTask(store, dispatch)
 
   const [currentCategory, setCurrentCategory] = useState()
   const [visibleTask, setVisibleTask] = useState(false)
@@ -30,7 +37,8 @@ const StoreProvider = ({ children }) => {
         setCurrentCategory,
         visibleTask,
         setVisibleTask,
-        addTask
+        addTask,
+        updateTask,
       }}>
       {children}
     </StoreContext.Provider>

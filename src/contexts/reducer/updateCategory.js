@@ -9,8 +9,6 @@ const updateCategory = (state, payload) => {
     return item
   })
 
-  console.table("category", state.category)
-
   return { ...state }
 }
 

@@ -4,7 +4,6 @@ const addTask = (state, payload) => {
   state.category.map(category => {
     if (category.id === categoryId) {
       category.tasks.push(id)
-      console.table('category', category)
     }
 
     return category

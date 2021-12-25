@@ -101,6 +101,7 @@ export const OutlinedInput = styled.input`
   width: 100%;
   border: var(--b-none);
   outline: none;
+  padding: 0;
 
   ${props =>
     props.size &&

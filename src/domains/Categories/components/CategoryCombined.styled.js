@@ -20,4 +20,5 @@ export const CategoryLeft = styled.div`
 
 export const CategoryRight = styled.div`
   display: flex;
+  align-items: center;
 `
