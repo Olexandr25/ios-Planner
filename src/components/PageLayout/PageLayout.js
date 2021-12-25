@@ -1,17 +1,21 @@
 import { PageHeader, PageContent, Container, Row, Col } from "components"
 import { PageLayoutStyled } from "./PageLayout.styled"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { useStore } from "contexts"
 import { useEffect } from "react"
 
 const PageLayout = () => {
   const { id } = useParams()
   const { currentCategory, setCurrentCategory, store } = useStore()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const found = store.category.find(item => item.id === id)
     setCurrentCategory(found)
-  }, [store.category, id, setCurrentCategory])
+    if (!found) {
+      navigate("/")
+    }
+  }, [store.category, id, setCurrentCategory, navigate])
 
   return (
     <PageLayoutStyled data-testid="PageLayout">
