@@ -1,12 +1,16 @@
 import "./styles/styles.css"
-import { Switcher } from "components/Switcher"
+import { AppLayout, Sidebar } from "components"
+import { TasksAll } from "pages/TasksAll/"
+import { StoreProvider } from "contexts"
+import { BrowserRouter as Router } from "react-router-dom"
 
 function App() {
   return (
-    <div className="App">
-      <h1>App.js</h1>
-      <Switcher />
-    </div>
+    <StoreProvider>
+      <Router>
+        <AppLayout aside={<Sidebar />} content={<TasksAll />} />
+      </Router>
+    </StoreProvider>
   )
 }
 
