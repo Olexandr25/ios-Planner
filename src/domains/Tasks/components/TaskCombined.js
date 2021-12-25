@@ -15,45 +15,45 @@ import { BsFillFlagFill } from "react-icons/bs"
 // context
 import { useStore } from "contexts"
 // firestoreService
-import { firestoreService } from "services"
+// import { firestoreService } from "services"
 
 const TaskCombined = props => {
-  const { isEditableStr, flagged } = props
-  const {
-    visibilityTaskCombined,
-    setVisibilityTaskCombined,
-    currentCategory,
-    addRecord,
-  } = useStore()
-  const { generateId, getTimestamp } = firestoreService
+  const { isEditableStr } = props
+  const { visibleTask, setVisibleTask, currentCategory, addTask } = useStore()
+  // const { generateId, getTimestamp } = firestoreService
 
   const [text, setText] = useState("")
-  const [notionText, setNotionText] = useState("")
+  const [notes, setNotes] = useState("")
 
   const isEmptyOrSpaces = str => {
     return str.length !== 0 && str.trim()
   }
 
   const onSubmit = e => {
-    console.log(`Work`)
     e.preventDefault()
+    const id = Math.floor(Math.random() * 1000).toString()
+    const status = false
+    const flagged = false
+    const createdAt = new Date()
+    const updatedAt = new Date()
+    const dueDataTime = new Date()
+    const categoryId = currentCategory.id
+
     if (isEmptyOrSpaces(text)) {
-      addRecord(
-        {
-          id: generateId(`task`),
-          text: text,
-          notes: notionText,
-          status: false,
-          flagged: false,
-          createdAt: getTimestamp(),
-          updatedAt: getTimestamp(),
-          dueDataTime: getTimestamp(), // in future will change
-          categoryId: currentCategory.id,
-        },
-        `task`
-      )
+      addTask({
+        id,
+        text,
+        notes,
+        status,
+        flagged,
+        createdAt,
+        updatedAt,
+        dueDataTime,
+        categoryId,
+      })
     }
-    setVisibilityTaskCombined(!visibilityTaskCombined)
+
+    setVisibleTask(!visibleTask)
   }
 
   return (
@@ -79,7 +79,7 @@ const TaskCombined = props => {
                   size="xxsm"
                   color="secondary"
                   placeholder="Notes"
-                  onChange={e => setNotionText(e.currentTarget.value)}
+                  onChange={e => setNotes(e.currentTarget.value)}
                 />
               </>
             ) : (
@@ -101,7 +101,7 @@ const TaskCombined = props => {
             <Button
               borderType="none"
               size="xxsm"
-              flagged={flagged}
+              // ! flagged={false}
               icon={<BsFillFlagFill />}
             />
           </TaskCombinedButtonWrapper>

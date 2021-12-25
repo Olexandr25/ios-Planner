@@ -1,4 +1,4 @@
-import { addCategory, updateCategory, removeCategory } from "."
+import { addCategory, updateCategory, removeCategory, addTask } from "."
 
 const reducer = (state, action) => {
   const { type, payload } = action
@@ -8,6 +8,7 @@ const reducer = (state, action) => {
     addCategory,
     updateCategory,
     removeCategory,
+    addTask,
   }
 
   return actionsMap[type](stateCopy, payload)

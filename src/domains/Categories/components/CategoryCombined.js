@@ -4,15 +4,11 @@ import {
   CategoryLeft,
   CategoryRight,
 } from "./CategoryCombined.styled"
-// Micro - component
-import { IconModule, Text, Input, Button } from "components"
 // React - icons
 import { AiOutlineClose, AiOutlineUnorderedList } from "react-icons/ai"
-// Context
+import { IconModule, Text, Input, Button } from "components"
 import { useStore } from "contexts"
-// React hook
 import { useState } from "react"
-// react-router-dom
 import { useNavigate, Link } from "react-router-dom"
 
 const CategoryCombined = props => {
@@ -35,7 +31,7 @@ const CategoryCombined = props => {
     setEdit(!edit)
   }
 
-  // FIXME: not working navigation
+  // navigation between categories
   const navigation = () => {
     navigate(`category/${id}`)
   }

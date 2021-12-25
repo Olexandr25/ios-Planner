@@ -23,7 +23,6 @@ const PageLayout = () => {
         <Container>
           <Col variant={12}>
             <PageHeader title={currentCategory?.name} />
-            {/* <PageHeader title={"text"} /> */}
           </Col>
           <Col variant={12}>
             <PageContent />
