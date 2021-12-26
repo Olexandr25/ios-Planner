@@ -22,7 +22,7 @@ const PageLayout = () => {
       <Row className="mb-xl">
         <Container>
           <Col variant={12}>
-            <PageHeader title={currentCategory?.name} />
+            <PageHeader title={currentCategory?.name} currentCategory={currentCategory} />
           </Col>
           <Col variant={12}>
             <PageContent />

@@ -8,11 +8,33 @@ import { PageHeaderButton, PageHeaderStyled } from "./PageHeader.styled"
 import { useStore } from "contexts"
 
 const PageHeader = props => {
-  const { title } = props
-  const { setVisibleTask } = useStore()
+  const { title, currentCategory } = props
+  const { setVisibleTask, addTask } = useStore()
 
   const changeVisibility = () => {
     setVisibleTask(true)
+
+    const id = Math.floor(Math.random() * 1000).toString()
+    const text = ""
+    const notes = ""
+    const status = false
+    const flagged = false
+    const createdAt = new Date()
+    const updatedAt = new Date()
+    const dueDataTime = new Date()
+    const categoryId = currentCategory?.id
+
+    addTask({
+      id,
+      text,
+      notes,
+      status,
+      flagged,
+      createdAt,
+      updatedAt,
+      dueDataTime,
+      categoryId,
+    })
   }
 
   return (
@@ -28,7 +50,7 @@ const PageHeader = props => {
               borderType="none"
               isHovered={true}
               isActive={true}
-              onClick={()=>changeVisibility()}
+              onClick={() => changeVisibility()}
             />
           </PageHeaderButton>
         </Col>

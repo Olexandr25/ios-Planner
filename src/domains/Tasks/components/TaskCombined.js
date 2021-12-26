@@ -19,8 +19,9 @@ import { useStore } from "contexts"
 // import { firestoreService } from "services"
 
 const TaskCombined = props => {
-  const { isEditableStr, task } = props
-  const { visibleTask, setVisibleTask, currentCategory, addTask } = useStore()
+  const { task } = props
+  const { visibleTask, setVisibleTask, currentCategory, updateTask } =
+    useStore()
   // const { generateId, getTimestamp } = firestoreService
 
   const [text, setText] = useState(task?.text)
@@ -33,31 +34,41 @@ const TaskCombined = props => {
 
   const onSubmit = e => {
     e.preventDefault()
-    const id = Math.floor(Math.random() * 1000).toString()
-    const status = false
-    const flagged = false
-    const createdAt = new Date()
-    const updatedAt = new Date()
-    const dueDataTime = new Date()
-    const categoryId = currentCategory?.id
+    // const id = Math.floor(Math.random() * 1000).toString()
+    // const status = false
+    // const flagged = false
+    // const createdAt = new Date()
+    // const updatedAt = new Date()
+    // const dueDataTime = new Date()
+    // const categoryId = currentCategory?.id
 
-    if (isEmptyOrSpaces(text)) {
-      addTask({
-        id,
-        text,
-        notes,
-        status,
-        flagged,
-        createdAt,
-        updatedAt,
-        dueDataTime,
-        categoryId,
-      })
-    }
+    // if (isEmptyOrSpaces(text)) {
+    //   addTask({
+    //     id,
+    //     text,
+    //     notes,
+    //     status,
+    //     flagged,
+    //     createdAt,
+    //     updatedAt,
+    //     dueDataTime,
+    //     categoryId,
+    //   })
+    // }
+
+    const id = task?.id
+    const categoryId = task?.categoryId
+
+    updateTask({
+      id,
+      text,
+    })
 
     setText("")
     setNotes("")
-    setVisibleTask(!visibleTask)
+    setEdit(!edit)
+
+    setVisibleTask(false)
   }
 
   return (
@@ -68,7 +79,7 @@ const TaskCombined = props => {
       <TaskCombinedRight data-testid="TaskCombinedRight">
         <Divider>
           <TaskCombinedInputTextWrapper data-testid="TaskCombinedInputTextWrapper">
-            { edit ? (
+            {edit ? (
               <>
                 <Input
                   type="text"
@@ -92,9 +103,9 @@ const TaskCombined = props => {
               <TaskCombinedTextWrapper
                 data-testid="TaskCombinedTextWrapper"
                 onClick={() => setEdit(!edit)}>
-                <Text size="sm">{task.text}</Text>
+                <Text size="sm">{task?.text}</Text>
                 <Text size="xxsm" color="gray">
-                  {task.notes}
+                  {task?.notes}
                 </Text>
               </TaskCombinedTextWrapper>
             )}

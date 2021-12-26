@@ -23,14 +23,14 @@ const Sidebar = () => {
   const categoryList = store.category
 
   const addCategoryNew = () => {
-    const id = (Math.floor(Math.random() * 1000).toString());
+    const id = Math.floor(Math.random() * 1000).toString()
     const name = "New List"
-    const tasks = []
+    // const tasks = []
     const createdAt = new Date()
     const updatedAt = new Date()
 
     // use hook from contexts
-    addCategory({ id, name, tasks, createdAt, updatedAt })
+    addCategory({ id, name, createdAt, updatedAt })
   }
 
   return (
@@ -97,7 +97,9 @@ const Sidebar = () => {
                 key={category?.id}
                 id={category?.id}
                 name={category?.name}
-                length={category?.tasks?.length}
+                // FIXME: fixe length of category
+                // store.tasks.map(item => item.categoryId === id)
+                length={0}
                 category={category}
               />
             )
