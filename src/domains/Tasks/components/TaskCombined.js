@@ -18,133 +18,103 @@ import { useStore } from "contexts"
 import { useParams } from "react-router-dom"
 
 const TaskCombined = ({ task, createMode }) => {
-  const { removeRecord, addRecord, updateRecord, setVisibleTask } = useStore()
+  const { removeRecord, addRecord, updateRecord, setVisibleTask, store } =
+    useStore()
 
   const [text, setText] = useState(task?.text)
   const [notes, setNotes] = useState(task?.notes)
   const [flagged, setFlagged] = useState(task?.flagged)
-  const [status, setStatus] = useState(task?.status)
+  const [done, setDone] = useState(task?.done)
   const [edit, setEdit] = useState(true)
   const collectionPath = "task"
   const { id } = useParams()
   const categoryId = id
-
+  const updateAt = Date.now()
 
   const valuesChanged = () => {
     if (
       text !== task?.text ||
       notes !== task?.notes ||
       flagged !== task?.flagged ||
-      status !== task?.status
+      done !== task?.done
     ) {
       return true
     } else {
       return false
     }
   }
-  const valuesNotEmpty = () => {
-    if (task?.length > 0) {
-      return true
-    }
-  }
-  const removeTask = () => {
-    removeRecord({ collectionPath, id })
-  }
-  const changeEditMode = () => {
-    setText(text)
-    setNotes(notes)
-    setFlagged(flagged)
-    setStatus(status)
-    setEdit(!edit)
-  }
-  const changeTaskFlagged = () => {
-    if (edit) {
-      setFlagged(!flagged)
-    } else {
-      const id = task?.id
-      updateRecord({
-        collectionPath,
-        id,
-        values: { flagged },
-      })
-    }
-  }
-  const changeTaskStatus = event => {
-    if (edit) {
-      console.log("checked ->", event.target.checked)
-      setStatus(event.target.checked)
-    } else {
-      setStatus(event.target.checked)
-      const id = task?.id
-      updateRecord({
-        collectionPath,
-        id,
-        values: { status },
-      })
-    }
-  }
 
-  // const handleBlur = event => {
-  //   if (!event.currentTarget.contains(event.relatedTarget)) {
-  //     const values = {
-  //       text,
-  //       notes,
-  //       flagged,
-  //       status,
-  //       categoryId,
-  //     }
-  //     if (edit) {
-  //       if (valuesNotEmpty()) {
-  //       console.log("handleBlur___________")
-  //       addRecord({
-  //         collectionPath,
-  //         values,
-  //       })
-  //       }
-        
-  //     } else if (!edit) {
-  //       if (valuesChanged()) {
-  //         const id = task?.id
-  //         updateRecord({ collectionPath, id, values })
-  //       }
-  //       changeEditMode()
-  //     }
-  //   }
-  // }
-  const handleEnter = e => {
-    if (e.key === "Enter") {
-      // setVisibleTask(false)
-      // setEdit(false)
+  // Press enter on Input
+  const pressEnter = e => {
+    if (e.keyCode === 13) {
       const values = {
         text,
         notes,
         flagged,
-        status,
-        categoryId
+        done,
+        categoryId,
       }
-      if (edit) {
+      // Check, if task new
+      if (task?.text === undefined) {
         addRecord({
-          collectionPath: "task",
+          collectionPath,
           values,
         })
-
-        setText("")
-        setNotes("")
-        setFlagged(false)
-        setStatus(false)
+        // Make updateRecord with data of task
       } else {
-        console.log("handleEnter > else")
+        if (valuesChanged()) {
+          const id = task?.id
+          updateRecord({
+            collectionPath,
+            id,
+            values,
+          })
+        }
       }
+      // Hide form and empty TaskCombined
+      setVisibleTask(false)
+      setEdit(false)
+    }
+  }
+
+  const changeTaskdone = event => {
+    setDone(event.target.checked)
+    if (task?.text !== undefined) {
+      const id = task?.id
+      const values = { done, text, notes, updateAt, flagged }
+      updateRecord({
+        collectionPath,
+        id,
+        values,
+      })
+    }
+  }
+
+  const removeTask = () => {
+    const id = task?.id
+    removeRecord({ collectionPath, id })
+  }
+
+  const changeTaskFlagged = () => {
+    setFlagged(!flagged)
+    if (task?.text !== undefined) {
+      const id = task?.id
+      const values = { done, text, notes, updateAt, flagged }
+      updateRecord({
+        collectionPath,
+        id,
+        values,
+      })
     }
   }
 
   return (
-    <TaskCombinedStyled data-testid="TaskCombinedStyled" >
+    <TaskCombinedStyled data-testid="TaskCombinedStyled">
       <TaskCombinedLeft data-testid="TaskCombinedLeft" className="mr-lg">
         <Checkbox
           bgColor="lightBlue"
-          checked={status}
-          onChange={changeTaskStatus}
+          checked={done}
+          onChange={changeTaskdone}
         />
       </TaskCombinedLeft>
       <TaskCombinedRight data-testid="TaskCombinedRight">
@@ -157,7 +127,7 @@ const TaskCombined = ({ task, createMode }) => {
                   variant="outlined"
                   size="sm"
                   autoFocus
-                  onKeyDown={handleEnter}
+                  onKeyDown={pressEnter}
                   value={text}
                   onChange={e => setText(e.currentTarget.value)}
                 />
@@ -169,13 +139,13 @@ const TaskCombined = ({ task, createMode }) => {
                   placeholder="Notes"
                   onChange={e => setNotes(e.currentTarget.value)}
                   value={notes}
-                  onKeyDown={handleEnter}
+                  onKeyDown={pressEnter}
                 />
               </>
             ) : (
               <TaskCombinedTextWrapper
                 data-testid="TaskCombinedTextWrapper"
-                onClick={changeEditMode}>
+                onClick={() => setEdit(!edit)}>
                 <Text size="sm">{task?.text}</Text>
                 <Text size="xxsm" color="gray">
                   {task?.notes}

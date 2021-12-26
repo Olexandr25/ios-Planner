@@ -8,6 +8,10 @@ import { PageHeaderButton, PageHeaderStyled } from "./PageHeader.styled"
 const PageHeader = props => {
   const { title, count, setVisibleTask } = props
 
+  const showTaskCombined = () => {
+    setVisibleTask(true)
+  }
+
   return (
     <PageHeaderStyled data-testid="PageHeader">
       <Row>
@@ -21,7 +25,7 @@ const PageHeader = props => {
               borderType="none"
               isHovered={true}
               isActive={true}
-              onClick={() => setVisibleTask(true)}
+              onClick={showTaskCombined}
             />
           </PageHeaderButton>
         </Col>
