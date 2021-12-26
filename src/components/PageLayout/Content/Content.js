@@ -8,8 +8,8 @@ const Content = () => {
   const { store } = useStore()
   const { id } = useParams()
 
-  const taskList = store.task.filter(item => item.categoryId === id)
-  console.table("taskListk", taskList)
+  const taskList = store?.task?.filter(item => item?.categoryId === id)
+  // console.table("taskListk", taskList)
 
   return (
     <ContentStyled data-testid="ContentStyled">

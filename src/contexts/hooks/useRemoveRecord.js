@@ -1,6 +1,6 @@
 const useRemoveRecord = dispatch => {
-  const removeRecord = ({ path, id }) => {
-    const payload = { path, id }
+  const removeRecord = ({ collectionPath, id }) => {
+    const payload = { collectionPath, id }
     dispatch({
       type: "removeRecord",
       payload,

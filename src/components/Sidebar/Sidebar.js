@@ -13,24 +13,15 @@ import {
   BsFillFlagFill,
   BsPlusCircle,
 } from "react-icons/bs"
-// Context
 import { useStore } from "contexts"
-// firestoreService
-// import { firestoreService } from "services"
+
 
 const Sidebar = () => {
-  const { store, addCategory } = useStore()
+  const { store, addRecord } = useStore()
   const categoryList = store.category
 
-  const addCategoryNew = () => {
-    const id = Math.floor(Math.random() * 1000).toString()
-    const name = "New List"
-    // const tasks = []
-    const createdAt = new Date()
-    const updatedAt = new Date()
-
-    // use hook from contexts
-    addCategory({ id, name, createdAt, updatedAt })
+  const createCategory = () => {
+    addRecord({collectionPath: "category"})
   }
 
   return (
@@ -108,7 +99,7 @@ const Sidebar = () => {
         <Col variant={12}>
           <ButtonContainer>
             <Button
-              onClick={() => addCategoryNew()}
+              onClick={() => createCategory()}
               icon={<BsPlusCircle />}
               size="xxsm"
               borderType="none"

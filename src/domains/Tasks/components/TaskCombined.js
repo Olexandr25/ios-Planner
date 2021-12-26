@@ -1,6 +1,6 @@
 import { useState } from "react"
 // micro components
-import { Checkbox, Input, Text, Button, Divider } from "components"
+import { Checkbox, Input, Text, Button, Divider, Row, Col } from "components"
 // styled components
 import {
   TaskCombinedStyled,
@@ -15,13 +15,10 @@ import { AiOutlineClose } from "react-icons/ai"
 import { BsFillFlagFill } from "react-icons/bs"
 // context
 import { useStore } from "contexts"
-// firestoreService
-// import { firestoreService } from "services"
 
 const TaskCombined = props => {
   const { task } = props
   const { setVisibleTask, updateTask, removeRecord, updateRecord } = useStore()
-  // const { generateId, getTimestamp } = firestoreService
 
   const [text, setText] = useState(task?.text)
   const [notes, setNotes] = useState(task?.notes)
@@ -56,7 +53,7 @@ const TaskCombined = props => {
       const path = task
       const id = task?.id
 
-      updateRecord({path, id, values})
+      updateRecord({ path, id, values })
     }
   }
 
@@ -66,66 +63,74 @@ const TaskCombined = props => {
   }
 
   return (
-    <TaskCombinedStyled data-testid="TaskCombinedStyled" onSubmit={onSubmit}>
-      <TaskCombinedLeft data-testid="TaskCombinedLeft" className="mr-lg">
-        <Checkbox bgColor="lightBlue" />
-      </TaskCombinedLeft>
-      <TaskCombinedRight data-testid="TaskCombinedRight">
-        <Divider>
-          <TaskCombinedInputTextWrapper data-testid="TaskCombinedInputTextWrapper">
-            {edit ? (
-              <>
-                <Input
-                  type="text"
-                  variant="outlined"
-                  size="sm"
-                  autofocus
-                  onChange={e => setText(e.currentTarget.value)}
-                  onKeyDown={handleEnter}
-                  value={text}
-                />
-                <Input
-                  type="text"
-                  variant="outlined"
-                  size="xxsm"
-                  color="secondary"
-                  placeholder="Notes"
-                  onChange={e => setNotes(e.currentTarget.value)}
-                  value={notes}
-                />
-              </>
-            ) : (
-              <TaskCombinedTextWrapper
-                data-testid="TaskCombinedTextWrapper"
-                onClick={() => setEdit(!edit)}>
-                <Text size="sm">{task?.text}</Text>
-                <Text size="xxsm" color="gray">
-                  {task?.notes}
-                </Text>
-              </TaskCombinedTextWrapper>
-            )}
-          </TaskCombinedInputTextWrapper>
-          <TaskCombinedButtonWrapper data-testid="TaskCombinedButtonWrapper">
-            <Button
-              borderType="none"
-              type="button"
-              onClick={() => removeRecord({ path: "task", id: task?.id })}
-              size="xxsm"
-              color="gray"
-              icon={<AiOutlineClose />}
-            />
-            <Button
-              borderType="none"
-              size="xxsm"
-              // onClick={() => changeFlagge()}
-              // type="button"
-              flagged={flagged}
-              icon={<BsFillFlagFill />}
-            />
-          </TaskCombinedButtonWrapper>
-        </Divider>
-      </TaskCombinedRight>
-    </TaskCombinedStyled>
+    <>
+      <Row>
+        <Col>
+          <Checkbox bgColor="lightBlue" />
+        </Col>
+      </Row>
+    </>
+
+    // <TaskCombinedStyled data-testid="TaskCombinedStyled" onSubmit={onSubmit}>
+    //   <TaskCombinedLeft data-testid="TaskCombinedLeft" className="mr-lg">
+    //     <Checkbox bgColor="lightBlue" />
+    //   </TaskCombinedLeft>
+    //   <TaskCombinedRight data-testid="TaskCombinedRight">
+    //     <Divider>
+    //       <TaskCombinedInputTextWrapper data-testid="TaskCombinedInputTextWrapper">
+    //         {edit ? (
+    //           <>
+    //             <Input
+    //               type="text"
+    //               variant="outlined"
+    //               size="sm"
+    //               autofocus
+    //               onChange={e => setText(e.currentTarget.value)}
+    //               onKeyDown={handleEnter}
+    //               value={text}
+    //             />
+    //             <Input
+    //               type="text"
+    //               variant="outlined"
+    //               size="xxsm"
+    //               color="secondary"
+    //               placeholder="Notes"
+    //               onChange={e => setNotes(e.currentTarget.value)}
+    //               value={notes}
+    //             />
+    //           </>
+    //         ) : (
+    //           <TaskCombinedTextWrapper
+    //             data-testid="TaskCombinedTextWrapper"
+    //             onClick={() => setEdit(!edit)}>
+    //             <Text size="sm">{task?.text}</Text>
+    //             <Text size="xxsm" color="gray">
+    //               {task?.notes}
+    //             </Text>
+    //           </TaskCombinedTextWrapper>
+    //         )}
+    //       </TaskCombinedInputTextWrapper>
+    //       <TaskCombinedButtonWrapper data-testid="TaskCombinedButtonWrapper">
+    //         <Button
+    //           borderType="none"
+    //           type="button"
+    //           onClick={() => removeRecord({ path: "task", id: task?.id })}
+    //           size="xxsm"
+    //           color="gray"
+    //           icon={<AiOutlineClose />}
+    //         />
+    //         <Button
+    //           borderType="none"
+    //           size="xxsm"
+    //           // onClick={() => changeFlagge()}
+    //           // type="button"
+    //           flagged={flagged}
+    //           icon={<BsFillFlagFill />}
+    //         />
+    //       </TaskCombinedButtonWrapper>
+    //     </Divider>
+    //   </TaskCombinedRight>
+    // </TaskCombinedStyled>
   )
 }
 

@@ -6,10 +6,13 @@ import { AiOutlinePlus } from "react-icons/ai"
 import { PageHeaderButton, PageHeaderStyled } from "./PageHeader.styled"
 // context
 import { useStore } from "contexts"
+import { useParams } from "react-router-dom"
 
 const PageHeader = props => {
-  const { title, currentCategory } = props
-  const { setVisibleTask, addTask } = useStore()
+  const { title, count } = props
+  const { setVisibleTask, addTask, store } = useStore()
+  const { id } = useParams()
+  const paramsId = id
 
   const changeVisibility = () => {
     setVisibleTask(true)
@@ -22,7 +25,7 @@ const PageHeader = props => {
     const createdAt = new Date()
     const updatedAt = new Date()
     const dueDataTime = new Date()
-    const categoryId = currentCategory?.id
+    const categoryId = paramsId || store.category[0].id
 
     addTask({
       id,
@@ -54,12 +57,16 @@ const PageHeader = props => {
             />
           </PageHeaderButton>
         </Col>
+      </Row>
+      <Row>
         <Col
           variant={12}
           className="d-flex justify-content-space-between mb-lg">
           <Title>{title}</Title>
-          <Title>0</Title>
+          <Title>{count}</Title>
         </Col>
+      </Row>
+      <Row>
         <Col variant={12}>
           <Completed length={0} color="black" />
         </Col>

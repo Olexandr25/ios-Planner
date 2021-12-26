@@ -12,23 +12,31 @@ import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 
 const CategoryCombined = props => {
-  const { className, length, name, id, category } = props
+  const { className, length, name, id } = props
   const [edit, setEdit] = useState(false)
   const [editText, setEditText] = useState(name)
   const navigate = useNavigate()
-  const { updateCategory, removeRecord } = useStore()
+  const { updateRecord, removeRecord } = useStore()
 
   // Update category
   const onSubmit = e => {
-    e.preventDefault()
+    e?.preventDefault()
+    const values = {}
     const updatedAt = new Date()
-    updateCategory(id, editText, updatedAt)
+    const collectionPath = "category"
+
+    values.id = id
+    values.name = editText
+    values.updatedAt = updatedAt
+    
+    updateRecord({ collectionPath, id, values })
     setEdit(!edit)
   }
 
   // Show/Hide input for updating Category
   const changeSimpleType = () => {
     setEdit(!edit)
+    onSubmit()
   }
 
   // navigation between categories
@@ -36,9 +44,9 @@ const CategoryCombined = props => {
     navigate(`category/${id}`)
   }
 
-  const RemoveCategory = () => {
-    const path = "category"
-    removeRecord({path, id})
+  const RemoveCategory = e => {
+    const collectionPath = "category"
+    removeRecord({ collectionPath, id })
   }
 
   return (
