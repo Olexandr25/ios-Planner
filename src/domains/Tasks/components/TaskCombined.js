@@ -20,55 +20,49 @@ import { useStore } from "contexts"
 
 const TaskCombined = props => {
   const { task } = props
-  const { visibleTask, setVisibleTask, currentCategory, updateTask } =
-    useStore()
+  const { setVisibleTask, updateTask, removeRecord, updateRecord } = useStore()
   // const { generateId, getTimestamp } = firestoreService
 
   const [text, setText] = useState(task?.text)
   const [notes, setNotes] = useState(task?.notes)
+  const [flagged, setFlagged] = useState(task?.flagged)
+  const [status, setStatus] = useState(task?.status)
   const [edit, setEdit] = useState(true)
-
-  const isEmptyOrSpaces = str => {
-    return str?.length !== 0 && str?.trim()
-  }
 
   const onSubmit = e => {
     e.preventDefault()
-    // const id = Math.floor(Math.random() * 1000).toString()
-    // const status = false
-    // const flagged = false
-    // const createdAt = new Date()
-    // const updatedAt = new Date()
-    // const dueDataTime = new Date()
-    // const categoryId = currentCategory?.id
-
-    // if (isEmptyOrSpaces(text)) {
-    //   addTask({
-    //     id,
-    //     text,
-    //     notes,
-    //     status,
-    //     flagged,
-    //     createdAt,
-    //     updatedAt,
-    //     dueDataTime,
-    //     categoryId,
-    //   })
-    // }
 
     const id = task?.id
-    const categoryId = task?.categoryId
 
     updateTask({
       id,
       text,
+      notes,
     })
-
-    setText("")
-    setNotes("")
     setEdit(!edit)
 
     setVisibleTask(false)
+  }
+
+  const handleEnter = e => {
+    if (e.keyCode === 13) {
+      const values = {
+        text,
+        notes,
+        flagged,
+        status,
+      }
+
+      const path = task
+      const id = task?.id
+
+      updateRecord({path, id, values})
+    }
+  }
+
+  const changeFlagge = () => {
+    setFlagged(!flagged)
+    console.table("--------------flagged", flagged)
   }
 
   return (
@@ -87,6 +81,7 @@ const TaskCombined = props => {
                   size="sm"
                   autofocus
                   onChange={e => setText(e.currentTarget.value)}
+                  onKeyDown={handleEnter}
                   value={text}
                 />
                 <Input
@@ -113,7 +108,8 @@ const TaskCombined = props => {
           <TaskCombinedButtonWrapper data-testid="TaskCombinedButtonWrapper">
             <Button
               borderType="none"
-              onClick={() => console.log("Remove")}
+              type="button"
+              onClick={() => removeRecord({ path: "task", id: task?.id })}
               size="xxsm"
               color="gray"
               icon={<AiOutlineClose />}
@@ -121,9 +117,9 @@ const TaskCombined = props => {
             <Button
               borderType="none"
               size="xxsm"
-              onClick={() => console.log("Change Color")}
-              type="button"
-              flagged={task?.flagged}
+              // onClick={() => changeFlagge()}
+              // type="button"
+              flagged={flagged}
               icon={<BsFillFlagFill />}
             />
           </TaskCombinedButtonWrapper>

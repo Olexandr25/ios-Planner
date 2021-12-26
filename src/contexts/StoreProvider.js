@@ -7,6 +7,7 @@ import {
   useRemoveCategory,
   useAddTask,
   useUpdateTask,
+  useRemoveRecord,
 } from "./hooks"
 
 const StoreProvider = ({ children }) => {
@@ -20,6 +21,10 @@ const StoreProvider = ({ children }) => {
   // Create/Update/Remove --- Task
   const addTask = useAddTask(dispatch)
   const updateTask = useUpdateTask(store, dispatch)
+  // const removeTask = useRemoveTask(dispatch)
+
+  // Remove --- Record
+  const removeRecord = useRemoveRecord(dispatch)
 
   const [currentCategory, setCurrentCategory] = useState()
   const [visibleTask, setVisibleTask] = useState(false)
@@ -39,6 +44,7 @@ const StoreProvider = ({ children }) => {
         setVisibleTask,
         addTask,
         updateTask,
+        removeRecord,
       }}>
       {children}
     </StoreContext.Provider>

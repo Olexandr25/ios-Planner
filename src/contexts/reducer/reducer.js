@@ -4,6 +4,7 @@ import {
   removeCategory,
   addTask,
   updateTask,
+  removeRecord,
 } from "."
 
 const reducer = (state, action) => {
@@ -16,6 +17,7 @@ const reducer = (state, action) => {
     removeCategory,
     addTask,
     updateTask,
+    removeRecord,
   }
 
   return actionsMap[type](stateCopy, payload)
