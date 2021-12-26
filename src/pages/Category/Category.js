@@ -2,7 +2,6 @@ import { useParams, useNavigate } from "react-router-dom"
 import { useStore } from "contexts"
 import { useEffect } from "react"
 
-
 import { PageLayout } from "components"
 const Category = () => {
   const { id } = useParams()
@@ -17,7 +16,13 @@ const Category = () => {
     }
   }, [store.category, id, setCurrentCategory, navigate])
 
-  return <PageLayout title={currentCategory?.name} count={0} />
+  return (
+    <PageLayout
+      title={currentCategory?.name}
+      count={0}
+      createMode
+    />
+  )
 }
 
 export default Category

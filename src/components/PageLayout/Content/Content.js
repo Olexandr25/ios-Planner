@@ -5,21 +5,29 @@ import { useStore } from "contexts"
 import { useParams } from "react-router-dom"
 
 const Content = () => {
-  const { store } = useStore()
+  const { store, visibleTask, setVisibleTask } = useStore()
   const { id } = useParams()
 
-  const taskList = store?.task?.filter(item => item?.categoryId === id)
-  // console.table("taskListk", taskList)
+  const taskList = store.task
 
   return (
     <ContentStyled data-testid="ContentStyled">
       <Row>
         <Col variant={12}>
-          {taskList.map(task => {
-            return <TaskCombined key={task.id} task={task} />
-          })}
+          {taskList?.map(
+            task =>
+              task.categoryId === id ? (
+                <TaskCombined
+                  key={task.id}
+                  task={task}
+                  visibleTask={visibleTask}
+                  setVisibleTask={setVisibleTask}
+                  createMode
+                />
+              ) : null
+          )}
         </Col>
-        {/* <Col variant={12}>{visibleTask ? <TaskCombined /> : <></>}</Col> */}
+        <Col variant={12}>{visibleTask ? <TaskCombined /> : <></>}</Col>
       </Row>
     </ContentStyled>
   )

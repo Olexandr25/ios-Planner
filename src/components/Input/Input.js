@@ -19,11 +19,15 @@ const Input = props => {
     onBlur,
     onSubmit,
     value,
-    autofocus
+    autoFocus,
+    ...rest
   } = props
 
   return (
-    <InputWrapper data-testid="inputWrapper" onBlur={onBlur} onSubmit={onSubmit}>
+    <InputWrapper
+      data-testid="inputWrapper"
+      onBlur={onBlur}
+      onSubmit={onSubmit}>
       {variant === "classic" ? (
         <ClassicInput
           date-testid="inputClassic"
@@ -32,7 +36,7 @@ const Input = props => {
           onChange={onChange}
           size={size}
           value={value}
-          autoFocus={autofocus}
+          autoFocus={autoFocus}
         />
       ) : variant === "styled" ? (
         <>
@@ -45,7 +49,7 @@ const Input = props => {
             type={type}
             className={className}
             size={size}
-            autoFocus={autofocus}
+            autoFocus={autoFocus}
           />
         </>
       ) : variant === "outlined" ? (
@@ -56,10 +60,11 @@ const Input = props => {
           size={size}
           color={color}
           placeholder={placeholder}
-          autoFocus={autofocus}
+          autoFocus={autoFocus}
           onChange={onChange}
           onSubmit={onSubmit}
           value={value}
+          {...rest}
         />
       ) : null}
     </InputWrapper>

@@ -1,7 +1,7 @@
 import { CheckboxStyled } from "./Checkbox.styled"
 
 const Checkbox = props => {
-  const { bgColor, size, onClick, className } = props
+  const { bgColor, size, onClick, className, ...rest } = props
 
   return (
     <CheckboxStyled
@@ -10,6 +10,7 @@ const Checkbox = props => {
       size={size}
       className={className}
       onClick={onClick}
+      {...rest}
     />
   )
 }
