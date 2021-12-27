@@ -10,7 +10,7 @@ const Switcher = props => {
     props
 
   return (
-    <SwitcherWrapper data-testid="SwitcherWrapper">
+    <SwitcherWrapper data-testid="SwitcherWrapper" tabIndex={1}>
       <SwitcherBody data-testid="SwitcherBody" bgColor={bgColor} color={color}>
         <SwitcherHeader data-testid="SwitcherHeader">
           <IconModule bgColor={bgColorIcon} color={colorIcon}>

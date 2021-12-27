@@ -15,13 +15,12 @@ import {
 } from "react-icons/bs"
 import { useStore } from "contexts"
 
-
 const Sidebar = () => {
   const { store, addRecord } = useStore()
   const categoryList = store.category
 
   const createCategory = () => {
-    addRecord({collectionPath: "category"})
+    addRecord({ collectionPath: "category" })
   }
 
   return (
@@ -41,12 +40,14 @@ const Sidebar = () => {
         <Col variant={12}>
           <Row className="m-zero">
             <Col className="p-zero">
-              <Switcher icon={<BsCalendarDate />} length={4}>
+              <Switcher icon={<BsCalendarDate />} length={4}
+              bgColor="blue">
                 Today
               </Switcher>
             </Col>
             <Col className="p-zero">
-              <Switcher icon={<BsCalendar3 />} length={4} bgColorIcon="red">
+              <Switcher icon={<BsCalendar3 />} length={4} bgColorIcon="red"
+              bgColor="red">
                 Scheduled
               </Switcher>
             </Col>
@@ -56,7 +57,8 @@ const Sidebar = () => {
               <Switcher
                 icon={<BsFillInboxFill />}
                 length={8}
-                bgColorIcon="gray">
+                bgColorIcon="gray"
+                bgColor="gray">
                 All
               </Switcher>
             </Col>
@@ -64,7 +66,8 @@ const Sidebar = () => {
               <Switcher
                 icon={<BsFillFlagFill />}
                 length={1}
-                bgColorIcon="orange">
+                bgColorIcon="orange"
+                bgColor="orange">
                 Flagged
               </Switcher>
             </Col>

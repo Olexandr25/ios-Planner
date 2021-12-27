@@ -27,8 +27,13 @@ export const SwitcherBody = styled.div`
     `}
 
   &:active {
-    background-color: var(--color-gray-darken-5);
+    background-color: ${props => Colors[props.bgColor]};
     color: ${props => props.color || "var(--color-white)"};
+
+    & * .icon {
+      background: var(--color-white);
+      color: ${props => Colors[props.bgColor]};
+    }
   }
 `
 

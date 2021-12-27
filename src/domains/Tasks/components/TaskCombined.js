@@ -23,7 +23,7 @@ const TaskCombined = ({ task, createMode }) => {
   const [text, setText] = useState(task?.text)
   const [notes, setNotes] = useState(task?.notes)
   const [flagged, setFlagged] = useState(task?.flagged)
-  const [done, setDone] = useState(task?.done)
+  const [done, setDone] = useState(task?.done || false)
   const [edit, setEdit] = useState(visibleTask || false)
   const collectionPath = "task"
   const { id } = useParams()
