@@ -18,8 +18,7 @@ import { useStore } from "contexts"
 import { useParams } from "react-router-dom"
 
 const TaskCombined = ({ task, createMode }) => {
-  const { removeRecord, addRecord, updateRecord, setVisibleTask, store } =
-    useStore()
+  const { removeRecord, addRecord, updateRecord, setVisibleTask } = useStore()
 
   const [text, setText] = useState(task?.text)
   const [notes, setNotes] = useState(task?.notes)
@@ -29,8 +28,9 @@ const TaskCombined = ({ task, createMode }) => {
   const collectionPath = "task"
   const { id } = useParams()
   const categoryId = id
-  const updateAt = Date.now()
+  const updatedAt = Date.now()
 
+  // was values changed ?
   const valuesChanged = () => {
     if (
       text !== task?.text ||
@@ -77,11 +77,12 @@ const TaskCombined = ({ task, createMode }) => {
     }
   }
 
+  // Change checkbox
   const changeTaskdone = event => {
     setDone(event.target.checked)
     if (task?.text !== undefined) {
       const id = task?.id
-      const values = { done, text, notes, updateAt, flagged }
+      const values = { done, text, notes, updatedAt, flagged }
       updateRecord({
         collectionPath,
         id,
@@ -90,16 +91,18 @@ const TaskCombined = ({ task, createMode }) => {
     }
   }
 
+  // remove Task
   const removeTask = () => {
     const id = task?.id
     removeRecord({ collectionPath, id })
   }
 
+  // change Flagged
   const changeTaskFlagged = () => {
     setFlagged(!flagged)
     if (task?.text !== undefined) {
       const id = task?.id
-      const values = { done, text, notes, updateAt, flagged }
+      const values = { done, text, notes, updatedAt, flagged }
       updateRecord({
         collectionPath,
         id,
@@ -147,9 +150,14 @@ const TaskCombined = ({ task, createMode }) => {
                 data-testid="TaskCombinedTextWrapper"
                 onClick={() => setEdit(!edit)}>
                 <Text size="sm">{task?.text}</Text>
-                <Text size="xxsm" color="gray">
+                {task?.notes?.length > 0 && (
+                  <Text size="xxsm" color="gray">
+                    {task?.notes}
+                  </Text>
+                )}
+                {/* <Text size="xxsm" color="gray">
                   {task?.notes}
-                </Text>
+                </Text> */}
               </TaskCombinedTextWrapper>
             )}
           </TaskCombinedInputTextWrapper>

@@ -16,7 +16,8 @@ const updateRecord = (state, payload) => {
         item.done = values?.done
         item.flagged = values?.flagged
         item.text = values?.text
-        item.updateAt = values?.updateAt
+        item.updatedAt = values?.updatedAt
+        item.notes = values?.notes
       }
       return item
     })

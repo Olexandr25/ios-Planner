@@ -1,10 +1,10 @@
-import { PageHeader, PageContent, Container, Row, Col } from "components"
+import { PageHeader, PageContent, Row, Col } from "components"
 import { PageLayoutStyled } from "./PageLayout.styled"
 import { useStore } from "contexts"
 
 
 const PageLayout = ({ title, count }) => {
-  const { store, visibleTask, setVisibleTask } = useStore()
+  const { setVisibleTask } = useStore()
 
   return (
     <PageLayoutStyled data-testid="PageLayout">
