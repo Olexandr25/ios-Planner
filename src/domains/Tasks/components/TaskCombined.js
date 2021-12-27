@@ -18,13 +18,13 @@ import { useStore } from "contexts"
 import { useParams } from "react-router-dom"
 
 const TaskCombined = ({ task, createMode }) => {
-  const { removeRecord, addRecord, updateRecord, setVisibleTask } = useStore()
+  const { removeRecord, addRecord, updateRecord, setVisibleTask, visibleTask } = useStore()
 
   const [text, setText] = useState(task?.text)
   const [notes, setNotes] = useState(task?.notes)
   const [flagged, setFlagged] = useState(task?.flagged)
   const [done, setDone] = useState(task?.done)
-  const [edit, setEdit] = useState(true)
+  const [edit, setEdit] = useState(visibleTask || false)
   const collectionPath = "task"
   const { id } = useParams()
   const categoryId = id
