@@ -97,9 +97,6 @@ const Sidebar = () => {
                 key={category?.id}
                 id={category?.id}
                 name={category?.name}
-                // FIXME: fixe length of category
-                // store.tasks.map(item => item.categoryId === id)
-                length={0}
                 category={category}
               />
             )

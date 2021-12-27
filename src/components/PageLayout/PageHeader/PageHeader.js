@@ -37,7 +37,7 @@ const PageHeader = props => {
           <Title className="pb-sm" color={titleColor}>
             {title}
           </Title>
-          <Title>{count}</Title>
+          <Title color={titleColor}>{count}</Title>
         </Col>
       </Row>
       <Row>

@@ -21,10 +21,10 @@ const TaskCombined = ({ task }) => {
   const { removeRecord, addRecord, updateRecord, setVisibleTask, visibleTask } =
     useStore()
 
-  const [text, setText] = useState(task?.text)
-  const [notes, setNotes] = useState(task?.notes)
+  const [text, setText] = useState(task?.text || "")
+  const [notes, setNotes] = useState(task?.notes || "")
   const [flagged, setFlagged] = useState(task?.flagged)
-  const [done, setDone] = useState(task?.done || false)
+  const [done, setDone] = useState(false)
   const [edit, setEdit] = useState(visibleTask || false)
   const collectionPath = "task"
   const { id } = useParams()
@@ -45,6 +45,21 @@ const TaskCombined = ({ task }) => {
     }
   }
 
+  // Change checkbox
+  const changeTaskdone = event => {
+    setDone(event.target.checked)
+    if (task?.text !== undefined) {
+      const id = task?.id
+      const values = { done, text, notes, updatedAt, flagged }
+
+      updateRecord({
+        collectionPath,
+        id,
+        values,
+      })
+    }
+  }
+
   // Press enter on Input
   const pressEnter = e => {
     if (e.keyCode === 13) {
@@ -56,16 +71,14 @@ const TaskCombined = ({ task }) => {
         categoryId,
       }
       // Check, if task new
-      if (task?.text === undefined) {
-        if (text?.length > 0) {
-          addRecord({
-            collectionPath,
-            values,
-          })
-        }
+      if (task?.text === undefined && text?.length > 0) {
+        addRecord({
+          collectionPath,
+          values,
+        })
         // Make updateRecord with data of task
       } else {
-        if (valuesChanged()) {
+        if (valuesChanged() && text?.length > 0) {
           const id = task?.id
           updateRecord({
             collectionPath,
@@ -77,20 +90,6 @@ const TaskCombined = ({ task }) => {
       // Hide form and empty TaskCombined
       setVisibleTask(false)
       setEdit(false)
-    }
-  }
-
-  // Change checkbox
-  const changeTaskdone = event => {
-    setDone(event.target.checked)
-    if (task?.text !== undefined) {
-      const id = task?.id
-      const values = { done, text, notes, updatedAt, flagged }
-      updateRecord({
-        collectionPath,
-        id,
-        values,
-      })
     }
   }
 
@@ -158,9 +157,6 @@ const TaskCombined = ({ task }) => {
                     {task?.notes}
                   </Text>
                 )}
-                {/* <Text size="xxsm" color="gray">
-                  {task?.notes}
-                </Text> */}
               </TaskCombinedTextWrapper>
             )}
           </TaskCombinedInputTextWrapper>

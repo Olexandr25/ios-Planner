@@ -12,11 +12,14 @@ import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 
 const CategoryCombined = props => {
-  const { className, length, name, id } = props
+  const { className, name, id } = props
   const [edit, setEdit] = useState(false)
   const [editText, setEditText] = useState(name)
   const navigate = useNavigate()
-  const { updateRecord, removeRecord } = useStore()
+  const { updateRecord, removeRecord, store } = useStore()
+
+  let x = 0
+  store?.task?.map(item => (item?.categoryId === id ? x++ : null))
 
   // Update category
   const onSubmit = e => {
@@ -28,7 +31,7 @@ const CategoryCombined = props => {
     values.id = id
     values.name = editText
     values.updatedAt = updatedAt
-    
+
     updateRecord({ collectionPath, id, values })
     setEdit(!edit)
   }
@@ -76,7 +79,7 @@ const CategoryCombined = props => {
       </CategoryLeft>
       <CategoryRight data-testid="CategoryRight">
         <Text size="xsm" color="gray" fontWeight="regular">
-          {length}
+          {x}
         </Text>
         <Link to="/">
           <Button

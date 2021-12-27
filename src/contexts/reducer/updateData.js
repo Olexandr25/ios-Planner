@@ -1,7 +1,7 @@
 const updateData = (state, payload) => {
-  console.log("Payload", payload)
 
   payload?.category?.map(item => state?.category?.push(item))
+  payload?.task?.map(item => state?.task?.push(item))
 
   return { ...state }
 }

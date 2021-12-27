@@ -12,7 +12,7 @@ import {
   orderBy,
   limit,
   where,
-  deleteDoc
+  deleteDoc,
 } from "firebase/firestore"
 
 const firebaseConfig = {

@@ -8,21 +8,20 @@ const Content = () => {
   const { store, visibleTask, setVisibleTask } = useStore()
   const { id } = useParams()
 
-  const taskList = store.task
+  // const taskList = store.task
 
   return (
     <ContentStyled data-testid="ContentStyled">
       <Row>
         <Col variant={12}>
-          {taskList?.map(
+          {store?.task?.map(
             task =>
-              task.categoryId === id ? (
+              task?.categoryId === id ? (
                 <TaskCombined
                   key={task.id}
                   task={task}
                   visibleTask={visibleTask}
                   setVisibleTask={setVisibleTask}
-                  createMode
                 />
               ) : null
           )}

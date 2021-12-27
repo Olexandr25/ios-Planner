@@ -17,13 +17,16 @@ const StoreProvider = ({ children }) => {
   const [currentCategory, setCurrentCategory] = useState()
   const [visibleTask, setVisibleTask] = useState(false)
   const [dbCategory, setDbCategory] = useState([])
+  const [dbTask, setDbTask] = useState([])
 
   useEffect(() => {
     const getData = async () => {
       const category = await queryDocuments("category")
+      const task = await queryDocuments("task")
 
       setDbCategory(category)
-      dispatch({ type: "updateData", payload: { category } })
+      setDbTask(task)
+      dispatch({ type: "updateData", payload: { category, task } })
     }
 
     getData()
@@ -47,6 +50,7 @@ const StoreProvider = ({ children }) => {
 
         // data from db
         dbCategory,
+        dbTask
       }}>
       {children}
     </StoreContext.Provider>

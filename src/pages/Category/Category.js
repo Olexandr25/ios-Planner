@@ -16,10 +16,13 @@ const Category = () => {
     }
   }, [store.category, id, setCurrentCategory, navigate])
 
+  let count = 0
+  store?.task?.map(item => item.categoryId === id ? count++ : null)
+
   return (
     <PageLayout
       title={currentCategory?.name}
-      count={0}
+      count={count}
       titleColor="blue"
       createMode
     />
