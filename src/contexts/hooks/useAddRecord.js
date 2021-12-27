@@ -22,6 +22,8 @@ const useAddRecord = dispatch => {
       values.flagged = values.flagged || false
     }
 
+    createDocument(collectionPath, recordId, values)
+
     const payload = {
       collectionPath,
       id: recordId,

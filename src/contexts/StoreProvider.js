@@ -1,11 +1,10 @@
-import { useReducer, useState } from "react"
+import { useReducer, useState, useEffect } from "react"
 import { StoreContext } from "."
 import { reducer } from "./reducer"
-import {
-  useRemoveRecord,
-  useAddRecord,
-  useUpdateRecord,
-} from "./hooks"
+import { useRemoveRecord, useAddRecord, useUpdateRecord } from "./hooks"
+import { firestoreService } from "services"
+
+const { queryDocuments } = firestoreService
 
 const StoreProvider = ({ children }) => {
   const [store, dispatch] = useReducer(reducer, { category: [], task: [] })
@@ -17,6 +16,18 @@ const StoreProvider = ({ children }) => {
 
   const [currentCategory, setCurrentCategory] = useState()
   const [visibleTask, setVisibleTask] = useState(false)
+  const [dbCategory, setDbCategory] = useState([])
+
+  useEffect(() => {
+    const getData = async () => {
+      const category = await queryDocuments("category")
+
+      setDbCategory(category)
+      dispatch({ type: "updateData", payload: { category } })
+    }
+
+    getData()
+  }, [])
 
   console.table("store", store)
 
@@ -29,11 +40,13 @@ const StoreProvider = ({ children }) => {
         visibleTask,
         setVisibleTask,
 
-
         // CRUD - Record
         addRecord,
         updateRecord,
         removeRecord,
+
+        // data from db
+        dbCategory,
       }}>
       {children}
     </StoreContext.Provider>

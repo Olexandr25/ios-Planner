@@ -18,7 +18,8 @@ import { useStore } from "contexts"
 import { useParams } from "react-router-dom"
 
 const TaskCombined = ({ task }) => {
-  const { removeRecord, addRecord, updateRecord, setVisibleTask, visibleTask } = useStore()
+  const { removeRecord, addRecord, updateRecord, setVisibleTask, visibleTask } =
+    useStore()
 
   const [text, setText] = useState(task?.text)
   const [notes, setNotes] = useState(task?.notes)
@@ -56,10 +57,12 @@ const TaskCombined = ({ task }) => {
       }
       // Check, if task new
       if (task?.text === undefined) {
-        addRecord({
-          collectionPath,
-          values,
-        })
+        if (text?.length > 0) {
+          addRecord({
+            collectionPath,
+            values,
+          })
+        }
         // Make updateRecord with data of task
       } else {
         if (valuesChanged()) {

@@ -1,3 +1,7 @@
+import { firestoreService } from "services"
+
+const { updateDocument } = firestoreService
+
 const useUpdateRecord = dispatch => {
   const updateRecord = ({ collectionPath, id, values }) => {
     const payload = {
@@ -5,6 +9,8 @@ const useUpdateRecord = dispatch => {
       id,
       values,
     }
+
+    updateDocument(collectionPath, id, values)
 
     dispatch({
       type: "updateRecord",

@@ -34,8 +34,6 @@ const createDocument = async (collectionPath, id, documentData) => {
   return result
 }
 
-const generateId = path => doc(collection(db, path)).id
-
 const updateDocument = async (collectionPath, id, documentData) => {
   const ref = doc(db, collectionPath, id)
   const result = await updateDoc(ref, documentData)
@@ -46,25 +44,6 @@ const getDocument = async (collectionPath, id) => {
   const ref = doc(db, collectionPath, id)
   const docSnapshot = await getDoc(ref)
   return docSnapshot.data()
-}
-
-const queryDocuments = async (
-  collectionPath,
-  queries,
-  orderByRule,
-  limitRule
-) => {
-  const ref = collection(db, collectionPath)
-  const queriesExtended = queries && queries.map((q) => where(...q))
-  orderByRule && queriesExtended.push(orderBy(...orderByRule))
-  limitRule && queriesExtended.push(limit(limitRule))
-  const q = queriesExtended ? query(ref, ...queriesExtended) : query(ref)
-  const querySnapshot = await getDocs(q)
-  let result = []
-  querySnapshot.forEach((doc) => {
-    result.push(doc.data())
-  })
-  return result
 }
 
 const getTimestamp = () => serverTimestamp()
@@ -79,29 +58,33 @@ const deleteDocument = async (collectionPath, id) => {
   return result
 }
 
-// Test function, for understanding, How to work with query
-// And example with one collection, "category"
-const getCollection = async (collectionPath) => {
-  const categoryRef = collection(db, collectionPath)
-  const q = query(categoryRef)
+const queryDocuments = async (
+  collectionPath,
+  queries,
+  orderByRule,
+  limitRule
+) => {
+  const ref = collection(db, collectionPath)
+  const queriesExtended = queries && queries.map(q => where(...q))
+  orderByRule && queriesExtended.push(orderBy(...orderByRule))
+  limitRule && queriesExtended.push(limit(limitRule))
+  const q = queriesExtended ? query(ref, ...queriesExtended) : query(ref)
   const querySnapshot = await getDocs(q)
   let result = []
   querySnapshot.forEach(doc => {
     result.push(doc.data())
-    // console.log( doc.data())
   })
   return result
 }
 
 const firestoreService = {
   createDocument,
-  generateId,
   updateDocument,
   getDocument,
   queryDocuments,
   deleteDocument,
   getTimestamp,
-  getId, getCollection
+  getId,
 }
 
 export default firestoreService
