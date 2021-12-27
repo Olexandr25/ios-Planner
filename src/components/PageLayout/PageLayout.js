@@ -3,14 +3,14 @@ import { PageLayoutStyled } from "./PageLayout.styled"
 import { useStore } from "contexts"
 
 
-const PageLayout = ({ title, count }) => {
+const PageLayout = ({ title, count, titleColor }) => {
   const { setVisibleTask } = useStore()
 
   return (
     <PageLayoutStyled data-testid="PageLayout">
       <Row className="mb-xl">
         <Col variant={12}>
-          <PageHeader title={title} count={count} setVisibleTask={setVisibleTask} />
+          <PageHeader title={title} count={count} titleColor={titleColor} setVisibleTask={setVisibleTask} />
         </Col>
       </Row>
       <Row>

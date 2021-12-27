@@ -44,7 +44,7 @@ const CategoryCombined = props => {
     navigate(`category/${id}`)
   }
 
-  const RemoveCategory = e => {
+  const RemoveCategory = () => {
     const collectionPath = "category"
     removeRecord({ collectionPath, id })
   }

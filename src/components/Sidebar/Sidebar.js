@@ -14,10 +14,12 @@ import {
   BsPlusCircle,
 } from "react-icons/bs"
 import { useStore } from "contexts"
+import { useNavigate } from "react-router-dom"
 
 const Sidebar = () => {
   const { store, addRecord } = useStore()
   const categoryList = store.category
+  const navigate = useNavigate()
 
   const createCategory = () => {
     addRecord({ collectionPath: "category" })
@@ -40,14 +42,16 @@ const Sidebar = () => {
         <Col variant={12}>
           <Row className="m-zero">
             <Col className="p-zero">
-              <Switcher icon={<BsCalendarDate />} length={4}
-              bgColor="blue">
+              <Switcher icon={<BsCalendarDate />} length={4} bgColor="blue">
                 Today
               </Switcher>
             </Col>
             <Col className="p-zero">
-              <Switcher icon={<BsCalendar3 />} length={4} bgColorIcon="red"
-              bgColor="red">
+              <Switcher
+                icon={<BsCalendar3 />}
+                length={4}
+                bgColorIcon="red"
+                bgColor="red">
                 Scheduled
               </Switcher>
             </Col>
@@ -58,7 +62,8 @@ const Sidebar = () => {
                 icon={<BsFillInboxFill />}
                 length={8}
                 bgColorIcon="gray"
-                bgColor="gray">
+                bgColor="gray"
+                onClick={() => navigate("switcher/all")}>
                 All
               </Switcher>
             </Col>
@@ -67,7 +72,8 @@ const Sidebar = () => {
                 icon={<BsFillFlagFill />}
                 length={1}
                 bgColorIcon="orange"
-                bgColor="orange">
+                bgColor="orange"
+                onClick={() => navigate("switcher/flagged")}>
                 Flagged
               </Switcher>
             </Col>

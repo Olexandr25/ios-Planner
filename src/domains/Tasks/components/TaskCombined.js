@@ -17,7 +17,7 @@ import { BsFillFlagFill } from "react-icons/bs"
 import { useStore } from "contexts"
 import { useParams } from "react-router-dom"
 
-const TaskCombined = ({ task, createMode }) => {
+const TaskCombined = ({ task }) => {
   const { removeRecord, addRecord, updateRecord, setVisibleTask, visibleTask } = useStore()
 
   const [text, setText] = useState(task?.text)

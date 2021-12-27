@@ -1,11 +1,7 @@
-import { TasksAllStyled } from "./TasksAll.styled"
+import { PageLayout } from "components"
 
 const TasksAll = () => {
-  return (
-    <TasksAllStyled data-testid="TasksAll">
-      TasksAll
-    </TasksAllStyled>
-  )
+  return <PageLayout title={"All"} count={0} titleColor="black" />
 }
 
 export default TasksAll

@@ -6,7 +6,7 @@ import { AiOutlinePlus } from "react-icons/ai"
 import { PageHeaderButton, PageHeaderStyled } from "./PageHeader.styled"
 
 const PageHeader = props => {
-  const { title, count, setVisibleTask } = props
+  const { title, count, titleColor, setVisibleTask } = props
 
   const showTaskCombined = () => {
     setVisibleTask(true)
@@ -34,7 +34,9 @@ const PageHeader = props => {
         <Col
           variant={12}
           className="d-flex justify-content-space-between mb-lg">
-          <Title>{title}</Title>
+          <Title className="pb-sm" color={titleColor}>
+            {title}
+          </Title>
           <Title>{count}</Title>
         </Col>
       </Row>

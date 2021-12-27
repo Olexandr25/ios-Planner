@@ -20,6 +20,7 @@ const Category = () => {
     <PageLayout
       title={currentCategory?.name}
       count={0}
+      titleColor="blue"
       createMode
     />
   )
