@@ -26,6 +26,18 @@ export const SwitcherBody = styled.div`
       color: ${props => Colors[props.color]};
     `}
 
+  ${props =>
+    props.isActive &&
+    css`
+      background-color: ${props => Colors[props.bgColor]};
+      color: ${props => props.color || "var(--color-white)"};
+
+      & * .icon {
+        background: var(--color-white);
+        color: ${props => Colors[props.bgColor]};
+      }
+    `}
+
   &:active {
     background-color: ${props => Colors[props.bgColor]};
     color: ${props => props.color || "var(--color-white)"};
@@ -36,7 +48,7 @@ export const SwitcherBody = styled.div`
     }
   }
 
-  &::selection{
+  &::selection {
     background-color: aqua;
   }
 `

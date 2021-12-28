@@ -15,6 +15,7 @@ const Switcher = props => {
     bgColorIcon,
     children,
     onClick,
+    isActive,
   } = props
 
   return (
@@ -22,7 +23,11 @@ const Switcher = props => {
       data-testid="SwitcherWrapper"
       tabIndex={1}
       onClick={onClick}>
-      <SwitcherBody data-testid="SwitcherBody" bgColor={bgColor} color={color}>
+      <SwitcherBody
+        data-testid="SwitcherBody"
+        bgColor={bgColor}
+        color={color}
+        isActive={isActive}>
         <SwitcherHeader data-testid="SwitcherHeader">
           <IconModule bgColor={bgColorIcon} color={colorIcon}>
             {icon}

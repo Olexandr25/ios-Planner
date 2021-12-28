@@ -14,12 +14,17 @@ import {
   BsPlusCircle,
 } from "react-icons/bs"
 import { useStore } from "contexts"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 const Sidebar = () => {
   const { store, addRecord } = useStore()
   const categoryList = store.category
   const navigate = useNavigate()
+  let location = useLocation()
+  let switcherFlagged = location.pathname.includes("flagged") ? true : false
+  let switcherAll = location.pathname.includes("all") ? true : false
+  let switcherToday = location.pathname.includes("today") ? true : false
+  let switcherScheduled = location.pathname.includes("scheduled") ? true : false
 
   const createCategory = () => {
     addRecord({ collectionPath: "category" })
@@ -48,7 +53,11 @@ const Sidebar = () => {
         <Col variant={12}>
           <Row className="m-zero">
             <Col className="p-zero">
-              <Switcher icon={<BsCalendarDate />} length={4} bgColor="blue">
+              <Switcher
+                icon={<BsCalendarDate />}
+                length={4}
+                bgColor="blue"
+                isActive={switcherToday}>
                 Today
               </Switcher>
             </Col>
@@ -57,7 +66,8 @@ const Sidebar = () => {
                 icon={<BsCalendar3 />}
                 length={4}
                 bgColorIcon="red"
-                bgColor="red">
+                bgColor="red"
+                isActive={switcherScheduled}>
                 Scheduled
               </Switcher>
             </Col>
@@ -69,7 +79,8 @@ const Sidebar = () => {
                 length={AllCount}
                 bgColorIcon="gray"
                 bgColor="gray"
-                onClick={() => navigate("switcher/all")}>
+                onClick={() => navigate("switcher/all")}
+                isActive={switcherAll}>
                 All
               </Switcher>
             </Col>
@@ -79,7 +90,8 @@ const Sidebar = () => {
                 length={FlaggedCount}
                 bgColorIcon="orange"
                 bgColor="orange"
-                onClick={() => navigate("switcher/flagged")}>
+                onClick={() => navigate("switcher/flagged")}
+                isActive={switcherFlagged}>
                 Flagged
               </Switcher>
             </Col>
