@@ -24,7 +24,7 @@ const TaskCombined = ({ task }) => {
   const [text, setText] = useState(task?.text || "")
   const [notes, setNotes] = useState(task?.notes || "")
   const [flagged, setFlagged] = useState(task?.flagged)
-  const [done, setDone] = useState(false)
+  const [done, setDone] = useState(task?.done || false)
   const [edit, setEdit] = useState(visibleTask || false)
   const collectionPath = "task"
   const { id } = useParams()
@@ -42,21 +42,6 @@ const TaskCombined = ({ task }) => {
       return true
     } else {
       return false
-    }
-  }
-
-  // Change checkbox
-  const changeTaskdone = event => {
-    setDone(event.target.checked)
-    if (task?.text !== undefined) {
-      const id = task?.id
-      const values = { done, text, notes, updatedAt, flagged }
-
-      updateRecord({
-        collectionPath,
-        id,
-        values,
-      })
     }
   }
 
@@ -104,7 +89,22 @@ const TaskCombined = ({ task }) => {
     setFlagged(!flagged)
     if (task?.text !== undefined) {
       const id = task?.id
-      const values = { done, text, notes, updatedAt, flagged }
+      const values = { done, text, notes, updatedAt, flagged: !flagged }
+      updateRecord({
+        collectionPath,
+        id,
+        values,
+      })
+    }
+  }
+
+  // Change checkbox
+  const changeTaskdone = event => {
+    setDone(event.target.checked)
+    if (task?.text !== undefined) {
+      const id = task?.id
+      const values = { done: !done, text, notes, updatedAt, flagged }
+
       updateRecord({
         collectionPath,
         id,
