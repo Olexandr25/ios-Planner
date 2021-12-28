@@ -4,7 +4,7 @@ import { ContentStyled } from "./Contents.styled"
 import { useStore } from "contexts"
 import { useParams } from "react-router-dom"
 
-const Content = () => {
+const Content = ({ TasksFlagged, TasksCategory }) => {
   const { store, visibleTask, setVisibleTask } = useStore()
   const { id } = useParams()
 
@@ -14,8 +14,20 @@ const Content = () => {
     <ContentStyled data-testid="ContentStyled">
       <Row>
         <Col variant={12}>
-          {store?.task?.map(
-            task =>
+          {TasksFlagged &&
+            store?.task?.map(
+              task =>
+                task?.flagged && (
+                  <TaskCombined
+                    key={task.id}
+                    task={task}
+                    visibleTask={visibleTask}
+                    setVisibleTask={setVisibleTask}
+                  />
+                )
+            )}
+          {TasksCategory &&
+            store?.task?.map(task =>
               task?.categoryId === id ? (
                 <TaskCombined
                   key={task.id}
@@ -24,7 +36,7 @@ const Content = () => {
                   setVisibleTask={setVisibleTask}
                 />
               ) : null
-          )}
+            )}
         </Col>
         <Col variant={12}>{visibleTask ? <TaskCombined /> : <></>}</Col>
       </Row>

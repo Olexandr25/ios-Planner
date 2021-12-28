@@ -2,7 +2,12 @@ import { Row, Col, Content } from "components"
 // import { SubHeader } from "components"
 import { PageContentStyled } from "./PageContent.styled"
 
-const PageContent = ({ showTaskForm, setShowTaskForm }) => {
+const PageContent = ({
+  showTaskForm,
+  setShowTaskForm,
+  TasksFlagged,
+  TasksCategory,
+}) => {
   return (
     <PageContentStyled data-testid="PageContentStyled">
       <Row>
@@ -10,7 +15,7 @@ const PageContent = ({ showTaskForm, setShowTaskForm }) => {
           <SubHeader />
         </Col> */}
         <Col variant={12}>
-          <Content />
+          <Content TasksFlagged={TasksFlagged} TasksCategory={TasksCategory} />
         </Col>
       </Row>
     </PageContentStyled>

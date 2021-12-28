@@ -7,6 +7,8 @@ const Category = () => {
   const { id } = useParams()
   const { currentCategory, setCurrentCategory, store } = useStore()
   const navigate = useNavigate()
+  let ShowCount = true
+  let TasksCategory = true
 
   useEffect(() => {
     const found = store.category.find(item => item.id === id)
@@ -17,14 +19,15 @@ const Category = () => {
   }, [store.category, id, setCurrentCategory, navigate])
 
   let count = 0
-  store?.task?.map(item => item.categoryId === id ? count++ : null)
+  store?.task?.map(item => (item.categoryId === id ? count++ : null))
 
   return (
     <PageLayout
       title={currentCategory?.name}
       count={count}
       titleColor="blue"
-      createMode
+      showCount={ShowCount}
+      TasksCategory={TasksCategory}
     />
   )
 }

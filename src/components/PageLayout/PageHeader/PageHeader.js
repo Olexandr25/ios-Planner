@@ -6,7 +6,7 @@ import { AiOutlinePlus } from "react-icons/ai"
 import { PageHeaderButton, PageHeaderStyled } from "./PageHeader.styled"
 
 const PageHeader = props => {
-  const { title, count, titleColor, setVisibleTask } = props
+  const { title, count, titleColor, setVisibleTask, showCount } = props
 
   const showTaskCombined = () => {
     setVisibleTask(true)
@@ -37,7 +37,7 @@ const PageHeader = props => {
           <Title className="pb-sm" color={titleColor}>
             {title}
           </Title>
-          <Title color={titleColor}>{count}</Title>
+          {showCount && <Title color={titleColor}>{count}</Title>}
         </Col>
       </Row>
       <Row>

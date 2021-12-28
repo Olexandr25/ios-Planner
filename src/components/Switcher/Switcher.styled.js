@@ -35,6 +35,10 @@ export const SwitcherBody = styled.div`
       color: ${props => Colors[props.bgColor]};
     }
   }
+
+  &::selection{
+    background-color: aqua;
+  }
 `
 
 export const SwitcherHeader = styled.div`
