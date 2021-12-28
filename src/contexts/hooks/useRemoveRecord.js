@@ -12,8 +12,6 @@ const useRemoveRecord = (store, dispatch) => {
       store?.task?.forEach(async task => {
         if (task.categoryId === id) {
           await deleteDocument("task", task.id)
-          // const taskPayload = { collectionPath: "task", id: task.id }
-          // dispatch({ type: "deleteRecord", payload: taskPayload })
         }
       })
     }

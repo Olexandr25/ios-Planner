@@ -28,6 +28,9 @@ const Sidebar = () => {
   let AllCount = 0
   store?.task?.map(item => AllCount++)
 
+  let FlaggedCount = 0
+  store?.task?.map(item => (item?.flagged ? FlaggedCount++ : null))
+
   return (
     <Row className="h-inherit">
       <SidebarStyled data-testid="Sidebar">
@@ -73,7 +76,7 @@ const Sidebar = () => {
             <Col className="p-zero">
               <Switcher
                 icon={<BsFillFlagFill />}
-                length={1}
+                length={FlaggedCount}
                 bgColorIcon="orange"
                 bgColor="orange"
                 onClick={() => navigate("switcher/flagged")}>
