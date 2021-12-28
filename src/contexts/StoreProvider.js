@@ -28,8 +28,6 @@ const StoreProvider = ({ children }) => {
     getData()
   }, [])
 
-  console.log("t")
-  console.log("t")
   console.table("store", store)
 
   return (
@@ -45,7 +43,6 @@ const StoreProvider = ({ children }) => {
         addRecord,
         updateRecord,
         removeRecord,
-
       }}>
       {children}
     </StoreContext.Provider>

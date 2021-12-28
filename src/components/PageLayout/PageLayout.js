@@ -9,6 +9,7 @@ const PageLayout = ({
   showCount,
   TasksFlagged,
   TasksCategory,
+  TasksAll,
 }) => {
   const { setVisibleTask } = useStore()
 
@@ -30,6 +31,7 @@ const PageLayout = ({
           <PageContent
             TasksFlagged={TasksFlagged}
             TasksCategory={TasksCategory}
+            TasksAll={TasksAll}
           />
         </Col>
       </Row>

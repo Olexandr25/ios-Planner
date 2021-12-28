@@ -6,11 +6,11 @@ import { BrowserRouter as Router } from "react-router-dom"
 
 function App() {
   return (
-      <StoreProvider>
-        <Router>
-          <AppLayout aside={<Sidebar />} content={<Navigation />} />
-        </Router>
-      </StoreProvider>
+    <StoreProvider>
+      <Router>
+        <AppLayout aside={<Sidebar />} content={<Navigation />} />
+      </Router>
+    </StoreProvider>
   )
 }
 
