@@ -12,7 +12,7 @@ const StoreProvider = ({ children }) => {
   // CRUD --- Record
   const addRecord = useAddRecord(dispatch)
   const updateRecord = useUpdateRecord(dispatch)
-  const removeRecord = useRemoveRecord(dispatch)
+  const removeRecord = useRemoveRecord(store, dispatch)
 
   const [currentCategory, setCurrentCategory] = useState()
   const [visibleTask, setVisibleTask] = useState(false)
@@ -28,6 +28,8 @@ const StoreProvider = ({ children }) => {
     getData()
   }, [])
 
+  console.log("t")
+  console.log("t")
   console.table("store", store)
 
   return (

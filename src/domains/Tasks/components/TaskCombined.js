@@ -16,6 +16,9 @@ import { BsFillFlagFill } from "react-icons/bs"
 // context
 import { useStore } from "contexts"
 import { useParams } from "react-router-dom"
+import { firestoreService } from "services"
+
+const { getTimestamp } = firestoreService
 
 const TaskCombined = ({ task }) => {
   const { removeRecord, addRecord, updateRecord, setVisibleTask, visibleTask } =
@@ -29,7 +32,7 @@ const TaskCombined = ({ task }) => {
   const collectionPath = "task"
   const { id } = useParams()
   const categoryId = id
-  const updatedAt = Date.now()
+  const updatedAt = getTimestamp()
 
   // was values changed ?
   const valuesChanged = () => {

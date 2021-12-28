@@ -18,8 +18,8 @@ const CategoryCombined = props => {
   const navigate = useNavigate()
   const { updateRecord, removeRecord, store } = useStore()
 
-  let x = 0
-  store?.task?.map(item => (item?.categoryId === id ? x++ : null))
+  let CountTasks = 0
+  store?.task?.map(item => (item?.categoryId === id ? CountTasks++ : null))
 
   // Update category
   const onSubmit = e => {
@@ -79,7 +79,7 @@ const CategoryCombined = props => {
       </CategoryLeft>
       <CategoryRight data-testid="CategoryRight">
         <Text size="xsm" color="gray" fontWeight="regular">
-          {x}
+          {CountTasks}
         </Text>
         <Link to="/">
           <Button

@@ -1,22 +1,15 @@
 const removeRecord = (state, payload) => {
-  const { collectionPath, id } = payload
+  const { id } = payload
 
-  const removeIndex = state[collectionPath]?.findIndex(item => item.id === id)
-  state[collectionPath]?.splice(removeIndex, 1)
+  const resultCategories = state?.category?.filter(
+    category => category.id !== id
+  )
 
-  if (collectionPath === "category") {
-    console.log(collectionPath)
-    state?.task?.map(item => {
-      let x = 0
-      if (item.categoryId === id) {
-        state?.task?.splice(x, 1)
-      }
-      x++
-      return item
-    })
-  }
+  const resultTasks = state?.task?.filter(task => {
+    return task.id !== id && task?.categoryId !== id
+  })
 
-  return { ...state }
+  return { ...state, category: resultCategories, task: resultTasks }
 }
 
 export default removeRecord

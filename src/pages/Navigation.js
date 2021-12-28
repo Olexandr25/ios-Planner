@@ -1,10 +1,8 @@
-import { NavigationStyled } from "./Navigation.styled"
 import { Routes, Route } from "react-router-dom"
 import { Category, TasksFlagged, TasksAll } from "."
 
 const Navigation = () => {
   return (
-    <NavigationStyled data-testid="TasksAll">
       <Routes>
         <Route exact path="/category/:id" element={<Category />} />
         <Route exact path="/" element={<></>}  />
@@ -13,7 +11,6 @@ const Navigation = () => {
           <Route exact path="all" element={<TasksAll />} />
         </Route>
       </Routes>
-    </NavigationStyled>
   )
 }
 

@@ -25,6 +25,9 @@ const Sidebar = () => {
     addRecord({ collectionPath: "category" })
   }
 
+  let AllCount = 0
+  store?.task?.map(item => AllCount++)
+
   return (
     <Row className="h-inherit">
       <SidebarStyled data-testid="Sidebar">
@@ -60,7 +63,7 @@ const Sidebar = () => {
             <Col className="p-zero">
               <Switcher
                 icon={<BsFillInboxFill />}
-                length={8}
+                length={AllCount}
                 bgColorIcon="gray"
                 bgColor="gray"
                 onClick={() => navigate("switcher/all")}>

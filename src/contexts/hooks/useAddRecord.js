@@ -1,6 +1,6 @@
 import { firestoreService } from "services"
 
-const { getId, createDocument } = firestoreService
+const { getId, createDocument, getTimestamp } = firestoreService
 
 const useAddRecord = dispatch => {
   const addRecord = ({ collectionPath, id, values }) => {
@@ -10,14 +10,14 @@ const useAddRecord = dispatch => {
 
     if (collectionPath === "category") {
       values.name = values.name || "New List"
-      values.createdAt = Date.now()
-      values.updatedAt = Date.now()
+      values.createdAt = getTimestamp()
+      values.updatedAt = getTimestamp()
       values.tasks = []
     }
 
     if (collectionPath === "task") {
-      values.createdAt = Date.now()
-      values.updatedAt = Date.now()
+      values.createdAt = getTimestamp()
+      values.updatedAt = getTimestamp()
       values.done = values.done || false
       values.flagged = values.flagged || false
     }

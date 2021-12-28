@@ -1,7 +1,12 @@
 import { PageLayout } from "components"
+import { useStore } from "contexts"
 
 const TasksAll = () => {
-  return <PageLayout title={"All"} count={0} titleColor="black" />
+  const { store } = useStore()
+  let CountTasks = 0
+  store?.task?.map(item => CountTasks++)
+
+  return <PageLayout title={"All"} count={CountTasks} titleColor="black" />
 }
 
 export default TasksAll
