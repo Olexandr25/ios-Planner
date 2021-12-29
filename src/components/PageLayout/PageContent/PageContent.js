@@ -11,34 +11,58 @@ const PageContent = ({
   TasksAll,
 }) => {
   const { store } = useStore()
-  const All = state => {
+  // const All = state => {
+  //   const result = state?.category?.map(category => {
+  //     let CategoryId = category?.id
+  //     let CategoryName = category?.name
+  //     console.log("All ******")
+  //     (
+  //       <>
+  //         <Row>
+  //           <Col variant={12}>
+  //             <SubHeader>{CategoryName}</SubHeader>
+  //           </Col>
+  //         </Row>
+  //         <Row>
+  //           <Col>
+  //             <Content CategoryId={CategoryId} TasksAll={TasksAll} />
+  //           </Col>
+  //         </Row>
+  //       </>
+  //     )
+
+  //     return result
+  //   })
+  // }
+
+  const SwitcherAll = state => {
     const result = state?.category?.map(category => {
       let CategoryId = category?.id
       let CategoryName = category?.name
-      console.log("All ******")
       return (
-        <>
-          <Row>
-            <Col variant={12}>
-              <SubHeader>{CategoryName}</SubHeader>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Content CategoryId={CategoryId} TasksAll={TasksAll} />
-            </Col>
-          </Row>
-        </>
+        <Row key={category?.id}>
+          <Col variant={12}>
+            <SubHeader key={category?.id}>{CategoryName}</SubHeader>
+          </Col>
+          <Col variant={12}>
+            {state?.task?.map(
+              task =>
+                CategoryId === task?.categoryId && (
+                  <Content ItemTask={task} TasksAll={TasksAll} />
+                )
+            )}
+          </Col>
+        </Row>
       )
     })
+
+    return result
   }
 
   return (
     <PageContentStyled data-testid="PageContentStyled">
       {TasksAll === true ? (
-        <>
-          {All(store)}
-        </>
+        <>{SwitcherAll(store)}</>
       ) : (
         <Col variant={12}>
           <Content TasksFlagged={TasksFlagged} TasksCategory={TasksCategory} />

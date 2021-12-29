@@ -4,17 +4,22 @@ import { ContentStyled } from "./Contents.styled"
 import { useStore } from "contexts"
 import { useParams } from "react-router-dom"
 
-const Content = ({ TasksFlagged, TasksCategory, CategoryId, TasksAll }) => {
+const Content = ({ TasksFlagged, TasksCategory, TasksAll, ItemTask }) => {
   const { store, visibleTask, setVisibleTask } = useStore()
   const { id } = useParams()
-
-  // const taskList = store.task
 
   return (
     <ContentStyled data-testid="ContentStyled">
       <Row>
         <Col variant={12}>
-          {TasksAll && <>All</>}
+          {
+            TasksAll && 
+            <TaskCombined
+              task={ItemTask}
+              visibleTask={visibleTask}
+              setVisibleTask={setVisibleTask}
+            />
+          }
           {TasksFlagged &&
             store?.task?.map(
               task =>
