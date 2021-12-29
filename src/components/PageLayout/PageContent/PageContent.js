@@ -11,29 +11,6 @@ const PageContent = ({
   TasksAll,
 }) => {
   const { store } = useStore()
-  // const All = state => {
-  //   const result = state?.category?.map(category => {
-  //     let CategoryId = category?.id
-  //     let CategoryName = category?.name
-  //     console.log("All ******")
-  //     (
-  //       <>
-  //         <Row>
-  //           <Col variant={12}>
-  //             <SubHeader>{CategoryName}</SubHeader>
-  //           </Col>
-  //         </Row>
-  //         <Row>
-  //           <Col>
-  //             <Content CategoryId={CategoryId} TasksAll={TasksAll} />
-  //           </Col>
-  //         </Row>
-  //       </>
-  //     )
-
-  //     return result
-  //   })
-  // }
 
   const SwitcherAll = state => {
     const result = state?.category?.map(category => {

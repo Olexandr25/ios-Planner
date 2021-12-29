@@ -6,7 +6,7 @@ const Colors = {
   orange: "var(--color-orange)",
   gray: "var(--color-gray-darken-5)",
   secondary: "var(--color-gray-darken-4)",
-  black: "var(--color-black)"
+  black: "var(--color-black)",
 }
 
 const btnSizes = {
@@ -68,7 +68,6 @@ export const ButtonWrapper = styled.button`
   cursor: pointer;
   font-size: var(--font-size-medium);
   line-height: var(--line-height-medium);
-  /* border-radius: 4px; */
   color: ${props =>
     props.flagged ? "var(--color-orange)" : "var(--color-gray-darken-3)"};
 
@@ -102,9 +101,6 @@ export const ButtonWrapper = styled.button`
     css`
       border: none;
     `}
-
-
-      
 
   &:hover {
     background-color: ${props =>

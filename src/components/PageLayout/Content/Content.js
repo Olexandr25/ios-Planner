@@ -12,14 +12,13 @@ const Content = ({ TasksFlagged, TasksCategory, TasksAll, ItemTask }) => {
     <ContentStyled data-testid="ContentStyled">
       <Row>
         <Col variant={12}>
-          {
-            TasksAll && 
+          {TasksAll && (
             <TaskCombined
               task={ItemTask}
               visibleTask={visibleTask}
               setVisibleTask={setVisibleTask}
             />
-          }
+          )}
           {TasksFlagged &&
             store?.task?.map(
               task =>
